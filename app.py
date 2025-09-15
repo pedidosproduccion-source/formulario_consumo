@@ -29,6 +29,10 @@ if "data" not in st.session_state:
         ]
     )
 
+if "edited_kit_data" not in st.session_state:
+    st.session_state.edited_kit_data = None
+
+
 # Cargar el archivo de kits automáticamente
 try:
     kit_data = pd.read_excel("Kits.xlsx")
@@ -85,23 +89,50 @@ with st.form("form_registro", clear_on_submit=True):
 if kit_data is not None:
     st.subheader("📦 Registro por Kit")
     
-    # Asume que la columna en tu archivo de kits se llama 'Kit'
     try:
+        kit_data['Kit'] = kit_data['Kit'].str.strip()
         kit_options = kit_data['Kit'].unique()
-        selected_kit = st.selectbox("Selecciona un kit para entregar", kit_options)
+        
+        # Opciones de selección del kit
+        col_select1, col_select2 = st.columns([1, 2])
+        with col_select1:
+            kit_input = st.text_input("Digita un kit")
+        with col_select2:
+            selected_kit = st.selectbox("O selecciona de la lista", kit_options, key="selectbox_kit")
+        
+        # Determinar qué kit usar
+        kit_to_use = kit_input.strip() if kit_input.strip() else selected_kit
+        
+        if st.button("🔍 Ver y editar kit"):
+            items_to_add = kit_data[kit_data['Kit'] == kit_to_use].copy()
+            if items_to_add.empty:
+                st.warning(f"⚠️ El kit '{kit_to_use}' no se encontró en el archivo.")
+                st.session_state.edited_kit_data = None
+            else:
+                st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
 
-        col_kit1, col_kit2 = st.columns(2)
-        with col_kit1:
-            id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
-        with col_kit2:
-            id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
+        if st.session_state.edited_kit_data is not None:
+            st.write(f"Editando ítems para el kit: **{kit_to_use}**")
+            # Usa st.data_editor para hacer la tabla editable
+            edited_df = st.data_editor(st.session_state.edited_kit_data, 
+                                       column_config={
+                                           "Cantidad": st.column_config.NumberColumn(
+                                               "Cantidad",
+                                               help="Puedes editar las cantidades de cada ítem",
+                                               min_value=0
+                                           )
+                                       },
+                                       key="data_editor_kit")
 
-        if st.button("➕ Agregar kit al registro", key="add_kit_button"):
-            if selected_kit:
-                items_to_add = kit_data[kit_data['Kit'] == selected_kit]
-                
+            col_kit1, col_kit2 = st.columns(2)
+            with col_kit1:
+                id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
+            with col_kit2:
+                id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
+
+            if st.button("➕ Agregar kit al registro", key="add_kit_button"):
                 nuevos_registros = []
-                for _, row in items_to_add.iterrows():
+                for _, row in edited_df.iterrows():
                     nuevo = {
                         "ID Entrega": id_entrega_kit,
                         "ID Recibe": id_recibe_kit,
@@ -110,7 +141,7 @@ if kit_data is not None:
                         "Item": row['Item'],
                         "Cantidad": row['Cantidad'],
                         "Unidad": row['Unidad'],
-                        "Observación": f"Consumo de kit: {selected_kit}",
+                        "Observación": f"Consumo de kit: {kit_to_use}",
                         "Fecha": datetime.today().date()
                     }
                     nuevos_registros.append(nuevo)
@@ -119,7 +150,10 @@ if kit_data is not None:
                     [st.session_state.data, pd.DataFrame(nuevos_registros)],
                     ignore_index=True
                 )
-                st.success(f"✅ Se agregaron todos los ítems del kit '{selected_kit}' al registro.")
+                st.success(f"✅ Se agregaron los ítems modificados del kit '{kit_to_use}' al registro.")
+                st.session_state.edited_kit_data = None # Limpiar la tabla editable después de agregar
+                st.experimental_rerun()
+                
     except KeyError:
         st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
@@ -215,7 +249,6 @@ if not st.session_state.data.empty:
             Image.fromarray(signature_image.astype("uint8")).save(img_stream, format="PNG")
             img_stream.seek(0)
             
-            # **Línea corregida:** Se usa ImageReader para manejar el stream de bytes
             c.drawImage(
                 ImageReader(img_stream),
                 x=margin,
