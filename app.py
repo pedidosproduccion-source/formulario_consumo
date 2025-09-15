@@ -108,7 +108,7 @@ if not st.session_state.data.empty:
         data=excel_buffer,
         file_name=f"registros_consumo_{fecha_hoy}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        on_click=clear_data # La forma correcta de borrar datos
+        on_click=clear_data
     )
 
     # 📌 Descargar en PDF
@@ -127,8 +127,8 @@ if not st.session_state.data.empty:
         # Cabeceras de la tabla
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        column_widths = [1.5, 1.5, 2, 1.5, 1.5, 1.5, 1, 3] # Anchos relativos
-        col_names = st.session_state.data.columns[:-2] # Excluir 'Observación' y 'Fecha' para la tabla
+        column_widths = [1.5, 1.5, 2, 1.5, 1.5, 1.5, 1, 3]
+        col_names = st.session_state.data.columns[:-2]
         x_offsets = [margin]
         current_x = margin
         for i in range(len(col_names) - 1):
@@ -142,7 +142,7 @@ if not st.session_state.data.empty:
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
         for _, row in dataframe.iterrows():
-            if y_pos < margin + 5*cm: # Verificar para una nueva página
+            if y_pos < margin + 5*cm:
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
@@ -160,18 +160,20 @@ if not st.session_state.data.empty:
             c.setFont("Helvetica-Bold", 10)
             c.drawString(margin, margin + 4.5*cm, "Firma de Recibido:")
             
-            # Convertir los datos de la imagen a un formato que ReportLab pueda usar
             img_stream = BytesIO()
             Image.fromarray(signature_image.astype("uint8")).save(img_stream, format="PNG")
             img_stream.seek(0)
+            
+            # **Línea corregida:** Se agrega el nombre de archivo ficticio "signature.png"
             c.drawImage(
+                "signature.png", 
                 img_stream,
                 x=margin,
                 y=margin + 1*cm,
                 width=5*cm,
                 height=3*cm
             )
-            c.line(margin, margin + 1*cm, margin + 5*cm, margin + 1*cm) # Línea para la firma
+            c.line(margin, margin + 1*cm, margin + 5*cm, margin + 1*cm)
         
         c.save()
         buffer_pdf.seek(0)
@@ -184,5 +186,5 @@ if not st.session_state.data.empty:
             data=pdf_buffer,
             file_name=f"informe_consumo_{fecha_hoy}.pdf",
             mime="application/pdf",
-            on_click=clear_data # La forma correcta de borrar datos
+            on_click=clear_data
         )
