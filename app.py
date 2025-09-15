@@ -28,10 +28,20 @@ if "data" not in st.session_state:
         ]
     )
 
+# Cargar el archivo de kits automáticamente
+try:
+    kit_data = pd.read_excel("Kits.xlsx")
+    st.success("✅ Archivo de kits cargado correctamente.")
+except FileNotFoundError:
+    st.error("❌ Archivo 'Kits.xlsx' no encontrado en la misma carpeta.")
+    kit_data = None
+
+
 # ---
-## Agregar un nuevo registro
+## Registro Manual de Ítems
 # Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
+    st.subheader("📝 Registro Manual")
     col1, col2 = st.columns(2)
     with col1:
         id_entrega = st.text_input("ID Entrega")
@@ -70,13 +80,50 @@ with st.form("form_registro", clear_on_submit=True):
         st.success("✅ Registro agregado correctamente")
 
 # ---
-## Registros acumulados
-# Mostrar registros guardados
+## Registro por Kit
+if kit_data is not None:
+    st.subheader("📦 Registro por Kit")
+    kit_options = kit_data['Kit'].unique()
+    selected_kit = st.selectbox("Selecciona un kit para entregar", kit_options)
+
+    col_kit1, col_kit2 = st.columns(2)
+    with col_kit1:
+        id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
+    with col_kit2:
+        id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
+
+    if st.button("➕ Agregar kit al registro", key="add_kit_button"):
+        if selected_kit:
+            items_to_add = kit_data[kit_data['Kit'] == selected_kit]
+            
+            nuevos_registros = []
+            for _, row in items_to_add.iterrows():
+                nuevo = {
+                    "ID Entrega": id_entrega_kit,
+                    "ID Recibe": id_recibe_kit,
+                    "Orden": "ORDEN_KIT",
+                    "Tipo": "Materia prima",
+                    "Item": row['Item'],
+                    "Cantidad": row['Cantidad'],
+                    "Unidad": row['Unidad'],
+                    "Observación": f"Consumo de kit: {selected_kit}",
+                    "Fecha": datetime.today().date()
+                }
+                nuevos_registros.append(nuevo)
+
+            st.session_state.data = pd.concat(
+                [st.session_state.data, pd.DataFrame(nuevos_registros)],
+                ignore_index=True
+            )
+            st.success(f"✅ Se agregaron todos los ítems del kit '{selected_kit}' al registro.")
+
+# ---
+## Registros Acumulados
 st.subheader("📑 Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
 # ---
-## Firma y Descarga
+## Firma y Descargas
 st.subheader("✍️ Firma de recibido")
 firma = st_canvas(
     fill_color="rgba(255, 255, 255, 0)",
@@ -93,8 +140,7 @@ def clear_data():
     st.session_state.data = pd.DataFrame(columns=st.session_state.data.columns)
     st.success("✅ Registros guardados y limpiados correctamente")
 
-# ---
-### Descargas
+# Descargar en Excel y PDF
 if not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
@@ -127,36 +173,36 @@ if not st.session_state.data.empty:
         # Cabeceras de la tabla
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        column_widths = [1.5, 1.5, 2, 1.5, 1.5, 1.5, 1, 3]
-        col_names = st.session_state.data.columns[:-2]
+        # Ajusta los anchos de columna para que quepan los datos
+        col_widths = [2.5, 2.5, 2, 2, 2, 2, 1.5, 3] # Anchos relativos
+        
+        # Alinear encabezados de las columnas
         x_offsets = [margin]
-        current_x = margin
-        for i in range(len(col_names) - 1):
-            current_x += column_widths[i] * cm
-            x_offsets.append(current_x)
-            
-        for i, header in enumerate(col_names):
-            c.drawString(x_offsets[i], y_pos, header)
+        for i in range(len(dataframe.columns) - 1):
+            x_offsets.append(x_offsets[-1] + col_widths[i])
+        
+        for i, header in enumerate(dataframe.columns):
+            c.drawString(x_offsets[i]*cm, y_pos, header)
         
         # Datos de la tabla
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
         for _, row in dataframe.iterrows():
-            if y_pos < margin + 5*cm:
+            if y_pos < margin + 5*cm: # Verificar para una nueva página
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
-                for i, header in enumerate(col_names):
-                    c.drawString(x_offsets[i], y_pos, header)
+                for i, header in enumerate(dataframe.columns):
+                    c.drawString(x_offsets[i]*cm, y_pos, header)
                 c.setFont("Helvetica", 8)
                 y_pos -= 0.5*cm
             
-            for i, val in enumerate(row.values[:-2]):
-                c.drawString(x_offsets[i], y_pos, str(val))
+            for i, val in enumerate(row.values):
+                c.drawString(x_offsets[i]*cm, y_pos, str(val))
             y_pos -= 0.5*cm
             
         # Firma
-        if signature_image is not None:
+        if firma.image_data is not None:
             c.setFont("Helvetica-Bold", 10)
             c.drawString(margin, margin + 4.5*cm, "Firma de Recibido:")
             
@@ -164,7 +210,6 @@ if not st.session_state.data.empty:
             Image.fromarray(signature_image.astype("uint8")).save(img_stream, format="PNG")
             img_stream.seek(0)
             
-            # **Línea corregida:** Se agrega el nombre de archivo ficticio "signature.png"
             c.drawImage(
                 "signature.png", 
                 img_stream,
