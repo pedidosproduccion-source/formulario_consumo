@@ -6,9 +6,10 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
 from PIL import Image
-import tempfile
-from streamlit_drawable_canvas import st_canvas  # 👈 componente para la firma
+from streamlit_drawable_canvas import st_canvas
 
+# 📋 Título y configuración inicial
+st.set_page_config(layout="wide")
 st.title("📋 Registro de consumo de materia prima")
 
 # Inicializar DataFrame en sesión
@@ -27,17 +28,26 @@ if "data" not in st.session_state:
         ]
     )
 
+# ---
+## Agregar un nuevo registro
 # Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
-    id_entrega = st.text_input("ID Entrega")
-    id_recibe = st.text_input("ID Recibe")
-    orden = st.text_input("Orden de Producción")
-    tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
-    item = st.text_input("ID Item")
-    cantidad = st.number_input("Cantidad", min_value=0, step=1)
-    unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=1)
-    observacion = st.text_area("Observación")
-    fecha = st.date_input("Fecha de diligenciamiento", datetime.today())
+    col1, col2 = st.columns(2)
+    with col1:
+        id_entrega = st.text_input("ID Entrega")
+        id_recibe = st.text_input("ID Recibe")
+        orden = st.text_input("Orden de Producción")
+    with col2:
+        tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
+        item = st.text_input("ID Item")
+        cantidad = st.number_input("Cantidad", min_value=0, step=1)
+    
+    col3, col4 = st.columns(2)
+    with col3:
+        unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=1)
+        fecha = st.date_input("Fecha de diligenciamiento", datetime.today())
+    with col4:
+        observacion = st.text_area("Observación")
 
     submitted = st.form_submit_button("➕ Agregar registro")
 
@@ -59,14 +69,17 @@ with st.form("form_registro", clear_on_submit=True):
         )
         st.success("✅ Registro agregado correctamente")
 
+# ---
+## Registros acumulados
 # Mostrar registros guardados
 st.subheader("📑 Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
-# Firma dibujada
+# ---
+## Firma y Descarga
 st.subheader("✍️ Firma de recibido")
 firma = st_canvas(
-    fill_color="rgba(255, 255, 255, 0)",  
+    fill_color="rgba(255, 255, 255, 0)",
     stroke_width=2,
     stroke_color="black",
     background_color="white",
@@ -75,63 +88,101 @@ firma = st_canvas(
     key="canvas"
 )
 
-# Guardar en Excel y PDF
+# Función auxiliar para borrar los datos
+def clear_data():
+    st.session_state.data = pd.DataFrame(columns=st.session_state.data.columns)
+    st.success("✅ Registros guardados y limpiados correctamente")
+
+# ---
+### Descargas
 if not st.session_state.data.empty:
-    # Definir fecha para nombres de archivo
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
-    # -----------------------
     # 📌 Descargar en Excel
-    # -----------------------
-    buffer_excel = BytesIO()
-    st.session_state.data.to_excel(buffer_excel, index=False, engine="openpyxl")
-    buffer_excel.seek(0)
-
-    if st.download_button(
+    excel_buffer = BytesIO()
+    st.session_state.data.to_excel(excel_buffer, index=False, engine="openpyxl")
+    excel_buffer.seek(0)
+    
+    st.download_button(
         label="⬇️ Descargar Excel",
-        data=buffer_excel,
+        data=excel_buffer,
         file_name=f"registros_consumo_{fecha_hoy}.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    ):
-        st.session_state.data = pd.DataFrame(columns=st.session_state.data.columns)
-        st.success("✅ Registros guardados en Excel y limpiados correctamente")
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        on_click=clear_data # La forma correcta de borrar datos
+    )
 
-    # -----------------------
     # 📌 Descargar en PDF
-    # -----------------------
-    buffer_pdf = BytesIO()
-    c = canvas.Canvas(buffer_pdf, pagesize=A4)
-    width, height = A4
+    def generate_pdf(dataframe, signature_image):
+        buffer_pdf = BytesIO()
+        c = canvas.Canvas(buffer_pdf, pagesize=A4)
+        width, height = A4
+        margin = 2*cm
+        
+        # Título
+        c.setFont("Helvetica-Bold", 16)
+        c.drawString(margin, height - margin, "Informe de Consumo de Materia Prima")
+        c.setFont("Helvetica-Bold", 12)
+        c.drawString(margin, height - margin - 0.7*cm, f"Fecha: {datetime.today().strftime('%Y-%m-%d')}")
+        
+        # Cabeceras de la tabla
+        c.setFont("Helvetica-Bold", 9)
+        y_pos = height - 4*cm
+        column_widths = [1.5, 1.5, 2, 1.5, 1.5, 1.5, 1, 3] # Anchos relativos
+        col_names = st.session_state.data.columns[:-2] # Excluir 'Observación' y 'Fecha' para la tabla
+        x_offsets = [margin]
+        current_x = margin
+        for i in range(len(col_names) - 1):
+            current_x += column_widths[i] * cm
+            x_offsets.append(current_x)
+            
+        for i, header in enumerate(col_names):
+            c.drawString(x_offsets[i], y_pos, header)
+        
+        # Datos de la tabla
+        c.setFont("Helvetica", 8)
+        y_pos -= 0.5*cm
+        for _, row in dataframe.iterrows():
+            if y_pos < margin + 5*cm: # Verificar para una nueva página
+                c.showPage()
+                y_pos = height - margin
+                c.setFont("Helvetica-Bold", 9)
+                for i, header in enumerate(col_names):
+                    c.drawString(x_offsets[i], y_pos, header)
+                c.setFont("Helvetica", 8)
+                y_pos -= 0.5*cm
+            
+            for i, val in enumerate(row.values[:-2]):
+                c.drawString(x_offsets[i], y_pos, str(val))
+            y_pos -= 0.5*cm
+            
+        # Firma
+        if signature_image is not None:
+            c.setFont("Helvetica-Bold", 10)
+            c.drawString(margin, margin + 4.5*cm, "Firma de Recibido:")
+            
+            # Convertir los datos de la imagen a un formato que ReportLab pueda usar
+            img_stream = BytesIO()
+            Image.fromarray(signature_image.astype("uint8")).save(img_stream, format="PNG")
+            img_stream.seek(0)
+            c.drawImage(
+                img_stream,
+                x=margin,
+                y=margin + 1*cm,
+                width=5*cm,
+                height=3*cm
+            )
+            c.line(margin, margin + 1*cm, margin + 5*cm, margin + 1*cm) # Línea para la firma
+        
+        c.save()
+        buffer_pdf.seek(0)
+        return buffer_pdf
 
-    c.setFont("Helvetica-Bold", 14)
-    c.drawString(2*cm, height-2*cm, "Informe de Consumo de Materia Prima")
-
-    # Dibujar tabla simple
-    text = c.beginText(2*cm, height-3*cm)
-    text.setFont("Helvetica", 10)
-
-    for i, row in st.session_state.data.iterrows():
-        fila = " | ".join([str(x) for x in row.values])
-        text.textLine(fila)
-
-    c.drawText(text)
-
-    # Guardar firma (si existe)
     if firma.image_data is not None:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
-            img = Image.fromarray(firma.image_data.astype("uint8"))
-            img.save(tmpfile.name)
-            c.drawImage(tmpfile.name, 2*cm, 2*cm, width=5*cm, height=3*cm)
-
-    c.showPage()
-    c.save()
-    buffer_pdf.seek(0)
-
-    if st.download_button(
-        label="⬇️ Descargar PDF con firma",
-        data=buffer_pdf,
-        file_name=f"informe_consumo_{fecha_hoy}.pdf",
-        mime="application/pdf"
-    ):
-        st.session_state.data = pd.DataFrame(columns=st.session_state.data.columns)
-        st.success("✅ Registros guardados en PDF y limpiados correctamente")
+        pdf_buffer = generate_pdf(st.session_state.data, firma.image_data)
+        st.download_button(
+            label="⬇️ Descargar PDF con firma",
+            data=pdf_buffer,
+            file_name=f"informe_consumo_{fecha_hoy}.pdf",
+            mime="application/pdf",
+            on_click=clear_data # La forma correcta de borrar datos
+        )
