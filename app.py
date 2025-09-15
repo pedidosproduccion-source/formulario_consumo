@@ -103,6 +103,13 @@ if kit_data is not None:
         # Determinar qué kit usar
         kit_to_use = kit_input.strip() if kit_input.strip() else selected_kit
         
+        # **CAMBIO AQUÍ**: Campos de orden y observación para el módulo de kits
+        col_kit_info1, col_kit_info2 = st.columns(2)
+        with col_kit_info1:
+            orden_kit = st.text_input("Orden de Producción (Kit)")
+        with col_kit_info2:
+            observacion_kit = st.text_area("Observación (Kit)")
+
         if st.button("🔍 Ver y editar kit"):
             items_to_add = kit_data[kit_data['Kit'] == kit_to_use].copy()
             if items_to_add.empty:
@@ -136,12 +143,12 @@ if kit_data is not None:
                     nuevo = {
                         "ID Entrega": id_entrega_kit,
                         "ID Recibe": id_recibe_kit,
-                        "Orden": "ORDEN_KIT",
+                        "Orden": orden_kit,  # Usar el campo de orden digitado
                         "Tipo": "Materia prima",
                         "Item": row['Item'],
                         "Cantidad": row['Cantidad'],
                         "Unidad": row['Unidad'],
-                        "Observación": f"Consumo de kit: {kit_to_use}",
+                        "Observación": observacion_kit, # Usar el campo de observación digitado
                         "Fecha": datetime.today().date()
                     }
                     nuevos_registros.append(nuevo)
