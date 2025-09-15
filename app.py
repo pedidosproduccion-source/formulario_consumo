@@ -7,6 +7,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
+from reportlab.lib.utils import ImageReader
 
 # 📋 Título y configuración inicial
 st.set_page_config(layout="wide")
@@ -83,39 +84,45 @@ with st.form("form_registro", clear_on_submit=True):
 ## Registro por Kit
 if kit_data is not None:
     st.subheader("📦 Registro por Kit")
-    kit_options = kit_data['Kit'].unique()
-    selected_kit = st.selectbox("Selecciona un kit para entregar", kit_options)
+    
+    # Asume que la columna en tu archivo de kits se llama 'Kit'
+    try:
+        kit_options = kit_data['Kit'].unique()
+        selected_kit = st.selectbox("Selecciona un kit para entregar", kit_options)
 
-    col_kit1, col_kit2 = st.columns(2)
-    with col_kit1:
-        id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
-    with col_kit2:
-        id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
+        col_kit1, col_kit2 = st.columns(2)
+        with col_kit1:
+            id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
+        with col_kit2:
+            id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
 
-    if st.button("➕ Agregar kit al registro", key="add_kit_button"):
-        if selected_kit:
-            items_to_add = kit_data[kit_data['Kit'] == selected_kit]
-            
-            nuevos_registros = []
-            for _, row in items_to_add.iterrows():
-                nuevo = {
-                    "ID Entrega": id_entrega_kit,
-                    "ID Recibe": id_recibe_kit,
-                    "Orden": "ORDEN_KIT",
-                    "Tipo": "Materia prima",
-                    "Item": row['Item'],
-                    "Cantidad": row['Cantidad'],
-                    "Unidad": row['Unidad'],
-                    "Observación": f"Consumo de kit: {selected_kit}",
-                    "Fecha": datetime.today().date()
-                }
-                nuevos_registros.append(nuevo)
+        if st.button("➕ Agregar kit al registro", key="add_kit_button"):
+            if selected_kit:
+                items_to_add = kit_data[kit_data['Kit'] == selected_kit]
+                
+                nuevos_registros = []
+                for _, row in items_to_add.iterrows():
+                    nuevo = {
+                        "ID Entrega": id_entrega_kit,
+                        "ID Recibe": id_recibe_kit,
+                        "Orden": "ORDEN_KIT",
+                        "Tipo": "Materia prima",
+                        "Item": row['Item'],
+                        "Cantidad": row['Cantidad'],
+                        "Unidad": row['Unidad'],
+                        "Observación": f"Consumo de kit: {selected_kit}",
+                        "Fecha": datetime.today().date()
+                    }
+                    nuevos_registros.append(nuevo)
 
-            st.session_state.data = pd.concat(
-                [st.session_state.data, pd.DataFrame(nuevos_registros)],
-                ignore_index=True
-            )
-            st.success(f"✅ Se agregaron todos los ítems del kit '{selected_kit}' al registro.")
+                st.session_state.data = pd.concat(
+                    [st.session_state.data, pd.DataFrame(nuevos_registros)],
+                    ignore_index=True
+                )
+                st.success(f"✅ Se agregaron todos los ítems del kit '{selected_kit}' al registro.")
+    except KeyError:
+        st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
+
 
 # ---
 ## Registros Acumulados
@@ -173,10 +180,8 @@ if not st.session_state.data.empty:
         # Cabeceras de la tabla
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        # Ajusta los anchos de columna para que quepan los datos
-        col_widths = [2.5, 2.5, 2, 2, 2, 2, 1.5, 3] # Anchos relativos
+        col_widths = [2.5, 2.5, 2, 2, 2, 2, 1.5, 3] 
         
-        # Alinear encabezados de las columnas
         x_offsets = [margin]
         for i in range(len(dataframe.columns) - 1):
             x_offsets.append(x_offsets[-1] + col_widths[i])
@@ -188,7 +193,7 @@ if not st.session_state.data.empty:
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
         for _, row in dataframe.iterrows():
-            if y_pos < margin + 5*cm: # Verificar para una nueva página
+            if y_pos < margin + 5*cm: 
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
@@ -202,7 +207,7 @@ if not st.session_state.data.empty:
             y_pos -= 0.5*cm
             
         # Firma
-        if firma.image_data is not None:
+        if signature_image is not None:
             c.setFont("Helvetica-Bold", 10)
             c.drawString(margin, margin + 4.5*cm, "Firma de Recibido:")
             
@@ -210,9 +215,9 @@ if not st.session_state.data.empty:
             Image.fromarray(signature_image.astype("uint8")).save(img_stream, format="PNG")
             img_stream.seek(0)
             
+            # **Línea corregida:** Se usa ImageReader para manejar el stream de bytes
             c.drawImage(
-                "signature.png", 
-                img_stream,
+                ImageReader(img_stream),
                 x=margin,
                 y=margin + 1*cm,
                 width=5*cm,
