@@ -42,8 +42,12 @@ def load_data_from_db():
     df["Fecha"] = pd.to_datetime(df["Fecha"])
     st.session_state.data = df
 
+# **CAMBIO AQUÍ**: Inicializar ambas variables al inicio para evitar el error.
 if "data" not in st.session_state:
     load_data_from_db()
+if "edited_kit_data" not in st.session_state:
+    st.session_state.edited_kit_data = None
+
 
 # Cargar el archivo de kits automáticamente
 try:
@@ -130,6 +134,7 @@ if kit_data is not None:
             else:
                 st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
 
+        # Ahora esta sección se ejecutará sin errores
         if st.session_state.edited_kit_data is not None:
             st.write(f"Editando ítems para el kit: **{selected_kit}**")
             # Usa st.data_editor para hacer la tabla editable
