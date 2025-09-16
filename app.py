@@ -1,12 +1,3 @@
-Disculpa por los errores de sintaxis recurrentes. El problema es que estás copiando líneas que Streamlit interpreta como parte del código, pero que no lo son.
-
-La línea --- es un separador de Markdown, no un código Python válido. Python lo lee y no puede entender qué significa, lo que provoca el error SyntaxError: invalid syntax.
-
-He revisado y limpiado todo el código para asegurarme de que no haya más líneas de este tipo ni otros errores. A continuación, te proporciono la versión final y completamente funcional. Simplemente copia y pega todo este código en tu archivo app.py.
-
-📋 Código Completo y Finalizado
-Python
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
