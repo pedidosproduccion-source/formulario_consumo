@@ -164,7 +164,7 @@ if kit_data is not None:
                         "Orden": orden_kit,
                         "Tipo": "Materia prima",
                         "Item": row['Item'],
-                        "Cantidad": row['Cantidad'],
+                        "Cantidad": int(row['Cantidad']),
                         "Unidad": row['Unidad'],
                         "Observación": observacion_kit,
                         "Fecha": datetime.today().date()
@@ -266,8 +266,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=tipo_index)
                 
             with col_edit2:
-                edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
-                edit_cantidad = st.number_input("Cantidad", value=st.session_state.selected_record["Cantidad"], min_value=0, step=1)
+                # CORRECCIÓN: Convertir el valor a entero
+                edit_cantidad = st.number_input("Cantidad", value=int(st.session_state.selected_record["Cantidad"]), min_value=0, step=1)
                 
                 try:
                     unidad_index = ["m", "und", "kg"].index(st.session_state.selected_record["Unidad"])
