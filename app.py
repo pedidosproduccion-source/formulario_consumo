@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from io import BytesIO
+import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
@@ -13,25 +14,36 @@ from reportlab.lib.utils import ImageReader
 st.set_page_config(layout="wide")
 st.title("📋 Registro de consumo de materia prima")
 
-# Inicializar DataFrame en sesión
-if "data" not in st.session_state:
-    st.session_state.data = pd.DataFrame(
-        columns=[
-            "ID Entrega",
-            "ID Recibe",
-            "Orden",
-            "Tipo",
-            "Item",
-            "Cantidad",
-            "Unidad",
-            "Observación",
-            "Fecha"
-        ]
+# --- CONEXIÓN Y CONFIGURACIÓN DE LA BASE DE DATOS SQLite ---
+# Conectar a la base de datos (se crea si no existe)
+conn = sqlite3.connect("registros.db")
+c = conn.cursor()
+
+# Crear la tabla si no existe
+c.execute('''
+    CREATE TABLE IF NOT EXISTS registros (
+        "ID Entrega" TEXT,
+        "ID Recibe" TEXT,
+        "Orden" TEXT,
+        "Tipo" TEXT,
+        "Item" TEXT,
+        "Cantidad" INTEGER,
+        "Unidad" TEXT,
+        "Observación" TEXT,
+        "Fecha" TEXT
     )
+''')
+conn.commit()
 
-if "edited_kit_data" not in st.session_state:
-    st.session_state.edited_kit_data = None
+# Cargar los datos desde la base de datos al DataFrame de la sesión
+def load_data_from_db():
+    df = pd.read_sql_query("SELECT * FROM registros", conn)
+    # Convertir la columna de fecha a formato de fecha
+    df["Fecha"] = pd.to_datetime(df["Fecha"])
+    st.session_state.data = df
 
+if "data" not in st.session_state:
+    load_data_from_db()
 
 # Cargar el archivo de kits automáticamente
 try:
@@ -78,11 +90,14 @@ with st.form("form_registro", clear_on_submit=True):
             "Observación": observacion,
             "Fecha": fecha
         }
-        st.session_state.data = pd.concat(
-            [st.session_state.data, pd.DataFrame([nuevo])],
-            ignore_index=True
-        )
+        
+        # Insertar datos en la base de datos
+        c.execute("INSERT INTO registros VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
+        conn.commit()
+        
+        load_data_from_db() # Recargar los datos desde la BD a la sesión
         st.success("✅ Registro agregado correctamente")
+        st.rerun()
 
 # ---
 ## Registro por Kit
@@ -150,12 +165,14 @@ if kit_data is not None:
                     }
                     nuevos_registros.append(nuevo)
 
-                st.session_state.data = pd.concat(
-                    [st.session_state.data, pd.DataFrame(nuevos_registros)],
-                    ignore_index=True
-                )
+                # Insertar los registros del kit en la base de datos
+                for registro in nuevos_registros:
+                    c.execute("INSERT INTO registros VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
+                conn.commit()
+
+                load_data_from_db() # Recargar los datos desde la BD a la sesión
                 st.success(f"✅ Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
-                st.session_state.edited_kit_data = None # Limpiar la tabla editable después de agregar
+                st.session_state.edited_kit_data = None # Limpiar la tabla editable
                 
                 st.rerun()
                 
@@ -181,12 +198,7 @@ firma = st_canvas(
     key="canvas"
 )
 
-# Función auxiliar para borrar los datos
-def clear_data():
-    st.session_state.data = pd.DataFrame(columns=st.session_state.data.columns)
-    st.success("✅ Registros guardados y limpiados correctamente")
-
-# Descargar en Excel y PDF
+# Ya no se borran los datos, solo se generan los archivos con la info de la BD
 if not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
@@ -200,7 +212,6 @@ if not st.session_state.data.empty:
         data=excel_buffer,
         file_name=f"registros_consumo_{fecha_hoy}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        on_click=clear_data
     )
 
     # 📌 Descargar en PDF
@@ -274,5 +285,7 @@ if not st.session_state.data.empty:
             data=pdf_buffer,
             file_name=f"informe_consumo_{fecha_hoy}.pdf",
             mime="application/pdf",
-            on_click=clear_data
         )
+
+# Cerrar la conexión cuando la aplicación termina
+conn.close()
