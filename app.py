@@ -1,11 +1,3 @@
-Aquí tienes el código completo y corregido de tu aplicación, incorporando la funcionalidad de eliminación sin modificar nada más.
-
-He ajustado la sección de "Eliminar Registros" para asegurarme de que la casilla de selección (select_record) esté habilitada. Esto resuelve el problema de no poder seleccionar registros. La lógica es simple: se crea una lista de todas las columnas del DataFrame, se quita la columna de selección y se usa esa lista para deshabilitar todas las demás columnas en el st.data_editor.
-
-Simplemente copia y pega este código en tu archivo app.py.
-
-Python
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
