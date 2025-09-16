@@ -47,7 +47,8 @@ if "data" not in st.session_state:
     load_data_from_db()
 if "edited_kit_data" not in st.session_state:
     st.session_state.edited_kit_data = None
-
+if "selected_record" not in st.session_state:
+    st.session_state.selected_record = None
 
 # Cargar el archivo de kits automáticamente
 try:
@@ -129,7 +130,7 @@ if kit_data is not None:
         if st.button("🔍 Ver y editar kit"):
             items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
             if items_to_add.empty:
-                st.warning(f"⚠️ El kit '{selected_kit}' no se encontró en el archivo.")
+                st.warning(f⚠️ El kit '{selected_kit}' no se encontró en el archivo.")
                 st.session_state.edited_kit_data = None
             else:
                 st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
@@ -183,14 +184,88 @@ if kit_data is not None:
     except KeyError:
         st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
+---
 
-# ---
-## Registros Acumulados
+## ⚙️ Administración de Registros
+with st.expander("Gestionar Registros (Eliminar / Editar)"):
+    st.subheader("Buscar y Modificar Registro")
+    
+    col_search, col_action = st.columns([3, 1])
+    with col_search:
+        search_orden = st.text_input("Buscar por Orden de Producción", key="search_orden_input")
+    with col_action:
+        st.markdown(" ") # Espacio para alinear el botón
+        if st.button("🔍 Buscar"):
+            st.session_state.selected_record = None
+            c.execute("SELECT * FROM registros WHERE Orden = ?", (search_orden,))
+            result = c.fetchone()
+            if result:
+                st.session_state.selected_record = {
+                    "ID Entrega": result[0],
+                    "ID Recibe": result[1],
+                    "Orden": result[2],
+                    "Tipo": result[3],
+                    "Item": result[4],
+                    "Cantidad": result[5],
+                    "Unidad": result[6],
+                    "Observación": result[7],
+                    "Fecha": result[8]
+                }
+                st.success(f"Registro encontrado para la Orden: {search_orden}")
+            else:
+                st.warning(f"No se encontró ningún registro para la Orden: {search_orden}")
+                st.session_state.selected_record = None
+    
+    if st.session_state.selected_record:
+        st.write("---")
+        st.subheader("Datos del Registro Seleccionado")
+        
+        with st.form("edit_form", clear_on_submit=False):
+            # Campos para editar
+            col_edit1, col_edit2 = st.columns(2)
+            with col_edit1:
+                edit_id_entrega = st.text_input("ID Entrega", value=st.session_state.selected_record["ID Entrega"])
+                edit_id_recibe = st.text_input("ID Recibe", value=st.session_state.selected_record["ID Recibe"])
+                edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=["Parte fabricada", "Materia prima"].index(st.session_state.selected_record["Tipo"]))
+                edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
+            with col_edit2:
+                edit_cantidad = st.number_input("Cantidad", value=st.session_state.selected_record["Cantidad"], min_value=0, step=1)
+                edit_unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=["m", "und", "kg"].index(st.session_state.selected_record["Unidad"]))
+                edit_observacion = st.text_area("Observación", value=st.session_state.selected_record["Observación"])
+                # La fecha no se edita en este ejemplo para simplificar
+            
+            col_btns = st.columns(2)
+            with col_btns[0]:
+                if st.form_submit_button("✅ Actualizar Registro"):
+                    c.execute("""
+                        UPDATE registros SET
+                        "ID Entrega" = ?, "ID Recibe" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
+                        WHERE "Orden" = ?
+                    """, (edit_id_entrega, edit_id_recibe, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record["Orden"]))
+                    conn.commit()
+                    st.success("Registro actualizado exitosamente.")
+                    load_data_from_db()
+                    st.session_state.selected_record = None # Limpiar el formulario
+                    st.rerun()
+
+            with col_btns[1]:
+                if st.form_submit_button("❌ Eliminar Registro"):
+                    c.execute("DELETE FROM registros WHERE Orden = ?", (st.session_state.selected_record["Orden"],))
+                    conn.commit()
+                    st.success("Registro eliminado exitosamente.")
+                    load_data_from_db()
+                    st.session_state.selected_record = None # Limpiar el formulario
+                    st.rerun()
+
+---
+
+## 📑 Registros Acumulados
 st.subheader("📑 Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
-# ---
-## Firma y Descargas
+---
+
+## ✍️ Firma y Descargas
 st.subheader("✍️ Firma de recibido")
 firma = st_canvas(
     fill_color="rgba(255, 255, 255, 0)",
