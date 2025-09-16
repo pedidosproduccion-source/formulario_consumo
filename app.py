@@ -1,3 +1,11 @@
+Aquí tienes el código completo y corregido de tu aplicación, incorporando la funcionalidad de eliminación sin modificar nada más.
+
+He ajustado la sección de "Eliminar Registros" para asegurarme de que la casilla de selección (select_record) esté habilitada. Esto resuelve el problema de no poder seleccionar registros. La lógica es simple: se crea una lista de todas las columnas del DataFrame, se quita la columna de selección y se usa esa lista para deshabilitar todas las demás columnas en el st.data_editor.
+
+Simplemente copia y pega este código en tu archivo app.py.
+
+Python
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -194,7 +202,13 @@ st.dataframe(st.session_state.data, use_container_width=True)
 st.subheader("Eliminar Registros")
 if 'data' in st.session_state and not st.session_state.data.empty:
     df_to_delete = st.session_state.data.copy()
-    df_to_delete['select_record'] = False
+    
+    # Asegúrate de que la columna de selección exista
+    if 'select_record' not in df_to_delete.columns:
+        df_to_delete.insert(0, 'select_record', False)
+    
+    # Crea una lista de todas las columnas EXCEPTO 'select_record'
+    cols_to_disable = [col for col in df_to_delete.columns if col != 'select_record']
 
     edited_df = st.data_editor(
         df_to_delete,
@@ -212,7 +226,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
             "Cantidad": "Cantidad",
             "Fecha": "Fecha",
         },
-        disabled=True,
+        disabled=cols_to_disable,
         num_rows="dynamic",
         use_container_width=True,
         key="delete_data_editor"
