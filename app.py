@@ -12,7 +12,7 @@ from streamlit_drawable_canvas import st_canvas
 
 # Configuración inicial y título de la aplicación
 st.set_page_config(layout="wide")
-st.title("📋 Registro de consumo de materia prima")
+st.title("Registro de consumo de materia prima")
 
 # --- CONEXIÓN Y CONFIGURACIÓN DE LA BASE DE DATOS SQLite ---
 conn = sqlite3.connect("registros.db")
@@ -54,16 +54,16 @@ if "found_records" not in st.session_state:
 # Cargar el archivo de kits automáticamente
 try:
     kit_data = pd.read_excel("Kits.xlsx")
-    st.success("✅ Archivo de kits cargado correctamente.")
+    st.success("Archivo de kits cargado correctamente.")
 except FileNotFoundError:
-    st.error("❌ Archivo 'Kits.xlsx' no encontrado en la misma carpeta.")
+    st.error("Archivo 'Kits.xlsx' no encontrado en la misma carpeta.")
     kit_data = None
 
 
 # Registro Manual de Ítems
 # Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
-    st.subheader("📝 Registro Manual")
+    st.subheader("Registro Manual")
     col1, col2 = st.columns(2)
     with col1:
         id_entrega = st.text_input("ID Entrega")
@@ -81,7 +81,7 @@ with st.form("form_registro", clear_on_submit=True):
     with col4:
         observacion = st.text_area("Observación")
 
-    submitted = st.form_submit_button("➕ Agregar registro")
+    submitted = st.form_submit_button("Agregar registro")
 
     if submitted:
         nuevo = {
@@ -100,12 +100,12 @@ with st.form("form_registro", clear_on_submit=True):
         conn.commit()
         
         load_data_from_db()
-        st.success("✅ Registro agregado correctamente")
+        st.success("Registro agregado correctamente")
         st.rerun()
 
 # Registro por Kit
 if kit_data is not None:
-    st.subheader("📦 Registro por Kit")
+    st.subheader("Registro por Kit")
     
     try:
         kit_data['Kit'] = kit_data['Kit'].str.strip()
@@ -123,7 +123,7 @@ if kit_data is not None:
         with col_kit_info2:
             observacion_kit = st.text_area("Observación (Kit)")
 
-        if st.button("🔍 Ver y editar kit"):
+        if st.button("Ver y editar kit"):
             items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
             if items_to_add.empty:
                 st.warning(f"El kit '{selected_kit}' no se encontró en el archivo.")
@@ -149,7 +149,7 @@ if kit_data is not None:
             with col_kit2:
                 id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
 
-            if st.button("➕ Agregar kit al registro", key="add_kit_button"):
+            if st.button("Agregar kit al registro", key="add_kit_button"):
                 nuevos_registros = []
                 for _, row in edited_df.iterrows():
                     nuevo = {
@@ -170,13 +170,13 @@ if kit_data is not None:
                 conn.commit()
 
                 load_data_from_db()
-                st.success(f"✅ Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
+                st.success(f"Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
                 st.session_state.edited_kit_data = None
                 
                 st.rerun()
                 
     except KeyError:
-        st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
+        st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
 
 # Administración de Registros
@@ -190,7 +190,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
         search_item = st.text_input("Buscar por ID Item", key="search_item_input")
     with col_action:
         st.markdown(" ")
-        if st.button("🔍 Buscar", key="search_button"):
+        if st.button("Buscar", key="search_button"):
             st.session_state.found_records = pd.DataFrame()
             st.session_state.selected_record = None
 
@@ -273,7 +273,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             
             col_btns = st.columns(2)
             with col_btns[0]:
-                if st.form_submit_button("✅ Actualizar Registro"):
+                if st.form_submit_button("Actualizar Registro"):
                     c.execute("""
                         UPDATE registros SET
                         "ID Entrega" = ?, "ID Recibe" = ?, "Orden" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
@@ -287,26 +287,29 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     st.rerun()
 
             with col_btns[1]:
-               if st.form_submit_button("❌ Eliminar Registro"):
-    if st.session_state.selected_record:
-        try:
-            c.execute("DELETE FROM registros WHERE Orden = ? AND Item = ?", 
-                      (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
-            conn.commit()
-            st.success("Registro eliminado exitosamente.")
-            load_data_from_db()
-            st.session_state.selected_record = None
-            st.session_state.found_records = pd.DataFrame()
-            st.rerun()
-        except sqlite3.Error as e:
-            st.error(f"Error al eliminar el registro: {e}")
+                if st.form_submit_button("Eliminar Registro"):
+                    if st.session_state.selected_record:
+                        try:
+                            # CORRECCIÓN DE LA CONSULTA SQL
+                            c.execute("DELETE FROM registros WHERE Orden = ? AND Item = ?",
+                                      (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
+                            conn.commit()
+                            st.success("Registro eliminado exitosamente.")
+                            load_data_from_db()
+                            st.session_state.selected_record = None
+                            st.session_state.found_records = pd.DataFrame()
+                            st.rerun()
+                        except sqlite3.Error as e:
+                            st.error(f"Error al eliminar el registro: {e}")
+                    else:
+                        st.warning("Por favor, selecciona un registro para eliminar.")
 
 # Registros Acumulados
-st.subheader("📑 Registros acumulados")
+st.subheader("Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
 # Firma y Descargas
-st.subheader("✍️ Firma de recibido")
+st.subheader("Firma de recibido")
 firma = st_canvas(
     fill_color="rgba(255, 255, 255, 0)",
     stroke_width=2,
@@ -326,7 +329,7 @@ if not st.session_state.data.empty:
     excel_buffer.seek(0)
     
     st.download_button(
-        label="⬇️ Descargar Excel",
+        label="Descargar Excel",
         data=excel_buffer,
         file_name=f"registros_consumo_{fecha_hoy}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -395,7 +398,7 @@ if not st.session_state.data.empty:
     if firma.image_data is not None:
         pdf_buffer = generate_pdf(st.session_state.data, firma.image_data)
         st.download_button(
-            label="⬇️ Descargar PDF con firma",
+            label="Descargar PDF con firma",
             data=pdf_buffer,
             file_name=f"informe_consumo_{fecha_hoy}.pdf",
             mime="application/pdf",
