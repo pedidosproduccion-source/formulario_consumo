@@ -10,6 +10,10 @@ from reportlab.lib.units import cm
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 
+# --- Llama al script de persistencia al inicio ---
+import persist
+persist.restore_db()
+
 # Configuración inicial y título de la aplicación
 st.set_page_config(layout="wide")
 st.title("Registro de consumo de materia prima")
@@ -38,7 +42,6 @@ conn.commit()
 # Cargar los datos desde la base de datos al DataFrame de la sesión
 def load_data_from_db():
     try:
-        # Cargar todos los datos, incluyendo el nuevo campo "ID"
         df = pd.read_sql_query("SELECT * FROM registros", conn)
         if not isinstance(df, pd.DataFrame):
             df = pd.DataFrame()
@@ -104,7 +107,6 @@ with st.form("form_registro", clear_on_submit=True):
             "Fecha": fecha
         }
         
-        # Insertar los valores, dejando que la base de datos asigne el ID
         c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
         conn.commit()
         
@@ -175,7 +177,6 @@ if kit_data is not None:
                     nuevos_registros.append(nuevo)
 
                 for registro in nuevos_registros:
-                    # Insertar los valores sin el ID, ya que se autogenera
                     c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
                 conn.commit()
 
@@ -201,7 +202,6 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
     with col_action:
         st.markdown(" ")
         if st.button("Buscar", key="search_button"):
-            # Limpiar el estado de los registros encontrados al hacer una nueva búsqueda
             st.session_state.found_records = pd.DataFrame()
             st.session_state.selected_record = None
 
@@ -209,11 +209,11 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             params = []
             if search_orden:
                 query_parts.append('"Orden" LIKE ?')
-                params.append(f"%{search_orden}%") # Usar LIKE para una búsqueda parcial
+                params.append(f"%{search_orden}%")
             if search_item:
                 query_parts.append('"Item" LIKE ?')
                 params.append(f"%{search_item}%")
-
+            
             if query_parts:
                 query_string = "SELECT * FROM registros WHERE " + " AND ".join(query_parts)
                 st.session_state.found_records = pd.read_sql_query(query_string, conn, params=params)
@@ -226,11 +226,9 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             else:
                 st.warning("Por favor, introduce una Orden de Producción o un ID de Item para buscar.")
     
-    # Mostrar resultados de la búsqueda
     if not st.session_state.found_records.empty:
         st.write("Registros encontrados (puedes seleccionarlos para editar):")
         
-        # El data_editor ahora puede mostrar el ID si lo necesitas
         edited_df = st.data_editor(
             st.session_state.found_records,
             hide_index=True,
@@ -362,7 +360,7 @@ if not st.session_state.data.empty:
         
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        col_widths = [1, 2.5, 2.5, 2, 2, 2, 2, 1.5, 3] # Ancho de columnas para el PDF
+        col_widths = [1, 2.5, 2.5, 2, 2, 2, 2, 1.5, 3]
         
         x_offsets = [margin]
         for i in range(len(dataframe.columns) - 1):
