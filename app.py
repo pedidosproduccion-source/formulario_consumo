@@ -36,11 +36,14 @@ conn.commit()
 
 # Cargar los datos desde la base de datos al DataFrame de la sesión
 def load_data_from_db():
-    df = pd.read_sql_query("SELECT * FROM registros", conn)
-    # Convertir a DataFrame explícitamente y manejar el caso de DataFrame vacío
-    if not df.empty:
-        df["Fecha"] = pd.to_datetime(df["Fecha"])
-    st.session_state.data = df
+    try:
+        df = pd.read_sql_query("SELECT * FROM registros", conn)
+        if not df.empty:
+            df["Fecha"] = pd.to_datetime(df["Fecha"])
+        st.session_state.data = df
+    except Exception as e:
+        st.error(f"Error al cargar datos de la base de datos: {e}")
+        st.session_state.data = pd.DataFrame() # Asegura que la variable sea siempre un DataFrame
 
 # Inicializar las variables de estado al inicio de la aplicación
 if "data" not in st.session_state:
