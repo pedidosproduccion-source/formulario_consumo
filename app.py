@@ -15,7 +15,7 @@ import persist
 persist.restore_db()
 
 # Configuración inicial y título de la aplicación
-st.set_page_page_config(layout="wide")
+st.set_page_config(layout="wide")
 st.title("Registro de consumo de materia prima")
 
 # --- CONEXIÓN Y CONFIGURACIÓN DE LA BASE DE DATOS SQLite ---
