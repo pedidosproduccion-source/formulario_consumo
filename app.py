@@ -5,7 +5,7 @@ from io import BytesIO
 import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader # Línea corregida
+from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import cm
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
@@ -289,7 +289,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
 
             with col_btns[1]:
                 if st.form_submit_button("❌ Eliminar Registro"):
-                    c.execute("DELETE FROM registros WHERE "Orden" = ? AND "Item" = ?", (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
+                    # Línea corregida: se reemplazan las comillas dobles por simples en los nombres de las columnas
+                    c.execute("DELETE FROM registros WHERE 'Orden' = ? AND 'Item' = ?", (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
                     conn.commit()
                     st.success("Registro eliminado exitosamente.")
                     load_data_from_db()
