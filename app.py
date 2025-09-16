@@ -1,9 +1,3 @@
-Disculpa la interrupción. La respuesta anterior se cortó. El error SyntaxError es causado por un carácter especial (el emoji ⚠️) dentro de una cadena de texto formateada (f-string). Python interpreta esto como un error de sintaxis.
-
-Aquí tienes el código completo con el error corregido. He eliminado el emoji para que el script pueda ejecutarse sin problemas.
-
-Python
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
