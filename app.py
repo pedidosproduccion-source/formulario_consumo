@@ -186,42 +186,40 @@ if kit_data is not None:
         st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
 
-# Registros Acumulados y Módulo de Edición/Eliminación unificado
+# Registros Acumulados
 st.subheader("Registros acumulados")
+st.dataframe(st.session_state.data, use_container_width=True)
+
+# Sección para eliminar registros
+st.subheader("Eliminar Registros")
 if 'data' in st.session_state and not st.session_state.data.empty:
-    df_with_checkbox = st.session_state.data.copy()
-    df_with_checkbox['select_record'] = False
+    df_to_delete = st.session_state.data[['ID', 'Orden', 'Item', 'Cantidad', 'Fecha']].copy()
+    df_to_delete['select_record'] = False
 
     edited_df = st.data_editor(
-        df_with_checkbox,
+        df_to_delete,
         hide_index=True,
-        column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Unidad", "Fecha", "ID Entrega", "ID Recibe", "Tipo", "Observación"],
+        column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Fecha"],
         column_config={
             "select_record": st.column_config.CheckboxColumn(
-                "Seleccionar",
-                help="Selecciona el registro para eliminar.",
+                "Seleccionar para eliminar",
+                help="Selecciona los registros que deseas eliminar.",
                 default=False,
             ),
-            "ID": "ID del Registro",
+            "ID": st.column_config.NumberColumn("ID del Registro", disabled=True),
+            "Orden": st.column_config.TextColumn("Orden de Producción", disabled=True),
+            "Item": st.column_config.TextColumn("ID Item", disabled=True),
+            "Cantidad": st.column_config.NumberColumn("Cantidad", disabled=True),
+            "Fecha": st.column_config.DateColumn("Fecha", disabled=True),
         },
+        disabled=st.session_state.data.columns,
         num_rows="dynamic",
         use_container_width=True,
-        key="main_data_editor"
+        key="delete_data_editor"
     )
-    
-    # Bucle para actualizar la base de datos si se edita una fila.
-    # No es necesario usar un botón para guardar los cambios.
-    for col in edited_df.columns:
-        if col != 'select_record':
-            diff = edited_df[edited_df[col] != df_with_checkbox[col]]
-            if not diff.empty:
-                for index, row in diff.iterrows():
-                    c.execute(f'UPDATE registros SET "{col}" = ? WHERE ID = ?', (row[col], row['ID']))
-                    conn.commit()
-    
-    # Lógica para eliminar registros. Solo se ejecuta si hay registros seleccionados.
+
     selected_rows = edited_df[edited_df.select_record]
-    
+
     if not selected_rows.empty:
         if st.button("Eliminar registros seleccionados", key="delete_button"):
             ids_to_delete = selected_rows['ID'].tolist()
@@ -233,7 +231,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
                 st.rerun()
             except sqlite3.Error as e:
                 st.error(f"Error al eliminar los registros: {e}")
-                
+
 # Firma y Descargas
 st.subheader("Firma de recibido")
 firma = st_canvas(
