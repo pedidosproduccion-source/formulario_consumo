@@ -190,54 +190,6 @@ if kit_data is not None:
 st.subheader("Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
-# Sección para eliminar registros
-st.subheader("Eliminar Registros")
-if 'data' in st.session_state and not st.session_state.data.empty:
-    df_to_delete = st.session_state.data.copy()
-    
-    # Asegúrate de que la columna de selección exista
-    if 'select_record' not in df_to_delete.columns:
-        df_to_delete.insert(0, 'select_record', False)
-    
-    # Crea una lista de todas las columnas EXCEPTO 'select_record'
-    cols_to_disable = [col for col in df_to_delete.columns if col != 'select_record']
-
-    edited_df = st.data_editor(
-        df_to_delete,
-        hide_index=True,
-        column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Fecha"],
-        column_config={
-            "select_record": st.column_config.CheckboxColumn(
-                "Seleccionar para eliminar",
-                help="Selecciona los registros que deseas eliminar.",
-                default=False,
-            ),
-            "ID": "ID",
-            "Orden": "Orden",
-            "Item": "Item",
-            "Cantidad": "Cantidad",
-            "Fecha": "Fecha",
-        },
-        disabled=cols_to_disable,
-        num_rows="dynamic",
-        use_container_width=True,
-        key="delete_data_editor"
-    )
-
-    selected_rows = edited_df[edited_df.select_record]
-
-    if not selected_rows.empty:
-        if st.button("Eliminar registros seleccionados", key="delete_button"):
-            ids_to_delete = selected_rows['ID'].tolist()
-            try:
-                c.execute(f"DELETE FROM registros WHERE ID IN ({','.join(['?'] * len(ids_to_delete))})", ids_to_delete)
-                conn.commit()
-                st.success("Registros eliminados exitosamente.")
-                load_data_from_db()
-                st.rerun()
-            except sqlite3.Error as e:
-                st.error(f"Error al eliminar los registros: {e}")
-
 # Firma y Descargas
 st.subheader("Firma de recibido")
 firma = st_canvas(
