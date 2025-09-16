@@ -5,7 +5,7 @@ from io import BytesIO
 import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from reportlab.lib.lib_utils import ImageReader
+from reportlab.lib.utils import ImageReader # Línea corregida
 from reportlab.lib.units import cm
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
@@ -47,6 +47,9 @@ if "edited_kit_data" not in st.session_state:
     st.session_state.edited_kit_data = None
 if "selected_record" not in st.session_state:
     st.session_state.selected_record = None
+if "found_records" not in st.session_state:
+    st.session_state.found_records = pd.DataFrame()
+
 
 # Cargar el archivo de kits automáticamente
 try:
@@ -190,7 +193,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
     with col_action:
         st.markdown(" ")
         if st.button("🔍 Buscar", key="search_button"):
-            st.session_state.found_records = pd.DataFrame() # Limpiar la búsqueda anterior
+            st.session_state.found_records = pd.DataFrame()
             st.session_state.selected_record = None
 
             query_parts = []
@@ -214,10 +217,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 st.warning("Por favor, introduce una Orden de Producción o un ID de Item para buscar.")
 
     if not st.session_state.found_records.empty:
-        # Usar st.data_editor para mostrar los resultados de la búsqueda
         st.write("Registros encontrados (puedes seleccionarlos para editar):")
         
-        # Aquí permitimos la selección de un solo registro de la tabla
         edited_df = st.data_editor(
             st.session_state.found_records,
             hide_index=True,
@@ -233,11 +234,9 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             key="found_records_editor"
         )
         
-        # Encontrar el registro seleccionado
         selected_rows = edited_df[edited_df.select_record]
         
         if not selected_rows.empty:
-            # Obtener el primer (y único) registro seleccionado para edición
             st.session_state.selected_record = selected_rows.iloc[0].to_dict()
             st.session_state.selected_record_original_orden = st.session_state.selected_record["Orden"]
             st.info(f"Registro seleccionado para editar: Orden {st.session_state.selected_record_original_orden}")
@@ -279,23 +278,23 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     c.execute("""
                         UPDATE registros SET
                         "ID Entrega" = ?, "ID Recibe" = ?, "Orden" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
-                        WHERE "Orden" = ?
-                    """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record_original_orden))
+                        WHERE "Orden" = ? AND "Item" = ?
+                    """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
                     conn.commit()
                     st.success("Registro actualizado exitosamente.")
                     load_data_from_db()
                     st.session_state.selected_record = None
-                    st.session_state.found_records = pd.DataFrame() # Limpiar tabla de búsqueda
+                    st.session_state.found_records = pd.DataFrame()
                     st.rerun()
 
             with col_btns[1]:
                 if st.form_submit_button("❌ Eliminar Registro"):
-                    c.execute("DELETE FROM registros WHERE Orden = ?", (st.session_state.selected_record_original_orden,))
+                    c.execute("DELETE FROM registros WHERE "Orden" = ? AND "Item" = ?", (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
                     conn.commit()
                     st.success("Registro eliminado exitosamente.")
                     load_data_from_db()
                     st.session_state.selected_record = None
-                    st.session_state.found_records = pd.DataFrame() # Limpiar tabla de búsqueda
+                    st.session_state.found_records = pd.DataFrame()
                     st.rerun()
 
 # ---
