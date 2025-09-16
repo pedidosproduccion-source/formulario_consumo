@@ -191,6 +191,7 @@ if kit_data is not None:
 
 
 # Administración de Registros
+
 with st.expander("Gestionar Registros (Eliminar / Editar)"):
     st.subheader("Buscar y Modificar Registro")
     
@@ -250,13 +251,13 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
         
         if not selected_rows.empty:
             st.session_state.selected_record = selected_rows.iloc[0].to_dict()
-            st.info(f"Registro seleccionado para editar: ID {st.session_state.selected_record['ID']}")
         else:
             st.session_state.selected_record = None
-    
+
     if st.session_state.selected_record:
         st.write("---")
         st.subheader("Datos del Registro Seleccionado")
+        st.info(f"Registro seleccionado para editar: ID {st.session_state.selected_record['ID']}")
         
         with st.form("edit_form", clear_on_submit=False):
             col_edit1, col_edit2 = st.columns(2)
