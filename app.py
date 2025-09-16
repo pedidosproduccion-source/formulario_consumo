@@ -5,10 +5,10 @@ from io import BytesIO
 import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
+from reportlab.lib.lib_utils import ImageReader
 from reportlab.lib.units import cm
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
-from reportlab.lib.utils import ImageReader
 
 # Configuración inicial y título de la aplicación
 st.set_page_config(layout="wide")
@@ -182,31 +182,67 @@ if kit_data is not None:
 with st.expander("Gestionar Registros (Eliminar / Editar)"):
     st.subheader("Buscar y Modificar Registro")
     
-    col_search, col_action = st.columns([3, 1])
-    with col_search:
+    col_search1, col_search2, col_action = st.columns([3, 3, 1])
+    with col_search1:
         search_orden = st.text_input("Buscar por Orden de Producción", key="search_orden_input")
+    with col_search2:
+        search_item = st.text_input("Buscar por ID Item", key="search_item_input")
     with col_action:
         st.markdown(" ")
-        if st.button("🔍 Buscar"):
+        if st.button("🔍 Buscar", key="search_button"):
+            st.session_state.found_records = pd.DataFrame() # Limpiar la búsqueda anterior
             st.session_state.selected_record = None
-            c.execute("SELECT * FROM registros WHERE Orden = ?", (search_orden,))
-            result = c.fetchone()
-            if result:
-                st.session_state.selected_record = {
-                    "ID Entrega": result[0],
-                    "ID Recibe": result[1],
-                    "Orden": result[2],
-                    "Tipo": result[3],
-                    "Item": result[4],
-                    "Cantidad": result[5],
-                    "Unidad": result[6],
-                    "Observación": result[7],
-                    "Fecha": result[8]
-                }
-                st.success(f"Registro encontrado para la Orden: {search_orden}")
+
+            query_parts = []
+            params = []
+            if search_orden:
+                query_parts.append('"Orden" = ?')
+                params.append(search_orden)
+            if search_item:
+                query_parts.append('"Item" = ?')
+                params.append(search_item)
+            
+            if query_parts:
+                query_string = "SELECT * FROM registros WHERE " + " AND ".join(query_parts)
+                st.session_state.found_records = pd.read_sql_query(query_string, conn, params=params)
+                
+                if not st.session_state.found_records.empty:
+                    st.success(f"Se encontraron {len(st.session_state.found_records)} registros.")
+                else:
+                    st.warning("No se encontraron registros con los criterios de búsqueda.")
             else:
-                st.warning(f"No se encontró ningún registro para la Orden: {search_orden}")
-                st.session_state.selected_record = None
+                st.warning("Por favor, introduce una Orden de Producción o un ID de Item para buscar.")
+
+    if not st.session_state.found_records.empty:
+        # Usar st.data_editor para mostrar los resultados de la búsqueda
+        st.write("Registros encontrados (puedes seleccionarlos para editar):")
+        
+        # Aquí permitimos la selección de un solo registro de la tabla
+        edited_df = st.data_editor(
+            st.session_state.found_records,
+            hide_index=True,
+            column_config={
+                "select_record": st.column_config.CheckboxColumn(
+                    "Seleccionar",
+                    help="Selecciona el registro que deseas editar o eliminar.",
+                    default=False,
+                )
+            },
+            num_rows="dynamic",
+            use_container_width=True,
+            key="found_records_editor"
+        )
+        
+        # Encontrar el registro seleccionado
+        selected_rows = edited_df[edited_df.select_record]
+        
+        if not selected_rows.empty:
+            # Obtener el primer (y único) registro seleccionado para edición
+            st.session_state.selected_record = selected_rows.iloc[0].to_dict()
+            st.session_state.selected_record_original_orden = st.session_state.selected_record["Orden"]
+            st.info(f"Registro seleccionado para editar: Orden {st.session_state.selected_record_original_orden}")
+        else:
+            st.session_state.selected_record = None
     
     if st.session_state.selected_record:
         st.write("---")
@@ -217,6 +253,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             with col_edit1:
                 edit_id_entrega = st.text_input("ID Entrega", value=st.session_state.selected_record["ID Entrega"])
                 edit_id_recibe = st.text_input("ID Recibe", value=st.session_state.selected_record["ID Recibe"])
+                edit_orden = st.text_input("Orden de Producción", value=st.session_state.selected_record["Orden"])
                 
                 try:
                     tipo_index = ["Parte fabricada", "Materia prima"].index(st.session_state.selected_record["Tipo"])
@@ -224,8 +261,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     tipo_index = 1
                 edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=tipo_index)
                 
-                edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
             with col_edit2:
+                edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
                 edit_cantidad = st.number_input("Cantidad", value=st.session_state.selected_record["Cantidad"], min_value=0, step=1)
                 
                 try:
@@ -241,22 +278,24 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 if st.form_submit_button("✅ Actualizar Registro"):
                     c.execute("""
                         UPDATE registros SET
-                        "ID Entrega" = ?, "ID Recibe" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
+                        "ID Entrega" = ?, "ID Recibe" = ?, "Orden" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
                         WHERE "Orden" = ?
-                    """, (edit_id_entrega, edit_id_recibe, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record["Orden"]))
+                    """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record_original_orden))
                     conn.commit()
                     st.success("Registro actualizado exitosamente.")
                     load_data_from_db()
                     st.session_state.selected_record = None
+                    st.session_state.found_records = pd.DataFrame() # Limpiar tabla de búsqueda
                     st.rerun()
 
             with col_btns[1]:
                 if st.form_submit_button("❌ Eliminar Registro"):
-                    c.execute("DELETE FROM registros WHERE Orden = ?", (st.session_state.selected_record["Orden"],))
+                    c.execute("DELETE FROM registros WHERE Orden = ?", (st.session_state.selected_record_original_orden,))
                     conn.commit()
                     st.success("Registro eliminado exitosamente.")
                     load_data_from_db()
                     st.session_state.selected_record = None
+                    st.session_state.found_records = pd.DataFrame() # Limpiar tabla de búsqueda
                     st.rerun()
 
 # ---
