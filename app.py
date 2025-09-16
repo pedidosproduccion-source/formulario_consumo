@@ -57,8 +57,6 @@ if "data" not in st.session_state:
     load_data_from_db()
 if "edited_kit_data" not in st.session_state:
     st.session_state.edited_kit_data = None
-if "selected_record" not in st.session_state:
-    st.session_state.selected_record = None
 
 
 # Cargar el archivo de kits automáticamente
@@ -190,90 +188,52 @@ if kit_data is not None:
 
 # Registros Acumulados y Módulo de Edición/Eliminación unificado
 st.subheader("Registros acumulados")
-edited_df = st.data_editor(
-    st.session_state.data,
-    hide_index=True,
-    column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Unidad", "Fecha", "ID Entrega", "ID Recibe", "Tipo", "Observación"],
-    column_config={
-        "select_record": st.column_config.CheckboxColumn(
-            "Seleccionar para Editar/Eliminar",
-            help="Selecciona el registro que deseas editar o eliminar.",
-            default=False,
-        ),
-        "ID": "ID del Registro",
-    },
-    num_rows="dynamic",
-    use_container_width=True,
-    key="main_data_editor"
-)
+if 'data' in st.session_state and not st.session_state.data.empty:
+    df_with_checkbox = st.session_state.data.copy()
+    df_with_checkbox['select_record'] = False
 
-selected_rows = edited_df[edited_df.select_record]
-
-if not selected_rows.empty:
-    st.session_state.selected_record = selected_rows.iloc[0].to_dict()
-else:
-    st.session_state.selected_record = None
-
-if st.session_state.selected_record:
-    st.write("---")
-    st.subheader("Datos del Registro Seleccionado")
-    st.info(f"Registro seleccionado para editar: ID {st.session_state.selected_record['ID']}")
+    edited_df = st.data_editor(
+        df_with_checkbox,
+        hide_index=True,
+        column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Unidad", "Fecha", "ID Entrega", "ID Recibe", "Tipo", "Observación"],
+        column_config={
+            "select_record": st.column_config.CheckboxColumn(
+                "Seleccionar",
+                help="Selecciona el registro para eliminar.",
+                default=False,
+            ),
+            "ID": "ID del Registro",
+        },
+        num_rows="dynamic",
+        use_container_width=True,
+        key="main_data_editor"
+    )
     
-    with st.form("edit_form", clear_on_submit=False):
-        col_edit1, col_edit2 = st.columns(2)
-        with col_edit1:
-            edit_id_entrega = st.text_input("ID Entrega", value=st.session_state.selected_record["ID Entrega"])
-            edit_id_recibe = st.text_input("ID Recibe", value=st.session_state.selected_record["ID Recibe"])
-            edit_orden = st.text_input("Orden de Producción", value=st.session_state.selected_record["Orden"])
-            
+    # Bucle para actualizar la base de datos si se edita una fila.
+    # No es necesario usar un botón para guardar los cambios.
+    for col in edited_df.columns:
+        if col != 'select_record':
+            diff = edited_df[edited_df[col] != df_with_checkbox[col]]
+            if not diff.empty:
+                for index, row in diff.iterrows():
+                    c.execute(f'UPDATE registros SET "{col}" = ? WHERE ID = ?', (row[col], row['ID']))
+                    conn.commit()
+    
+    # Lógica para eliminar registros. Solo se ejecuta si hay registros seleccionados.
+    selected_rows = edited_df[edited_df.select_record]
+    
+    if not selected_rows.empty:
+        if st.button("Eliminar registros seleccionados", key="delete_button"):
+            ids_to_delete = selected_rows['ID'].tolist()
             try:
-                tipo_index = ["Parte fabricada", "Materia prima"].index(st.session_state.selected_record["Tipo"])
-            except ValueError:
-                tipo_index = 1
-            edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=tipo_index)
-            
-        with col_edit2:
-            edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
-            edit_cantidad = st.number_input("Cantidad", value=int(st.session_state.selected_record["Cantidad"]), min_value=0, step=1)
-            
-            try:
-                unidad_index = ["m", "und", "kg"].index(st.session_state.selected_record["Unidad"])
-            except ValueError:
-                unidad_index = 1
-            edit_unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=unidad_index)
-            
-            edit_observacion = st.text_area("Observación", value=st.session_state.selected_record["Observación"])
-        
-        col_btns = st.columns(2)
-        with col_btns[0]:
-            if st.form_submit_button("Actualizar Registro"):
-                c.execute("""
-                    UPDATE registros SET
-                    "ID Entrega" = ?, "ID Recibe" = ?, "Orden" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
-                    WHERE "ID" = ?
-                """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record["ID"]))
+                c.execute(f"DELETE FROM registros WHERE ID IN ({','.join(['?'] * len(ids_to_delete))})", ids_to_delete)
                 conn.commit()
-                st.success("Registro actualizado exitosamente.")
-                st.session_state.selected_record = None
+                st.success("Registros eliminados exitosamente.")
                 load_data_from_db()
                 st.rerun()
-
-        with col_btns[1]:
-            if st.form_submit_button("Eliminar Registro"):
-                if st.session_state.selected_record:
-                    try:
-                        c.execute("DELETE FROM registros WHERE ID = ?",
-                                  (st.session_state.selected_record["ID"],))
-                        conn.commit()
-                        st.success("Registro eliminado exitosamente.")
-                        st.session_state.selected_record = None
-                        load_data_from_db()
-                        st.rerun()
-                    except sqlite3.Error as e:
-                        st.error(f"Error al eliminar el registro: {e}")
-                else:
-                    st.warning("Por favor, selecciona un registro para eliminar.")
-
+            except sqlite3.Error as e:
+                st.error(f"Error al eliminar los registros: {e}")
+                
 # Firma y Descargas
 st.subheader("Firma de recibido")
 firma = st_canvas(
@@ -286,7 +246,7 @@ firma = st_canvas(
     key="canvas"
 )
 
-if not st.session_state.data.empty:
+if 'data' in st.session_state and not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
     # Descargar en Excel
