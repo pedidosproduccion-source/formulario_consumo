@@ -191,7 +191,6 @@ if kit_data is not None:
 
 
 # Administración de Registros
-
 with st.expander("Gestionar Registros (Eliminar / Editar)"):
     st.subheader("Buscar y Modificar Registro")
     
