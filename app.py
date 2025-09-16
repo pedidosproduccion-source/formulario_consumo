@@ -193,7 +193,7 @@ st.dataframe(st.session_state.data, use_container_width=True)
 # Sección para eliminar registros
 st.subheader("Eliminar Registros")
 if 'data' in st.session_state and not st.session_state.data.empty:
-    df_to_delete = st.session_state.data[['ID', 'Orden', 'Item', 'Cantidad', 'Fecha']].copy()
+    df_to_delete = st.session_state.data.copy()
     df_to_delete['select_record'] = False
 
     edited_df = st.data_editor(
@@ -206,13 +206,13 @@ if 'data' in st.session_state and not st.session_state.data.empty:
                 help="Selecciona los registros que deseas eliminar.",
                 default=False,
             ),
-            "ID": st.column_config.NumberColumn("ID del Registro", disabled=True),
-            "Orden": st.column_config.TextColumn("Orden de Producción", disabled=True),
-            "Item": st.column_config.TextColumn("ID Item", disabled=True),
-            "Cantidad": st.column_config.NumberColumn("Cantidad", disabled=True),
-            "Fecha": st.column_config.DateColumn("Fecha", disabled=True),
+            "ID": "ID",
+            "Orden": "Orden",
+            "Item": "Item",
+            "Cantidad": "Cantidad",
+            "Fecha": "Fecha",
         },
-        disabled=st.session_state.data.columns,
+        disabled=True,
         num_rows="dynamic",
         use_container_width=True,
         key="delete_data_editor"
