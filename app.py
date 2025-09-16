@@ -50,7 +50,6 @@ if "selected_record" not in st.session_state:
 if "found_records" not in st.session_state:
     st.session_state.found_records = pd.DataFrame()
 
-
 # Cargar el archivo de kits automáticamente
 try:
     kit_data = pd.read_excel("Kits.xlsx")
@@ -61,7 +60,7 @@ except FileNotFoundError:
 
 
 # ---
-# Registro Manual de Ítems
+## Registro Manual de Ítems
 # Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
     st.subheader("📝 Registro Manual")
@@ -104,8 +103,8 @@ with st.form("form_registro", clear_on_submit=True):
         st.success("✅ Registro agregado correctamente")
         st.rerun()
 
-# ---
-# Registro por Kit
+---
+## Registro por Kit
 if kit_data is not None:
     st.subheader("📦 Registro por Kit")
     
@@ -180,8 +179,8 @@ if kit_data is not None:
     except KeyError:
         st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
-# ---
-# Administración de Registros
+---
+## Administración de Registros
 with st.expander("Gestionar Registros (Eliminar / Editar)"):
     st.subheader("Buscar y Modificar Registro")
     
@@ -211,6 +210,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 
                 if not st.session_state.found_records.empty:
                     st.success(f"Se encontraron {len(st.session_state.found_records)} registros.")
+                    # AGREGADO: Inicializar la columna de selección
+                    st.session_state.found_records['select_record'] = False
                 else:
                     st.warning("No se encontraron registros con los criterios de búsqueda.")
             else:
@@ -219,6 +220,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
     if not st.session_state.found_records.empty:
         st.write("Registros encontrados (puedes seleccionarlos para editar):")
         
+        # Corrección del error: el data editor ahora recibe un DataFrame con la columna `select_record`
         edited_df = st.data_editor(
             st.session_state.found_records,
             hide_index=True,
@@ -289,7 +291,6 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
 
             with col_btns[1]:
                 if st.form_submit_button("❌ Eliminar Registro"):
-                    # Línea corregida: se reemplazan las comillas dobles por simples en los nombres de las columnas
                     c.execute("DELETE FROM registros WHERE 'Orden' = ? AND 'Item' = ?", (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
                     conn.commit()
                     st.success("Registro eliminado exitosamente.")
@@ -298,13 +299,13 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     st.session_state.found_records = pd.DataFrame()
                     st.rerun()
 
-# ---
-# Registros Acumulados
+---
+## Registros Acumulados
 st.subheader("📑 Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
-# ---
-# Firma y Descargas
+---
+## Firma y Descargas
 st.subheader("✍️ Firma de recibido")
 firma = st_canvas(
     fill_color="rgba(255, 255, 255, 0)",
