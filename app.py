@@ -1,3 +1,8 @@
+Aquí tienes el código completo, incluyendo todas las mejoras que hemos discutido: la integración de SQLite para la persistencia de datos, la unificación del campo de kits, y los campos de orden y observación.
+
+Código de la Aplicación Completo y Finalizado 📝
+Python
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -11,7 +16,7 @@ from streamlit_drawable_canvas import st_canvas
 from reportlab.lib.utils import ImageReader
 
 # 📋 Título y configuración inicial
-st.set_page_config(layout="wide")
+st.set_page_page(layout="wide")
 st.title("📋 Registro de consumo de materia prima")
 
 # --- CONEXIÓN Y CONFIGURACIÓN DE LA BASE DE DATOS SQLite ---
@@ -42,7 +47,7 @@ def load_data_from_db():
     df["Fecha"] = pd.to_datetime(df["Fecha"])
     st.session_state.data = df
 
-# **CAMBIO AQUÍ**: Inicializar ambas variables al inicio para evitar el error.
+# Inicializar las variables de estado al inicio de la aplicación
 if "data" not in st.session_state:
     load_data_from_db()
 if "edited_kit_data" not in st.session_state:
@@ -134,7 +139,6 @@ if kit_data is not None:
             else:
                 st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
 
-        # Ahora esta sección se ejecutará sin errores
         if st.session_state.edited_kit_data is not None:
             st.write(f"Editando ítems para el kit: **{selected_kit}**")
             # Usa st.data_editor para hacer la tabla editable
