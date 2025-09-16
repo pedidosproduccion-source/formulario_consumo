@@ -1,3 +1,9 @@
+Disculpa la interrupción. La respuesta anterior se cortó. El error SyntaxError es causado por un carácter especial (el emoji ⚠️) dentro de una cadena de texto formateada (f-string). Python interpreta esto como un error de sintaxis.
+
+Aquí tienes el código completo con el error corregido. He eliminado el emoji para que el script pueda ejecutarse sin problemas.
+
+Python
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -130,7 +136,7 @@ if kit_data is not None:
         if st.button("🔍 Ver y editar kit"):
             items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
             if items_to_add.empty:
-                st.warning(f⚠️ El kit '{selected_kit}' no se encontró en el archivo.")
+                st.warning(f"El kit '{selected_kit}' no se encontró en el archivo.")
                 st.session_state.edited_kit_data = None
             else:
                 st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
