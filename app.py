@@ -290,7 +290,6 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 if st.form_submit_button("Eliminar Registro"):
                     if st.session_state.selected_record:
                         try:
-                            # CORRECCIÓN DE LA CONSULTA SQL
                             c.execute("DELETE FROM registros WHERE Orden = ? AND Item = ?",
                                       (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
                             conn.commit()
@@ -306,7 +305,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
 
 # Registros Acumulados
 st.subheader("Registros acumulados")
-st.dataframe(st.session_state.data, use_container_width=True)
+st.dataframe(st.session_state.data, use_container_width=True, filter=True)
 
 # Firma y Descargas
 st.subheader("Firma de recibido")
