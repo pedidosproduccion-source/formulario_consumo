@@ -1,3 +1,11 @@
+Para que la tabla de registros acumulados no se agrupe, simplemente necesitas quitar el parámetro filter=True de la llamada a st.dataframe. Esto asegura que se muestre la tabla completa sin ninguna funcionalidad de filtrado interactivo por columna.
+
+🛠️ Código con la Corrección Final
+Por favor, reemplaza todo el contenido de tu archivo app.py con el siguiente código. Es la misma versión que la anterior, pero con una pequeña modificación en la línea st.dataframe para deshabilitar el filtro.
+
+📋 Código Completo y Finalizado
+Python
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -311,7 +319,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
 
 # Registros Acumulados
 st.subheader("Registros acumulados")
-st.dataframe(st.session_state.data, use_container_width=True, filter=True)
+st.dataframe(st.session_state.data, use_container_width=True)
 
 # Firma y Descargas
 st.subheader("Firma de recibido")
