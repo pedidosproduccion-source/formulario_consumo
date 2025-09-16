@@ -58,7 +58,7 @@ except FileNotFoundError:
 
 
 # ---
-## Registro Manual de Ítems
+# Registro Manual de Ítems
 # Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
     st.subheader("📝 Registro Manual")
@@ -102,7 +102,7 @@ with st.form("form_registro", clear_on_submit=True):
         st.rerun()
 
 # ---
-## Registro por Kit
+# Registro por Kit
 if kit_data is not None:
     st.subheader("📦 Registro por Kit")
     
@@ -178,7 +178,7 @@ if kit_data is not None:
         st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
 # ---
-## ⚙️ Administración de Registros
+# Administración de Registros
 with st.expander("Gestionar Registros (Eliminar / Editar)"):
     st.subheader("Buscar y Modificar Registro")
     
@@ -217,11 +217,23 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             with col_edit1:
                 edit_id_entrega = st.text_input("ID Entrega", value=st.session_state.selected_record["ID Entrega"])
                 edit_id_recibe = st.text_input("ID Recibe", value=st.session_state.selected_record["ID Recibe"])
-                edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=["Parte fabricada", "Materia prima"].index(st.session_state.selected_record["Tipo"]))
+                
+                try:
+                    tipo_index = ["Parte fabricada", "Materia prima"].index(st.session_state.selected_record["Tipo"])
+                except ValueError:
+                    tipo_index = 1
+                edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=tipo_index)
+                
                 edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
             with col_edit2:
                 edit_cantidad = st.number_input("Cantidad", value=st.session_state.selected_record["Cantidad"], min_value=0, step=1)
-                edit_unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=["m", "und", "kg"].index(st.session_state.selected_record["Unidad"]))
+                
+                try:
+                    unidad_index = ["m", "und", "kg"].index(st.session_state.selected_record["Unidad"])
+                except ValueError:
+                    unidad_index = 1
+                edit_unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=unidad_index)
+                
                 edit_observacion = st.text_area("Observación", value=st.session_state.selected_record["Observación"])
             
             col_btns = st.columns(2)
@@ -248,12 +260,12 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     st.rerun()
 
 # ---
-## Registros Acumulados
+# Registros Acumulados
 st.subheader("📑 Registros acumulados")
 st.dataframe(st.session_state.data, use_container_width=True)
 
 # ---
-## Firma y Descargas
+# Firma y Descargas
 st.subheader("✍️ Firma de recibido")
 firma = st_canvas(
     fill_color="rgba(255, 255, 255, 0)",
@@ -268,7 +280,7 @@ firma = st_canvas(
 if not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
-    # 📌 Descargar en Excel
+    # Descargar en Excel
     excel_buffer = BytesIO()
     st.session_state.data.to_excel(excel_buffer, index=False, engine="openpyxl")
     excel_buffer.seek(0)
@@ -280,7 +292,7 @@ if not st.session_state.data.empty:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     )
 
-    # 📌 Descargar en PDF
+    # Descargar en PDF
     def generate_pdf(dataframe, signature_image):
         buffer_pdf = BytesIO()
         c = canvas.Canvas(buffer_pdf, pagesize=A4)
