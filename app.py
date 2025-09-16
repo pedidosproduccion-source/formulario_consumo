@@ -93,7 +93,7 @@ if kit_data is not None:
         kit_data['Kit'] = kit_data['Kit'].str.strip()
         kit_options = kit_data['Kit'].unique()
         
-        # **CAMBIO AQUÍ**: Unificamos los campos en un solo selectbox
+        # Unificamos los campos en un solo selectbox
         selected_kit = st.selectbox(
             "Selecciona o digita un kit", 
             options=kit_options, 
@@ -156,7 +156,8 @@ if kit_data is not None:
                 )
                 st.success(f"✅ Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
                 st.session_state.edited_kit_data = None # Limpiar la tabla editable después de agregar
-                st.experimental_rerun()
+                
+                st.rerun()
                 
     except KeyError:
         st.error("❌ El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
