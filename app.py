@@ -6,7 +6,7 @@ import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
-from reportlab.lib.units import cm
+from reportlab.lib.lib import units
 from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 
@@ -38,7 +38,6 @@ conn.commit()
 def load_data_from_db():
     try:
         df = pd.read_sql_query("SELECT * FROM registros", conn)
-        # Aseguramos que sea un DataFrame de pandas
         if not isinstance(df, pd.DataFrame):
             df = pd.DataFrame()
         if not df.empty:
@@ -46,7 +45,7 @@ def load_data_from_db():
         st.session_state.data = df
     except Exception as e:
         st.error(f"Error al cargar datos de la base de datos: {e}")
-        st.session_state.data = pd.DataFrame() # Asegura que la variable sea siempre un DataFrame
+        st.session_state.data = pd.DataFrame()
 
 # Inicializar las variables de estado al inicio de la aplicación
 if "data" not in st.session_state:
@@ -69,7 +68,6 @@ except FileNotFoundError:
 
 
 # Registro Manual de Ítems
-# Formulario para agregar un registro
 with st.form("form_registro", clear_on_submit=True):
     st.subheader("Registro Manual")
     col1, col2 = st.columns(2)
