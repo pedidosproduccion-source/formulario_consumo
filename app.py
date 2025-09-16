@@ -18,9 +18,10 @@ st.title("Registro de consumo de materia prima")
 conn = sqlite3.connect("registros.db")
 c = conn.cursor()
 
-# Crear la tabla si no existe
+# Crear la tabla con una columna de ID única
 c.execute('''
     CREATE TABLE IF NOT EXISTS registros (
+        "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
         "ID Entrega" TEXT,
         "ID Recibe" TEXT,
         "Orden" TEXT,
@@ -37,6 +38,7 @@ conn.commit()
 # Cargar los datos desde la base de datos al DataFrame de la sesión
 def load_data_from_db():
     try:
+        # Cargar todos los datos, incluyendo el nuevo campo "ID"
         df = pd.read_sql_query("SELECT * FROM registros", conn)
         if not isinstance(df, pd.DataFrame):
             df = pd.DataFrame()
@@ -102,7 +104,8 @@ with st.form("form_registro", clear_on_submit=True):
             "Fecha": fecha
         }
         
-        c.execute("INSERT INTO registros VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
+        # Insertar los valores, dejando que la base de datos asigne el ID
+        c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
         conn.commit()
         
         load_data_from_db()
@@ -172,7 +175,8 @@ if kit_data is not None:
                     nuevos_registros.append(nuevo)
 
                 for registro in nuevos_registros:
-                    c.execute("INSERT INTO registros VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
+                    # Insertar los valores sin el ID, ya que se autogenera
+                    c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
                 conn.commit()
 
                 load_data_from_db()
@@ -197,18 +201,19 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
     with col_action:
         st.markdown(" ")
         if st.button("Buscar", key="search_button"):
+            # Limpiar el estado de los registros encontrados al hacer una nueva búsqueda
             st.session_state.found_records = pd.DataFrame()
             st.session_state.selected_record = None
 
             query_parts = []
             params = []
             if search_orden:
-                query_parts.append('"Orden" = ?')
-                params.append(search_orden)
+                query_parts.append('"Orden" LIKE ?')
+                params.append(f"%{search_orden}%") # Usar LIKE para una búsqueda parcial
             if search_item:
-                query_parts.append('"Item" = ?')
-                params.append(search_item)
-            
+                query_parts.append('"Item" LIKE ?')
+                params.append(f"%{search_item}%")
+
             if query_parts:
                 query_string = "SELECT * FROM registros WHERE " + " AND ".join(query_parts)
                 st.session_state.found_records = pd.read_sql_query(query_string, conn, params=params)
@@ -220,19 +225,23 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     st.warning("No se encontraron registros con los criterios de búsqueda.")
             else:
                 st.warning("Por favor, introduce una Orden de Producción o un ID de Item para buscar.")
-
+    
+    # Mostrar resultados de la búsqueda
     if not st.session_state.found_records.empty:
         st.write("Registros encontrados (puedes seleccionarlos para editar):")
         
+        # El data_editor ahora puede mostrar el ID si lo necesitas
         edited_df = st.data_editor(
             st.session_state.found_records,
             hide_index=True,
+            column_order=["select_record", "ID", "Orden", "Item", "Cantidad", "Unidad", "Fecha", "ID Entrega", "ID Recibe", "Tipo", "Observación"],
             column_config={
                 "select_record": st.column_config.CheckboxColumn(
                     "Seleccionar",
                     help="Selecciona el registro que deseas editar o eliminar.",
                     default=False,
-                )
+                ),
+                "ID": "ID del Registro",
             },
             num_rows="dynamic",
             use_container_width=True,
@@ -243,8 +252,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
         
         if not selected_rows.empty:
             st.session_state.selected_record = selected_rows.iloc[0].to_dict()
-            st.session_state.selected_record_original_orden = st.session_state.selected_record["Orden"]
-            st.info(f"Registro seleccionado para editar: Orden {st.session_state.selected_record_original_orden}")
+            st.info(f"Registro seleccionado para editar: ID {st.session_state.selected_record['ID']}")
         else:
             st.session_state.selected_record = None
     
@@ -266,7 +274,7 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                 edit_tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=tipo_index)
                 
             with col_edit2:
-                # CORRECCIÓN: Convertir el valor a entero
+                edit_item = st.text_input("ID Item", value=st.session_state.selected_record["Item"])
                 edit_cantidad = st.number_input("Cantidad", value=int(st.session_state.selected_record["Cantidad"]), min_value=0, step=1)
                 
                 try:
@@ -283,26 +291,26 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     c.execute("""
                         UPDATE registros SET
                         "ID Entrega" = ?, "ID Recibe" = ?, "Orden" = ?, "Tipo" = ?, "Item" = ?, "Cantidad" = ?, "Unidad" = ?, "Observación" = ?
-                        WHERE "Orden" = ? AND "Item" = ?
-                    """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
+                        WHERE "ID" = ?
+                    """, (edit_id_entrega, edit_id_recibe, edit_orden, edit_tipo, edit_item, edit_cantidad, edit_unidad, edit_observacion, st.session_state.selected_record["ID"]))
                     conn.commit()
                     st.success("Registro actualizado exitosamente.")
-                    load_data_from_db()
                     st.session_state.selected_record = None
                     st.session_state.found_records = pd.DataFrame()
+                    load_data_from_db()
                     st.rerun()
 
             with col_btns[1]:
                 if st.form_submit_button("Eliminar Registro"):
                     if st.session_state.selected_record:
                         try:
-                            c.execute("DELETE FROM registros WHERE Orden = ? AND Item = ?",
-                                      (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
+                            c.execute("DELETE FROM registros WHERE ID = ?",
+                                      (st.session_state.selected_record["ID"],))
                             conn.commit()
                             st.success("Registro eliminado exitosamente.")
-                            load_data_from_db()
                             st.session_state.selected_record = None
                             st.session_state.found_records = pd.DataFrame()
+                            load_data_from_db()
                             st.rerun()
                         except sqlite3.Error as e:
                             st.error(f"Error al eliminar el registro: {e}")
@@ -354,7 +362,7 @@ if not st.session_state.data.empty:
         
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        col_widths = [2.5, 2.5, 2, 2, 2, 2, 1.5, 3] 
+        col_widths = [1, 2.5, 2.5, 2, 2, 2, 2, 1.5, 3] # Ancho de columnas para el PDF
         
         x_offsets = [margin]
         for i in range(len(dataframe.columns) - 1):
