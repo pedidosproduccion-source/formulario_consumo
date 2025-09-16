@@ -186,9 +186,38 @@ if kit_data is not None:
         st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
 
-# Registros Acumulados
+# Registros Acumulados con filtro de fecha
 st.subheader("Registros acumulados")
-st.dataframe(st.session_state.data, use_container_width=True)
+if 'data' in st.session_state and not st.session_state.data.empty:
+    
+    min_date = st.session_state.data['Fecha'].min()
+    max_date = st.session_state.data['Fecha'].max()
+    
+    col_filter1, col_filter2 = st.columns(2)
+    with col_filter1:
+        start_date = st.date_input(
+            "Fecha de inicio", 
+            min_value=min_date, 
+            max_value=max_date, 
+            value=min_date
+        )
+    with col_filter2:
+        end_date = st.date_input(
+            "Fecha de fin", 
+            min_value=min_date, 
+            max_value=max_date, 
+            value=max_date
+        )
+        
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+    
+    df_filtered = st.session_state.data[
+        (st.session_state.data['Fecha'] >= start_date) &
+        (st.session_state.data['Fecha'] <= end_date)
+    ]
+    
+    st.dataframe(df_filtered, use_container_width=True)
 
 # Firma y Descargas
 st.subheader("Firma de recibido")
