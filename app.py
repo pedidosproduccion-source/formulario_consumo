@@ -252,7 +252,8 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
             st.session_state.selected_record = selected_rows.iloc[0].to_dict()
         else:
             st.session_state.selected_record = None
-
+    
+    # Esta es la parte corregida que evita el error
     if st.session_state.selected_record:
         st.write("---")
         st.subheader("Datos del Registro Seleccionado")
