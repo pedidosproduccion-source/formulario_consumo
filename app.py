@@ -287,14 +287,19 @@ with st.expander("Gestionar Registros (Eliminar / Editar)"):
                     st.rerun()
 
             with col_btns[1]:
-                if st.form_submit_button("❌ Eliminar Registro"):
-                    c.execute("DELETE FROM registros WHERE 'Orden' = ? AND 'Item' = ?", (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
-                    conn.commit()
-                    st.success("Registro eliminado exitosamente.")
-                    load_data_from_db()
-                    st.session_state.selected_record = None
-                    st.session_state.found_records = pd.DataFrame()
-                    st.rerun()
+               if st.form_submit_button("❌ Eliminar Registro"):
+    if st.session_state.selected_record:
+        try:
+            c.execute("DELETE FROM registros WHERE Orden = ? AND Item = ?", 
+                      (st.session_state.selected_record_original_orden, st.session_state.selected_record["Item"]))
+            conn.commit()
+            st.success("Registro eliminado exitosamente.")
+            load_data_from_db()
+            st.session_state.selected_record = None
+            st.session_state.found_records = pd.DataFrame()
+            st.rerun()
+        except sqlite3.Error as e:
+            st.error(f"Error al eliminar el registro: {e}")
 
 # Registros Acumulados
 st.subheader("📑 Registros acumulados")
