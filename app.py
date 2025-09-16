@@ -93,17 +93,14 @@ if kit_data is not None:
         kit_data['Kit'] = kit_data['Kit'].str.strip()
         kit_options = kit_data['Kit'].unique()
         
-        # Opciones de selección del kit
-        col_select1, col_select2 = st.columns([1, 2])
-        with col_select1:
-            kit_input = st.text_input("Digita un kit")
-        with col_select2:
-            selected_kit = st.selectbox("O selecciona de la lista", kit_options, key="selectbox_kit")
+        # **CAMBIO AQUÍ**: Unificamos los campos en un solo selectbox
+        selected_kit = st.selectbox(
+            "Selecciona o digita un kit", 
+            options=kit_options, 
+            key="selectbox_kit"
+        )
         
-        # Determinar qué kit usar
-        kit_to_use = kit_input.strip() if kit_input.strip() else selected_kit
-        
-        # **CAMBIO AQUÍ**: Campos de orden y observación para el módulo de kits
+        # Campos de orden y observación para el módulo de kits
         col_kit_info1, col_kit_info2 = st.columns(2)
         with col_kit_info1:
             orden_kit = st.text_input("Orden de Producción (Kit)")
@@ -111,15 +108,15 @@ if kit_data is not None:
             observacion_kit = st.text_area("Observación (Kit)")
 
         if st.button("🔍 Ver y editar kit"):
-            items_to_add = kit_data[kit_data['Kit'] == kit_to_use].copy()
+            items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
             if items_to_add.empty:
-                st.warning(f"⚠️ El kit '{kit_to_use}' no se encontró en el archivo.")
+                st.warning(f"⚠️ El kit '{selected_kit}' no se encontró en el archivo.")
                 st.session_state.edited_kit_data = None
             else:
                 st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
 
         if st.session_state.edited_kit_data is not None:
-            st.write(f"Editando ítems para el kit: **{kit_to_use}**")
+            st.write(f"Editando ítems para el kit: **{selected_kit}**")
             # Usa st.data_editor para hacer la tabla editable
             edited_df = st.data_editor(st.session_state.edited_kit_data, 
                                        column_config={
@@ -157,7 +154,7 @@ if kit_data is not None:
                     [st.session_state.data, pd.DataFrame(nuevos_registros)],
                     ignore_index=True
                 )
-                st.success(f"✅ Se agregaron los ítems modificados del kit '{kit_to_use}' al registro.")
+                st.success(f"✅ Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
                 st.session_state.edited_kit_data = None # Limpiar la tabla editable después de agregar
                 st.experimental_rerun()
                 
