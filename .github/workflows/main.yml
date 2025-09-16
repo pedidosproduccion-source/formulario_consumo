@@ -1,0 +1,34 @@
+name: Deploy Streamlit App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run app for persistence
+        run: python -c "import streamlit; streamlit.cli.main_run('app.py', '--server.port', '8501')" &
+
+      - name: Run backup script
+        run: python persist.py backup
+        if: success() || failure()
+      
+      - name: Upload database
+        uses: actions/upload-artifact@v2
+        with:
+          name: registros-db
+          path: .streamlit/state/registros.db
