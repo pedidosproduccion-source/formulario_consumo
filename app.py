@@ -340,16 +340,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     )
 
-    # Bloque de depuración para verificar el DataFrame antes de la descarga
-    st.markdown("---")
-    st.subheader("Depuración: Datos del DataFrame antes de la descarga")
-    if not df_to_export.empty:
-        st.write("Se encontraron datos. El DataFrame tiene", df_to_export.shape[0], "filas y", df_to_export.shape[1], "columnas.")
-        st.dataframe(df_to_export, use_container_width=True)
-    else:
-        st.write("El DataFrame 'df_to_export' está vacío.")
-    st.markdown("---")
-    
+       
     # Descargar en PDF
     def generate_pdf(dataframe, signature_image):
         buffer_pdf = BytesIO()
