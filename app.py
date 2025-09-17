@@ -355,7 +355,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         buffer_pdf = BytesIO()
         c = canvas.Canvas(buffer_pdf, pagesize=A4)
         width, height = A4
-        margin = 2*cm
+        margin = 2 * cm
         
         c.setFont("Helvetica-Bold", 16)
         c.drawString(margin, height - margin, "Informe de Consumo de Materia Prima")
@@ -363,53 +363,54 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         c.drawString(margin, height - margin - 0.7*cm, f"Fecha: {datetime.today().strftime('%Y-%m-%d')}")
         
         c.setFont("Helvetica-Bold", 9)
-        y_pos = height - 4*cm
-        
-        # Nombres de las columnas del DataFrame
+        y_pos = height - 4 * cm
+
+        # Cálculo dinámico del ancho de las columnas
         columns = dataframe.columns.tolist()
+        num_cols = len(columns)
+        total_width = width - 2 * margin
+        col_widths = []
+        for col in columns:
+            # Ancho mínimo para cada columna
+            col_widths.append(max(len(str(col)), 10) * 0.1 * cm)
         
-        # --- Lógica de ajuste de ancho de columnas ---
-        # Definir anchos personalizados para una mejor visualización
-        col_widths_cm = {
-            "ID": 1.0,
-            "ID Entrega": 2.2,
-            "ID Recibe": 2.2,
-            "Orden": 2.0,
-            "Tipo": 2.5,
-            "Item": 2.5,
-            "Cantidad": 2.0,
-            "Unidad": 1.5,
-            "Observación": 3.0,
-            "Fecha": 3.0,
-        }
-        
+        total_col_width = sum(col_widths)
+        if total_col_width > total_width:
+            # Escala los anchos si son demasiado grandes
+            scale_factor = total_width / total_col_width
+            col_widths = [w * scale_factor for w in col_widths]
+
         # Calcular los offsets (posiciones x) de las columnas
         x_offsets = [margin]
-        for col in columns[:-1]:
-            x_offsets.append(x_offsets[-1] + col_widths_cm.get(col, 2.0)) # Usa 2.0 por defecto
+        for i in range(num_cols - 1):
+            x_offsets.append(x_offsets[-1] + col_widths[i])
         
         # Dibuja los encabezados
         for i, header in enumerate(columns):
-            c.drawString(x_offsets[i]*cm, y_pos, str(header))
+            c.drawString(x_offsets[i], y_pos, str(header))
         
         c.setFont("Helvetica", 8)
-        y_pos -= 0.5*cm
+        y_pos -= 0.5 * cm
         
         # Dibuja los datos de cada fila
         for _, row in dataframe.iterrows():
-            if y_pos < margin + 5*cm: 
+            if y_pos < margin + 5 * cm: 
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
                 for i, header in enumerate(columns):
-                    c.drawString(x_offsets[i]*cm, y_pos, str(header))
+                    c.drawString(x_offsets[i], y_pos, str(header))
                 c.setFont("Helvetica", 8)
-                y_pos -= 0.5*cm
+                y_pos -= 0.5 * cm
             
             for i, val in enumerate(row.values):
                 display_val = "" if pd.isna(val) else str(val)
-                c.drawString(x_offsets[i]*cm, y_pos, display_val)
-            y_pos -= 0.5*cm
+                # Verifica que el valor no exceda el ancho de la columna
+                if len(display_val) * 0.05 * cm > col_widths[i]:
+                    display_val = display_val[:int(col_widths[i] / (0.05 * cm))] + '...'
+                
+                c.drawString(x_offsets[i], y_pos, display_val)
+            y_pos -= 0.5 * cm
             
         if signature_image is not None:
             c.setFont("Helvetica-Bold", 10)
