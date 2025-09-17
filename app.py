@@ -70,7 +70,7 @@ try:
     kit_data = pd.read_excel("Kits.xlsx")
     st.success("Archivo de kits cargado correctamente.")
 
-    # **Verificación de columnas**
+    # Verificación de columnas
     required_columns = ['Kit', 'Item', 'Cantidad', 'Unidad']
     if not all(col in kit_data.columns for col in required_columns):
         missing_cols = [col for col in required_columns if col not in kit_data.columns]
@@ -244,10 +244,6 @@ if kit_data is not None:
             st.session_state.edited_kit_data = None
             
             st.rerun()
-            
-else: # Si el archivo de kits no se cargó correctamente, el módulo no se muestra
-    pass # No hace nada, el módulo no aparece
-
 
 # --- Registros Acumulados con filtro de fecha ---
 st.subheader("Registros acumulados")
@@ -258,7 +254,6 @@ try:
     st.metric(label="Total de Registros", value=total_registros_query)
 except Exception as e:
     st.error(f"No se pudo obtener el total de registros: {e}")
-
 
 # --- Nuevo botón para ver todos los registros ---
 if st.button("Ver historial completo"):
@@ -314,7 +309,6 @@ else:
     else:
         st.write("No hay registros en la base de datos.")
 
-
 # --- Firma y Descargas ---
 st.subheader("Firma de recibido")
 firma = st_canvas(
@@ -366,23 +360,28 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         for i in range(len(dataframe.columns) - 1):
             x_offsets.append(x_offsets[-1] + col_widths[i])
         
+        # Dibuja los encabezados
         for i, header in enumerate(dataframe.columns):
-            c.drawString(x_offsets[i]*cm, y_pos, header)
+            c.drawString(x_offsets[i]*cm, y_pos, str(header))
         
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
+        
+        # Dibuja los datos de cada fila
         for _, row in dataframe.iterrows():
             if y_pos < margin + 5*cm: 
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
                 for i, header in enumerate(dataframe.columns):
-                    c.drawString(x_offsets[i]*cm, y_pos, header)
+                    c.drawString(x_offsets[i]*cm, y_pos, str(header))
                 c.setFont("Helvetica", 8)
                 y_pos -= 0.5*cm
             
             for i, val in enumerate(row.values):
-                c.drawString(x_offsets[i]*cm, y_pos, str(val))
+                # Convierte cada valor a string y maneja NaN (valores vacíos)
+                display_val = "" if pd.isna(val) else str(val)
+                c.drawString(x_offsets[i]*cm, y_pos, display_val)
             y_pos -= 0.5*cm
             
         if signature_image is not None:
