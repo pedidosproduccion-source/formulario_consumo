@@ -365,16 +365,32 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
         
-        # --- Lógica de ajuste de ancho de columnas (versión mejorada) ---
-        num_cols = len(dataframe.columns)
-        total_table_width = width - 2 * margin
-        col_width = total_table_width / num_cols
+        # Nombres de las columnas del DataFrame
+        columns = dataframe.columns.tolist()
         
-        x_offsets = [margin + i * col_width for i in range(num_cols)]
+        # --- Lógica de ajuste de ancho de columnas ---
+        # Definir anchos personalizados para una mejor visualización
+        col_widths_cm = {
+            "ID": 1.0,
+            "ID Entrega": 2.2,
+            "ID Recibe": 2.2,
+            "Orden": 2.0,
+            "Tipo": 2.5,
+            "Item": 2.5,
+            "Cantidad": 2.0,
+            "Unidad": 1.5,
+            "Observación": 3.0,
+            "Fecha": 3.0,
+        }
+        
+        # Calcular los offsets (posiciones x) de las columnas
+        x_offsets = [margin]
+        for col in columns[:-1]:
+            x_offsets.append(x_offsets[-1] + col_widths_cm.get(col, 2.0)) # Usa 2.0 por defecto
         
         # Dibuja los encabezados
-        for i, header in enumerate(dataframe.columns):
-            c.drawString(x_offsets[i], y_pos, str(header))
+        for i, header in enumerate(columns):
+            c.drawString(x_offsets[i]*cm, y_pos, str(header))
         
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
@@ -385,14 +401,14 @@ if 'data' in st.session_state and not st.session_state.data.empty:
                 c.showPage()
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
-                for i, header in enumerate(dataframe.columns):
-                    c.drawString(x_offsets[i], y_pos, str(header))
+                for i, header in enumerate(columns):
+                    c.drawString(x_offsets[i]*cm, y_pos, str(header))
                 c.setFont("Helvetica", 8)
                 y_pos -= 0.5*cm
             
             for i, val in enumerate(row.values):
                 display_val = "" if pd.isna(val) else str(val)
-                c.drawString(x_offsets[i], y_pos, display_val)
+                c.drawString(x_offsets[i]*cm, y_pos, display_val)
             y_pos -= 0.5*cm
             
         if signature_image is not None:
