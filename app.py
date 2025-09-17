@@ -15,7 +15,7 @@ import persist
 persist.restore_db()
 
 # Configuración inicial y título de la aplicación
-st.set_page_config(layout="wide")
+st.set_page_page_config(layout="wide")
 st.title("Registro de consumo de materia prima")
 
 # --- CONEXIÓN Y CONFIGURACIÓN DE LA BASE DE DATOS SQLite ---
@@ -326,7 +326,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
     # Si se han filtrado datos, usamos df_filtered, de lo contrario usamos los 50 últimos
-    df_to_export = df_filtered if st.session_state.show_all_records else st.session_state.data
+    df_to_export = df_filtered if st.session_state.show_all_records and 'df_filtered' in locals() else st.session_state.data
     
     # Descargar en Excel
     excel_buffer = BytesIO()
@@ -364,7 +364,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        col_widths = [1, 2.5, 2.5, 2, 2, 2, 2, 1.5, 3]
+        col_widths = [1.5, 2.5, 2.5, 2.5, 2.5, 2.5, 1.5, 2, 3] # Ajuste de anchos para la tabla
         
         x_offsets = [margin]
         for i in range(len(dataframe.columns) - 1):
