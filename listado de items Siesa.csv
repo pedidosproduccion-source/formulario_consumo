@@ -1,4 +1,4 @@
-ÔªøID Item;REF;DESCRPCION;Unidad
+ID Item;REF;DESCRPCION;Unidad
 5124;DBV-BL400 DIXON                                   ;"ABRAZADERA ALUM 4"" GxG DBV-BL400 DIXON";UND 
 146;24797-018 -72H BTI (48-127mm)                     ;ABRAZADERA CREMALL.INOX 20-72(103-127mm);UND 
 5057;A208 BTI                                          ;EMPAQUE ASIENTO FLUIDIZADOR A-208 BTI;UND 
@@ -7,7 +7,7 @@
 178;24534                                             ;"ACOPLE OPW 2""NPT INOX.316 PARTE-F.";UND 
 3575;24797-002                                         ;"VALV.MARIPOSA+EXT.4"" 4-795-531-MA36 BTI.";UND 
 1488;2064                                              ;HOJA No.3 RESORTE BALLESTA 02600461.;UND 
-13350;0013350                                           ;"ABRAZADERA ENCAUCHETADA P/TUBO 2""√ò(2_5/8";UND 
+13350;0013350                                           ;"ABRAZADERA ENCAUCHETADA P/TUBO 2""ÿ(2_5/8";UND 
 2686;20031                                             ;"SENSOR 2CABLE 18"" 1351-0018 HEIL-CIVACON";UND 
 147;5694                                              ;ABRAZADERA MANHOLE INOX.304 3036SL BETTS;UND 
 1905;13063                                             ;MEDIACHUMACERA.INF.TRUNNION EK-6300700.;UND 
@@ -44,7 +44,7 @@
 524;15005                                             ;BOLSA AIRE S-23612 HENDRICKSON (ESSO).;UND 
 12751;0012751                                           ;"ACOPLE MACHO BI AC.INOX.3""x3""NPT.";UND 
 979;24942                                             ;"CILINDRO HIDR.D/E 2_1/2"" TOPE LLANTAS BE";UND 
-1205;18810                                             ;CU√ëA SOPORTE DER.TOLVA HEIL.;UND 
+1205;18810                                             ;CU—A SOPORTE DER.TOLVA HEIL.;UND 
 4502;1271                                              ;DISCO DE VITON WD101-4 VB BETTS.;UND 
 1260;24069                                             ;"EMPAQUE BURLETE ""H"" 4.3m LONG-WHITING-";UND 
 1478;23826                                             ;HERRAMTA EJE FRENO DISCO 6401955222 AMPA;UND 
@@ -86,7 +86,7 @@
 982;23834                                             ;CILINDRO HIDR.SC5.213.7005.25Z SOPRANO.;UND 
 13292;ADAPT.RECTO                                       ;"ADAPT.2040-8-12S  1/2""NPT-M x3/4""NPT-H.";UND 
 10324;0010324                                           ;"ADAPT.2047-12-12S  3/4""NPT-M x3/4""NPT-H.";UND 
-220;14122-072 CODO-90¬∫                                ;ADAPT.2062-10-12+ORING+TCA 7/8SAEx1_1/16;UND 
+220;14122-072 CODO-90∫                                ;ADAPT.2062-10-12+ORING+TCA 7/8SAEx1_1/16;UND 
 3599;2923                                              ;"VALV.SEGURIDAD RV-2350-15 2""MPT SURE SEA";UND 
 139;20758-002                                         ;"ABRAZADERA AC.INOX.T/IND.T-807 (1_1/2"").";UND 
 10368;0010368                                           ;ADAPT.2062-10-8S+ORING+TCA 7/8SAEx3/4JIC;UND 
@@ -100,32 +100,32 @@
 227;24966-001                                         ;"ADAPT.ALUM.6""Hx4""CF60CX40A BTI.";UND 
 228;24966-002                                         ;"ADAPT.ALUM.6""M ROSCA-H A600L BTI.";UND 
 233;18548                                             ;ADAPT.BRONCE 10141 TAPACUBO PRESSURE GUA;UND 
-9571;INOX.2023-12-12C 3/4NPTx1_1/16JIC M-M             ;ADAPT.C45¬∫INOX.2023-12-12C 3/4NPTx1_1/16;UND 
-14331;0014331                                           ;"ADAPT.C90¬∫  1/2""BSP CONICA x 3/4""JIC";UND 
-14330;0014330                                           ;"ADAPT.C90¬∫  1/2""NPTx3/4""JIC";UND 
-210;792                                               ;"ADAPT.C90¬∫ 2024-12-12S 3/4NPTx1_1/16""JIC";UND 
-14570;0014570                                           ;ADAPT.C90¬∫ 2024-12-6S 3/4NPTx9/16JIC;UND 
-241;21436-003                                         ;"ADAPT.C90¬∫ 2024-12-8S 3/4NPTx3/4""JIC";UND 
-14519;0014519                                           ;"ADAPT.C90¬∫ 2024-1-3S 1/16""NPTx7/16""JIC";UND 
-211;21214-009                                         ;"ADAPT.C90¬∫ 2024-16-12S 1""NPTx1_1/16""JIC";UND 
-212;21823-004                                         ;"ADAPT.C90¬∫ 2024-16-16S 1""NPTx1_5/16""JIC";UND 
-213;21818-001                                         ;"ADAPT.C90¬∫ 2024-2-4S 1/8""NPTx7/16""JIC";UND 
-12490;0012490                                           ;"ADAPT.C90¬∫ 2024-6-4S 3/8""NPTx7/16""JIC";UND 
-12545;0012545                                           ;"ADAPT.C90¬∫ 2024-8-12S 1/2""NPTx1_1/16""JIC";UND 
-14478;0014478                                           ;"ADAPT.C90¬∫ 2024-8-6S 1/2""NPTx9_1/16""JIC";UND 
-10381;2071-AEROQUIP                                     ;"ADAPT.C90¬∫ 2071-8-8 1/2""JICx1/2""JIC C90¬∫";UND 
-10382;GG306-NP08-08                                     ;"ADAPT.C90¬∫ GG306-NP 1/2""BSPx1/2""JIC 8-08";UND 
+9571;INOX.2023-12-12C 3/4NPTx1_1/16JIC M-M             ;ADAPT.C45∫INOX.2023-12-12C 3/4NPTx1_1/16;UND 
+14331;0014331                                           ;"ADAPT.C90∫  1/2""BSP CONICA x 3/4""JIC";UND 
+14330;0014330                                           ;"ADAPT.C90∫  1/2""NPTx3/4""JIC";UND 
+210;792                                               ;"ADAPT.C90∫ 2024-12-12S 3/4NPTx1_1/16""JIC";UND 
+14570;0014570                                           ;ADAPT.C90∫ 2024-12-6S 3/4NPTx9/16JIC;UND 
+241;21436-003                                         ;"ADAPT.C90∫ 2024-12-8S 3/4NPTx3/4""JIC";UND 
+14519;0014519                                           ;"ADAPT.C90∫ 2024-1-3S 1/16""NPTx7/16""JIC";UND 
+211;21214-009                                         ;"ADAPT.C90∫ 2024-16-12S 1""NPTx1_1/16""JIC";UND 
+212;21823-004                                         ;"ADAPT.C90∫ 2024-16-16S 1""NPTx1_5/16""JIC";UND 
+213;21818-001                                         ;"ADAPT.C90∫ 2024-2-4S 1/8""NPTx7/16""JIC";UND 
+12490;0012490                                           ;"ADAPT.C90∫ 2024-6-4S 3/8""NPTx7/16""JIC";UND 
+12545;0012545                                           ;"ADAPT.C90∫ 2024-8-12S 1/2""NPTx1_1/16""JIC";UND 
+14478;0014478                                           ;"ADAPT.C90∫ 2024-8-6S 1/2""NPTx9_1/16""JIC";UND 
+10381;2071-AEROQUIP                                     ;"ADAPT.C90∫ 2071-8-8 1/2""JICx1/2""JIC C90∫";UND 
+10382;GG306-NP08-08                                     ;"ADAPT.C90∫ GG306-NP 1/2""BSPx1/2""JIC 8-08";UND 
 555;18797                                             ;BRAZO INF.MANHOLE 6339ZC BETTS 8020;UND 
 1231;17510                                             ;EJE 6688SL BETTS (STEM)-MANHOLE PPVL820-;UND 
-9111;GG306-NP08-08.                                    ;"ADAPT.C90¬∫ GG306-NP08-08 1/2""NPTx1/2""JIC";UND 
-9575;INOX.2024-24-20C 1_1/2NPTx1_5/8JIC M-M            ;ADAPT.C90¬∫INOX.2024-24-20C 1_1/2NPTx1_5/;UND 
+9111;GG306-NP08-08.                                    ;"ADAPT.C90∫ GG306-NP08-08 1/2""NPTx1/2""JIC";UND 
+9575;INOX.2024-24-20C 1_1/2NPTx1_5/8JIC M-M            ;ADAPT.C90∫INOX.2024-24-20C 1_1/2NPTx1_5/;UND 
 12894;0012894                                           ;ADAPT.COD.2024-20-16 1_1/4 NPTx1_5/16JIC;UND 
-238;19712                                             ;"ADAPT.CODO 90¬∞ 2071-6-6 HyM 9/16""JIC.";UND 
-12405;0012405                                           ;"ADAPT.CODO 90¬∫ 13mmx3/8""NPT+O-RING+ARAND";UND 
-12212;0012212                                           ;"ADAPT.CODO 90¬∫ 13mmx7/16""JIC+O-RING+ARAN";UND 
-12466;0012466                                           ;ADAPT.CODO-90¬∫ 13mmM-7/16JIC-M+ORING+TCA;UND 
-10844;0010844                                           ;ADAPT.CODO-90¬∫ 13mmM-9/16JIC-M+ORING+TCA;UND 
-12409;0012409                                           ;ADAPT.CODO90¬∫ 3/8NPT-Hx13mm-M+O-RING+ARA;UND 
+238;19712                                             ;"ADAPT.CODO 90∞ 2071-6-6 HyM 9/16""JIC.";UND 
+12405;0012405                                           ;"ADAPT.CODO 90∫ 13mmx3/8""NPT+O-RING+ARAND";UND 
+12212;0012212                                           ;"ADAPT.CODO 90∫ 13mmx7/16""JIC+O-RING+ARAN";UND 
+12466;0012466                                           ;ADAPT.CODO-90∫ 13mmM-7/16JIC-M+ORING+TCA;UND 
+10844;0010844                                           ;ADAPT.CODO-90∫ 13mmM-9/16JIC-M+ORING+TCA;UND 
+12409;0012409                                           ;ADAPT.CODO90∫ 3/8NPT-Hx13mm-M+O-RING+ARA;UND 
 9110;66-106 NP 8-8                                     ;ADAPT.GG106-NP08-08+O-RING 1/2SAEx1/2JIC;UND 
 248;21436-005                                         ;"ADAPT.MACHO RECTO 3/4""NPTx1/2""NPT.";UND 
 2058;23165                                             ;PERFIL ALUM.LAT.PUERTA EG109 ARA:ROM-109;m   
@@ -158,8 +158,8 @@
 5127;FT150-12 DIXON                                    ;"SENSOR OPTICO 12"" 2CABLES FT150-12 DIXON";UND 
 9114;203102-8-8                                        ;ADAPT.TE 203102-8-8S 3/4JIC  2My1H;UND 
 580;17480                                             ;BUJE COLLARIN LEVA METALICO E-9789 1_5/8;UND 
-8977;1001202 ADAICO 60x26√ò                             ;ADAPT.TENSOR INF.MED.LUNA CUAD.1001202AD;UND 
-8978;1001207 ADAICO 57x27√ò                             ;ADAPT.TENSOR SUP.MED.LUNA 1001207 ADAICO;UND 
+8977;1001202 ADAICO 60x26ÿ                             ;ADAPT.TENSOR INF.MED.LUNA CUAD.1001202AD;UND 
+8978;1001207 ADAICO 57x27ÿ                             ;ADAPT.TENSOR SUP.MED.LUNA 1001207 ADAICO;UND 
 13751;FVZ(DOBLE TROQUE) CHELSEA                         ;ADAPT+TOMA FUERZA+BOMBA C102 PARKER;UND 
 2885;9624                                              ;"TAPON HEMBRA AC.INOX.304 1_1/2""NPT.";UND 
 13750;FVR(CAMION SENCILLO) CHELSEA                      ;ADAPT+TOMA FUERZA+BOMBA G102 PARKER;UND 
@@ -177,10 +177,10 @@
 266;131                                               ;"AISLADOR CAUCHO 1""DIx1_1/4""DEx1/4""ESP";UND 
 3656;21474-014                                         ;LAMPARA LED-10 10-30V 10256R ROJA TRUCKL;UND 
 271;2021 - 334-C                                      ;"AISLADOR CAUCHO 7/8""DIx1_1/16""DEx5.5mm.";UND 
-272;134                                               ;"AISLADOR P/TUBO 1""(33mm√ò)EL-0400200.";UND 
+272;134                                               ;"AISLADOR P/TUBO 1""(33mmÿ)EL-0400200.";UND 
 14409;EL-0400500                                        ;"AISLADOR P/TUBO 1/2""16x28x107 EL-0400500";UND 
 567;19914                                             ;BUJE AMORTIGUADOR TR0016-028 W&CH.;UND 
-9074;EL-0400100                                        ;"AISLADOR P/TUBO 3/4""(27mm√ò)EL-0400100.";UND 
+9074;EL-0400100                                        ;"AISLADOR P/TUBO 3/4""(27mmÿ)EL-0400100.";UND 
 276;1802                                              ;ALARMA DE REVERSA 12V/24V 97DB.;UND 
 5406;BACK ALARM CJ                                     ;ALARMA REVERSA CJ INDUSTRY GROUP;UND 
 278;10222                                             ;"ALUM.0.040""ESPx103""ANCH.3003-H16.-ROLLO-";kg  
@@ -203,11 +203,11 @@
 8841;601032 CRAMARO                                    ;ANGULO SOPORTE INT. DER. 601032 CRAMARO;UND 
 8839;601033 CRAMARO                                    ;ANGULO SOPORTE INT. IZQ. 601033 CRAMARO;UND 
 9887;0009887                                           ;ANILLO DE ELEVACION FL169 71813169K HYVA;UND 
-8273;0008273                                           ;ANILLO DE PARADA 130√ò SOPRANO;UND 
-8274;0008274                                           ;ANILLO DE PARADA 149√ò SOPRANO;UND 
-8275;0008275                                           ;ANILLO DE PARADA 168√ò SOPRANO;UND 
-8276;0008276                                           ;ANILLO DE PARADA 190√ò SOPRANO;UND 
-8277;0008277                                           ;ANILLO DE PARADA 213√ò SOPRANO;UND 
+8273;0008273                                           ;ANILLO DE PARADA 130ÿ SOPRANO;UND 
+8274;0008274                                           ;ANILLO DE PARADA 149ÿ SOPRANO;UND 
+8275;0008275                                           ;ANILLO DE PARADA 168ÿ SOPRANO;UND 
+8276;0008276                                           ;ANILLO DE PARADA 190ÿ SOPRANO;UND 
+8277;0008277                                           ;ANILLO DE PARADA 213ÿ SOPRANO;UND 
 9882;0009882                                           ;ANILLO FIN DE CARRERA EXTERNO 191FL HYVA;UND 
 8067;04137.5407.40 SOPRANO                             ;ANILLO GUIA 04137.5407.40 SOPRANO;UND 
 8068;04137.5707.40 SOPRANO                             ;ANILLO GUIA 04137.5707.40 SOPRANO;UND 
@@ -215,11 +215,11 @@
 9884;0009884                                           ;ANILLO LEVANTADOR FL 191 71813191K HYVA;UND 
 9885;0009885                                           ;ANILLO PARADA EXTERIOR 169FL 71811169K H;UND 
 10021;01770560 HYVA                                     ;ANILLO SEGURIDAD 75 DIN 472 01770560HYVA;UND 
-12210;0012210                                           ;ANILLO SEGURIDAD A-12 (11mm√òINT);UND 
+12210;0012210                                           ;ANILLO SEGURIDAD A-12 (11mmÿINT);UND 
 320;13450                                             ;ANILLO SEGURIDAD A-38(35.2mm) LEVA EJES.;UND 
-9101;09101                                             ;ANILLO SEGURIDAD A-42 (38.5mm√òINT);UND 
+9101;09101                                             ;ANILLO SEGURIDAD A-42 (38.5mmÿINT);UND 
 321;58                                                ;ANILLO SEGURIDAD A-42(38.5mmDI)INT.LEVA.;UND 
-318;24612                                             ;ANILLO SEGURIDAD EXT.DIN471 A-55(50.8√òi);UND 
+318;24612                                             ;ANILLO SEGURIDAD EXT.DIN471 A-55(50.8ÿi);UND 
 330;5915                                              ;APOYO PARAL MOVIL EN-1400100.;UND 
 332;20766-013 - 10045 W&CH.                           ;"ARANDELA 1.125"" 10045 P/GRAPA W&CH.";UND 
 6812;3031SL                                            ;ARANDELA ABRAZADERA 3031SL INOX.304BETTS;UND 
@@ -229,28 +229,28 @@
 8162;80020 TODCO                                       ;ARANDELA ESPACIDORA RODILLO 80020 TODCO;UND 
 338;13186                                             ;"ARANDELA GR5 1_1/4""x60mmDEx3/16""ESP.";UND 
 340;854                                               ;"ARANDELA INT.LEVA 1_5/8"" 42DIx64DEx1.2mm";UND 
-344;16399                                             ;"ARANDELA PLANA 1_1/4""√ò.";UND 
-348;14365                                             ;"ARANDELA PLANA AC. INOX.1/2""√ò.";UND 
-9691;0009691                                           ;"ARANDELA PLANA AC.INOX.1/4""√ò.";UND 
-349;67                                                ;"ARANDELA PLANA AC.INOX.3/8""√ò.";UND 
-343;59                                                ;"ARANDELA PLANA GALV. 1""√ò.";UND 
-347;8666                                              ;"ARANDELA PLANA GALV. 7/8""√ò.";UND 
-351;2208                                              ;"ARANDELA PLANA GALV.1/2""√ò.";UND 
-6578;06578                                             ;"ARANDELA PLANA GALV.1/2""√ò.REDUCIDA";UND 
-352;5718                                              ;"ARANDELA PLANA GALV.1/4""√ò.";UND 
-354;969                                               ;"ARANDELA PLANA GALV.3/16""√ò.";UND 
+344;16399                                             ;"ARANDELA PLANA 1_1/4""ÿ.";UND 
+348;14365                                             ;"ARANDELA PLANA AC. INOX.1/2""ÿ.";UND 
+9691;0009691                                           ;"ARANDELA PLANA AC.INOX.1/4""ÿ.";UND 
+349;67                                                ;"ARANDELA PLANA AC.INOX.3/8""ÿ.";UND 
+343;59                                                ;"ARANDELA PLANA GALV. 1""ÿ.";UND 
+347;8666                                              ;"ARANDELA PLANA GALV. 7/8""ÿ.";UND 
+351;2208                                              ;"ARANDELA PLANA GALV.1/2""ÿ.";UND 
+6578;06578                                             ;"ARANDELA PLANA GALV.1/2""ÿ.REDUCIDA";UND 
+352;5718                                              ;"ARANDELA PLANA GALV.1/4""ÿ.";UND 
+354;969                                               ;"ARANDELA PLANA GALV.3/16""ÿ.";UND 
 11;809                                               ;"ARANDELA PLANA GALV.3/8"".";UND 
 12;64                                                ;"ARANDELA PLANA GALV.5/16"".";UND 
-357;65                                                ;"ARANDELA PLANA GALV.5/8"" √ò.";UND 
+357;65                                                ;"ARANDELA PLANA GALV.5/8"" ÿ.";UND 
 1323;20170                                             ;EMPAQUES CIL.NEUM. KNAAPPCO 10002 HEIL.;UND 
-13492;0013492                                           ;"ARANDELA PLANA GALV.9/16""√ò.REDUCIDA";UND 
+13492;0013492                                           ;"ARANDELA PLANA GALV.9/16""ÿ.REDUCIDA";UND 
 4472;15754                                             ;"ARANDELA PLANA REDUCIDA GALV. 5/16"".";UND 
-5842;05842                                             ;"ARANDELA PUNTA EJE K30 3_1/8""√ò";UND 
+5842;05842                                             ;"ARANDELA PUNTA EJE K30 3_1/8""ÿ";UND 
 364;19242                                             ;"ARANDELA SEGURIDAD 1/2"" DISC LOCK.PAR";UND 
 365;19247                                             ;"ARANDELA SEGURIDAD 3/4"" DISC LOCK.PAR";UND 
 368;19272                                             ;"ARANDELA SEGURIDAD 5/8"" DISC LOCK.PAR";UND 
 369;20718                                             ;"ARANDELA SEGURIDAD 7/8"" DISC LOCK.PAR";UND 
-1966;01172                                             ;"ARANDELA SEGURIDAD P/EJE 3_1/2""√ò";UND 
+1966;01172                                             ;"ARANDELA SEGURIDAD P/EJE 3_1/2""ÿ";UND 
 370;22073                                             ;ARANDELA SEGURIDAD.REF:2302.TAB LOCK.;UND 
 14492;No 10000783 PREMIER                               ;ARGOLLA DE TIRO 245DB-3 PREMIER.;UND 
 336;24818                                             ;ARANDELA ESPACIADORA TOPE S-26824 HENDRI;UND 
@@ -311,8 +311,8 @@
 967;15002                                             ;CILINDRO -ENSAMBLE- 6657AL BETTS.;UND 
 1011;15342                                             ;CINTA SOLD.BLANCA 0901190 ADAICO.;m   
 431;21064                                             ;BARRA PERFORADA AC.SKF-280 75x45mm.;Kg  
-1036;3690                                              ;"CODO 90¬∞ AC.150PSI 1_1/2""NPT.";UND 
-1048;7246                                              ;"CODO 90¬∞ AC.INOX.304 150PSI 1/4""NPT.";UND 
+1036;3690                                              ;"CODO 90∞ AC.150PSI 1_1/2""NPT.";UND 
+1048;7246                                              ;"CODO 90∞ AC.INOX.304 150PSI 1/4""NPT.";UND 
 434;22180                                             ;BARRA PERFORADA AC.SKF-280 80x45mm.;Kg  
 14500;0014500                                           ;BARRA PERFORADA AC.SKF-280 80x48mm.;Kg  
 435;95                                                ;BARRA PERFORADA AC.SKF-280 80x50mm.;Kg  
@@ -373,10 +373,10 @@
 3135;8665                                              ;"TORN.HEX.G8.RF.7/8""x5"".";UND 
 3140;6                                                 ;"TORN.HEX.G8.RO.1""x9"".";UND 
 2983;22751                                             ;"TORN.LAM.CAB.PANDA PHLLIPS GALV.5/16""x2""";UND 
-3230;19330                                             ;"TUBERIA AC.INOX.304 SCH40 1/4""√ò.";m   
+3230;19330                                             ;"TUBERIA AC.INOX.304 SCH40 1/4""ÿ.";m   
 3253;23455-004                                         ;"TUBERIA CERRAMIENTO GALV.1/2""x2mm.";m   
 4610;68090005 FUWA                                     ;BASE EJE-TENSOR 68090005 FUWA H=440mm.;UND 
-3288;358                                               ;"TUBERIA NEGRA AC.SCH80 4""√ò SIN COSTURA.";m   
+3288;358                                               ;"TUBERIA NEGRA AC.SCH80 4""ÿ SIN COSTURA.";m   
 4752;68090006 FUWA                                     ;BASE EJE-TENSOR 68090006 FUWA H=465mm.;UND 
 470;24242                                             ;BASE EPOXICA CORSHIELD RA-26 IMPRIMANTE;GAL 
 472;20990                                             ;BASE EPOXIMASTIC 25P-313 BLANCO DUPONT.;GAL 
@@ -395,25 +395,25 @@
 496;15018                                             ;"BISAGRA TIPO PIANO ALUM. 72"" A-714";m   
 8762;0008762                                           ;"BISAGRA TIRO 930A PREMIER (2""x4"").-PAR-";UND 
 13;1319                                              ;"BISAGRA TUBULAR 1/2"" O.";UND 
-498;8452                                              ;"BISAGRA TUBULAR 1/4""√ò.";UND 
+498;8452                                              ;"BISAGRA TUBULAR 1/4""ÿ.";UND 
 2071;23202                                             ;PERFIL ALUM.CANAL AMA/CAB-PISO AL:ROM005;m   
-500;987                                               ;"BISAGRA TUBULAR 5/8""√ò.";UND 
+500;987                                               ;"BISAGRA TUBULAR 5/8""ÿ.";UND 
 502;11924-009                                         ;BLOQUE CONTACTO ESTAND NA ZEN-L1111.;UND 
 503;19033                                             ;BLOQUE SOPORTE SENSOR ABS. S-27117;UND 
 4180;9-152                                             ;CABLE CONECTOR 9-152 PHILLIPS;UND 
 6753;0006753                                           ;CALIBRADOR KING-PIN TF-0110 HOLLAND.;UND 
 504;006-02134 SIN:PERNOS-TUERCAS-CUNAS                ;BOCIN EJE K-30 006-02134 SIN:PERNOS-CUNA;UND 
 11717;0011717                                           ;BOCIN EJE K-30 10-PERNOS+10-TCAS-SIN CUN;UND 
-5678;"C50LR-BR16-24GA RD HD HB ZNC 1/2""√ò                ";HUCK BOLT C50LR-BR16-24GA RD HD HB Z 1/2;UND 
+5678;"C50LR-BR16-24GA RD HD HB ZNC 1/2""ÿ                ";HUCK BOLT C50LR-BR16-24GA RD HD HB Z 1/2;UND 
 6168;105004 CRAMARO                                    ;"POLEA 5"" EJE - CABLE 105004 CRAMARO";UND 
 6169;105021 CRAMARO                                    ;"POLEA 5"" TRASERA - CABLE  105021 CRAMARO";UND 
-6431;0006431                                           ;"REDONDO AC.INOX.AISI304 4_1/2""√ò.";Kg  
+6431;0006431                                           ;"REDONDO AC.INOX.AISI304 4_1/2""ÿ.";Kg  
 2727;6277                                              ;"SOLDADURA APORTE ALUM.5356 3/32""-TIG-";Kg  
 4271;0004271                                           ;"SOLDADURA APORTE ALUMINIO-4043 1/16"".";kg  
 5787;05787                                             ;"TORN.HEX.INOX.RO.3/8""x5"".";UND 
 507;23089                                             ;BOCIN PARA FRENO DE DISCO AMPRO.;UND 
 515;23453-003                                         ;"BOLA INDICADORA FLUJO 3/8"" 88012402 EBW.";UND 
-3986;23618-055 - H31-6101 AMPRO                        ;"BOCIN+CUNAS+10-PERNOS P/EJE 5""√ò PRO-ROLL";UND 
+3986;23618-055 - H31-6101 AMPRO                        ;"BOCIN+CUNAS+10-PERNOS P/EJE 5""ÿ PRO-ROLL";UND 
 10343;W01-358-7504 AMPARTS                              ;BOLSA AIRE  EJE AUTODIRECC. AMPARTS;UND 
 7112;434A PREMIER                                      ;ESPACIADOR 434A BISAGRA TIRO PREMIER;UND 
 1527;24990                                             ;JUNTAS BOMBA+4CILIND.0601209/13 ADAICO;UND 
@@ -445,7 +445,7 @@
 2692;23017                                             ;SENSOR.WHEEL.90 DEG.1.6FT.;UND 
 2746;18803 -311-4964 HEIL                              ;SOPORTE CENTRAL GUARDABARRO TOLVA HEIL.;UND 
 536;15897                                             ;BOMBA HIDRONEUM.1000mm 0601040 ADAI;UND 
-3289;18926                                             ;"TUBERIA NEGRA AC.SCH80 5""√ò SIN COSTURA.";m   
+3289;18926                                             ;"TUBERIA NEGRA AC.SCH80 5""ÿ SIN COSTURA.";m   
 3414;22076                                             ;TUERCA PUNTA DE EJE.REF:2305(OUTER NUT);UND 
 1513;14051                                             ;TUERCAS EJE P2KM100-AP DANA -JUEGO-;UND 
 3425;24266                                             ;TWIST LOCK 1101-1207-L T/CHASIS BUFFERS.;UND 
@@ -456,7 +456,7 @@
 542;1046                                              ;BOMBILLO 12V 2-FILAMENTOS PATA DISPAREJA;UND 
 546;10105-004                                         ;BOMBILLO 24V 1-FIL.PATA PAREJA.;UND 
 548;10105-007                                         ;BOMBILLO LAMP.LUZ PLACA 12V.17131.;UND 
-551;17463                                             ;BOMBIN+LLAVE BOTELLERO ADAICO 1¬∫ S;UND 
+551;17463                                             ;BOMBIN+LLAVE BOTELLERO ADAICO 1∫ S;UND 
 552;6916                                              ;BORNE PARA BATERIA.;UND 
 12542;0012542                                           ;BOTONERA MANDO POLIPASTO TLP5 REMOTEK;UND 
 4478;23618-056                                         ;BRAKE SHOE AND LING ASSY D10-010101.   1;UND 
@@ -477,16 +477,16 @@
 574;10737                                             ;BUJE CAUCHO EK-6101900 -CAUCHO TOYOTA;UND 
 577;768                                               ;BUJE CAUCHO-METAL EK-1101600.-CAUCHO-;UND 
 579;19565                                             ;BUJE CENTRAL TENSOR LONA EQ-0100100.;UND 
-8009;"BUJE COLLARIN NYLON 1_5/8""√òIx2""√òEx1_1/2""LONG.     ";"BUJE COLLARIN NYLON 1_5/8""√òIx2""√òEx1_1/2""";UND 
+8009;"BUJE COLLARIN NYLON 1_5/8""ÿIx2""ÿEx1_1/2""LONG.     ";"BUJE COLLARIN NYLON 1_5/8""ÿIx2""ÿEx1_1/2""";UND 
 581;23694-001                                         ;BUJE COLLARIN-LEVA 38.3DIx48,9DEx46mmLON;UND 
 12873;0012873                                           ;"BUJE CONTRAPESO 1""-2"" 1000-796 NYLON";UND 
 12877;012877-                                           ;"BUJE CONTRAPESO 3/4""-2"" IK-0100503 NYLON";UND 
 584;20494                                             ;BUJE DE CAUCHO 434A PREMIER.BISAGRA-TIRO;UND 
 586;14786                                             ;BUJE DE GOMA P/CONTRAPESO 2770 HACKNEY;UND 
-5679;"C50LR-BR20-20GA RD HD HB ZNC 5/8""√ò                ";HUCK BOLT C50LR-BR20-20GA RD HD HB Z 5/8;UND 
+5679;"C50LR-BR20-20GA RD HD HB ZNC 5/8""ÿ                ";HUCK BOLT C50LR-BR20-20GA RD HD HB Z 5/8;UND 
 588;EK-0101300.                                       ;BUJE EMPACK 95DEx73DIx104LGx46ALT.(mm).;UND 
 6180;PIV-KIT                                           ;KIT CONVERSION CAJA CONTROL PIVOTAL EDGE;KIT 
-6074;0006074                                           ;"BUJE EMPACK TRUNNION 5""√ò";UND 
+6074;0006074                                           ;"BUJE EMPACK TRUNNION 5""ÿ";UND 
 590;13352                                             ;BUJE ESFERICO LEVA 38mmDI E-2517 DANA SP;UND 
 591;7996                                              ;BUJE ESFERICO SOPORTE LEVA 41x55x25mm.;UND 
 2072;ROM006 ALUMINA                                    ;PERFIL ALUM.COMODIN PISO ROM006 ALUMINA.;m   
@@ -514,12 +514,12 @@
 5765;59003 TODCO                                       ;"CABLE 130"" 59003 TODCO";UND 
 12323;0012323                                           ;"CABLE AC. 3/4""x12200mm.DEL. AI-38000005";UND 
 12324;0012324                                           ;"CABLE AC. 3/4""x19000mm.TRAS. AI-38000006";UND 
-614;1774                                              ;"CABLE AC.ALMA ACERO 1/4""√ò.";m   
-3304;18812                                             ;"TUBO ALUM.SCH10 3""√òx20""PIES.";UND 
-12211;012211                                            ;"CABLE AC.ALMA DE FIBRA 1/4""√ò.";m   
-616;16545                                             ;"CABLE AC.ALMA DE FIBRA 3/16""√ò.";m   
-9661;0009661                                           ;"CABLE AC.INOXIDABLE 1/8""√ò";m   
-4268;0004268                                           ;"CABLE AC.INOXIDABLE 5/16""√ò 7x19.";m   
+614;1774                                              ;"CABLE AC.ALMA ACERO 1/4""ÿ.";m   
+3304;18812                                             ;"TUBO ALUM.SCH10 3""ÿx20""PIES.";UND 
+12211;012211                                            ;"CABLE AC.ALMA DE FIBRA 1/4""ÿ.";m   
+616;16545                                             ;"CABLE AC.ALMA DE FIBRA 3/16""ÿ.";m   
+9661;0009661                                           ;"CABLE AC.INOXIDABLE 1/8""ÿ";m   
+4268;0004268                                           ;"CABLE AC.INOXIDABLE 5/16""ÿ 7x19.";m   
 306;125484                                            ;"ANGULO ALUM.1_1/2""x1_1/2""x1/4"" 0021-ALUM";m   
 16;18157                                             ;"CABLE AC.PLASTIFICADO 1/16"" A 1/8"".";m   
 10375;0010375                                           ;CABLE ALIM.ELECT.MOD.BLOQ.EJE DIR.E10SP;UND 
@@ -594,7 +594,7 @@
 725;20779-017                                         ;CALCOM.ADV.AC-4406600.;UND 
 728;19074                                             ;CALCOM.ADV.CARGAR CON BOMBA EH-14016;UND 
 7281;EH-1408300                                        ;CALCOM.ADV.CICLISTA  EH-1408300;UND 
-730;EH-1406900.                                       ;CALCOM.ADV.DA√ëO SELLO EH-1406900.;UND 
+730;EH-1406900.                                       ;CALCOM.ADV.DA—O SELLO EH-1406900.;UND 
 7280;EH-1408200                                        ;CALCOM.ADV.DE ALEJAMIENTO EH-1408200;UND 
 7283;EH-1408400                                        ;CALCOM.ADV.DE ALEJAMIENTO EH-1408400;UND 
 7285;EH-1408600                                        ;CALCOM.ADV.DE APLASTAMIENTO EH-1408600;UND 
@@ -629,7 +629,7 @@
 7114;AN-3403900                                        ;CALCOM.CAP.6000 GAL AN-3403900;UND 
 12665;AI-38016200                                       ;CALCOM.CAP.MAX PLATAFOR.8TON AI-38016200;UND 
 8588;EH-1409600 (90x880mm)                             ;CALCOM.CAP.MAX. 32 TON. EH-1409600;UND 
-1061;4066                                              ;"CODO 90¬∞ SOLD.AC.SCH40 1_1/2""√ò.";UND 
+1061;4066                                              ;"CODO 90∞ SOLD.AC.SCH40 1_1/2""ÿ.";UND 
 13412;0013412                                           ;CALCOM.CAP.MAX.20TON. AO-10003800;UND 
 757;AF-6406200.                                       ;CALCOM.CAP.MAX.25TON.AF-6406200.;UND 
 756;AC-4503101                                        ;CALCOM.CAP.MAX.26TON. AC-4503101;UND 
@@ -647,7 +647,7 @@
 767;14369                                             ;CALCOM.COMBUSTIBLE AB-1089200.;UND 
 14392;0014392                                           ;CALCOM.COMO CONDUZCO #767 35x35 cm   ;UND 
 768;18288                                             ;CALCOM.COMO CONDUZCO #767 INVIAS.;UND 
-13301;AH-1002506 -69x103mm-                             ;CALCOM.CONEXI√ìN ACOPLE LUCES AH-1002506;UND 
+13301;AH-1002506 -69x103mm-                             ;CALCOM.CONEXI”N ACOPLE LUCES AH-1002506;UND 
 771;EH-1402900 - SERVICE(BLUE)                        ;CALCOM.CONTROL EH-1402900 -AZUL-.;UND 
 10846;EH-14011800                                       ;CALCOM.CONVERTIDOR 12-24V ABS EH14011800;UND 
 10047;EH-14011200 - XVA AI-35                           ;CALCOM.CORRIENTE CARPADO-T.A. EH14011200;UND 
@@ -692,9 +692,9 @@
 2092;16034                                             ;PERFIL ALUM.PISO CE.CAB.ROM041/AR:ROM028;m   
 823;AF-601400                                         ;CALCOM.LUBRIC.SUSP.L-IZQ.AF-6014000.;UND 
 12919;0012919                                           ;CALCOM.MANDO BLOQUEO EJE DIR.EH-14013700;UND 
-826;21418                                             ;CALCOM.No-1 EH-1001600.108mm.√ò.;UND 
-827;21419                                             ;CALCOM.No-2 EH-1001700.108mm.√ò.;UND 
-828;21420                                             ;CALCOM.No-3 EH-1001800.108mm.√ò.;UND 
+826;21418                                             ;CALCOM.No-1 EH-1001600.108mm.ÿ.;UND 
+827;21419                                             ;CALCOM.No-2 EH-1001700.108mm.ÿ.;UND 
+828;21420                                             ;CALCOM.No-3 EH-1001800.108mm.ÿ.;UND 
 833;EH-1403300                                        ;CALCOM.NOTAS SEGURIDAD EH-1403300;UND 
 8790;EH-1403500                                        ;CALCOM.NOTAS SEGURIDAD EH-1403500;UND 
 14465;EH-14014200                                       ;CALCOM.OPER. VOLCO+PUERTA H. EH-14014200;UND 
@@ -713,7 +713,7 @@
 14494;AE-46009400                                       ;CALCOM.PRECAUCION CONTRAPESO AE-46009400;UND 
 853;EH-1406800                                        ;CALCOM.PRECAUCION MANT.MANHOLE EH-1;UND 
 854;21817-004                                         ;CALCOM.PRECAUCION MANUAL AF-6011900.;UND 
-9612;AF-6011900.                                       ;CALCOM.PRECAUCI√ìN MANUAL AF-6011900.;UND 
+9612;AF-6011900.                                       ;CALCOM.PRECAUCI”N MANUAL AF-6011900.;UND 
 14495;AE-46009500                                       ;CALCOM.PRECAUCION ORD.DESCAR AE-46009500;UND 
 858;22238-002                                         ;CALCOM.PRECAUCION REVERSA AI-2207600;UND 
 859;17597-006                                         ;CALCOM.PRECAUCION TEMPER.EH-1400600;UND 
@@ -730,7 +730,7 @@
 867;17597-007                                         ;CALCOM.PRESION TUBERIA EH-1400800.;UND 
 871;EH-1403400                                        ;CALCOM.PUNTO LUBRICACION EH-1403400.;UND 
 8590;0008590                                           ;CALCOM.PURGA-AIRE CIL.HID.AI-2208703;UND 
-875;EH-0300800 -A.                                    ;CALCOM.ROMARCO ¬Æ-70x935mm. -SIN TEL-.;UND 
+875;EH-0300800 -A.                                    ;CALCOM.ROMARCO Æ-70x935mm. -SIN TEL-.;UND 
 873;EH-0300500-1                                      ;CALCOM.ROMARCO 60x710mm EH-0300500-1;UND 
 13298;AH-1002503 -45x63mm-                              ;CALCOM.SERVICIO CONTIN.SEMI-1 AH-1002503;UND 
 13299;AH-1002504 -45x63mm-                              ;CALCOM.SERVICIO CONTIN.SEMI-2 AH-1002504;UND 
@@ -759,8 +759,8 @@
 4356;EH-1407200                                        ;CALCOMANIA EVITAR APLASTAM EH-1407200;UND 
 4415;EH-1404900                                        ;CALCOMANIA INSTR.OPERAC. DESC-LAT.EH-14.;UND 
 10438;EH-14011400 YCA AC-48                             ;CALCOMANIA INSTR.OPERAC.ENGANCHE 335NTEL;UND 
-2215;AM4308002                                         ;CALCOMAN√çA INSTRUCCIONES TECHO AM4308002;UND 
-6946;10001837 EN ESPA√ëOL KINEDYNE                      ;CALCOMANIA K2KB699 -10001837 EN ESPA√ëOL-;UND 
+2215;AM4308002                                         ;CALCOMANÕA INSTRUCCIONES TECHO AM4308002;UND 
+6946;10001837 EN ESPA—OL KINEDYNE                      ;CALCOMANIA K2KB699 -10001837 EN ESPA—OL-;UND 
 8302;EH-1409300                                        ;CALCOMANIA MANDOS ELEV.TECHO EH-1409300;UND 
 9109;EH-14010100                                       ;CALCOMANIA NOTAS DE SEGURIDAD EH-14;UND 
 13747;0013747                                           ;CALCOMANIA PERILLA FRENOS EH-14014000;UND 
@@ -771,8 +771,8 @@
 10440;EH-14011600                                       ;CALCOMANIA SEMIRREMOLQUE EH-14011600;UND 
 4688;EH-1407400                                        ;CALCOMANIA SIST.ELEVAC.EJES EH-1407400.;UND 
 2751;22356-003                                         ;SOPORTE FIJO EZ-OFF RO120EB MOUNTAIN TAR;UND 
-76;21780                                             ;CALCOMAN√çA TORQUE SUSP.FUWA EK-6600001.;UND 
-2230;EK5102000                                         ;CALCOMAN√çA TORQUE SUSP.ROMARCO EK5102000;UND 
+76;21780                                             ;CALCOMANÕA TORQUE SUSP.FUWA EK-6600001.;UND 
+2230;EK5102000                                         ;CALCOMANÕA TORQUE SUSP.ROMARCO EK5102000;UND 
 4353;EH-1407100                                        ;CALCOMANIA UTILIZAR CASCO EH-1407100.;UND 
 13586;0013586                                           ;CALCOMANIA XBo AM-71 SP-LT 29cm;UND 
 3989;25036-002                                         ;CALIPER PAN 22-1 WABCO IZQUIERDO(LEFT).;UND 
@@ -782,14 +782,14 @@
 894;23683                                             ;CAMARA FRENO 2024TLD65H EJE FRENO DISCO.;UND 
 895;871                                               ;"CAMARA FRENO AIRE T-30 3/8""NPT 1/2""PASAD";UND 
 24;2144                                              ;CAMARA FRENO AIRE T-3030 3/8NPT 1/2PASA;UND 
-11842;SN-706W-D                                         ;C√ÅMARA REVERSA+MONITOR INALAMBRI.SN706WD;KIT 
+11842;SN-706W-D                                         ;C¡MARA REVERSA+MONITOR INALAMBRI.SN706WD;KIT 
 11190;SN718WA -XBo-                                     ;CAMARA REVERSA+MONITOR INALAMBRI.SN718WA;KIT 
 11191;SN-718RV-B SHENZHEN SUNNUO -CBCLA-                ;CAMARA REVERSA+MONITOR SN-718RV-B SHENZH;KIT 
 8187;0008187                                           ;CANAL AC.A-36 200x75x8.5x11.5mm.UPN200;kg  
 897;6689                                              ;"CANAL AC.A36.4""x102x40x4.6x7.5x5.4Lb/p";kg  
 11548;0011548                                           ;CANCAMO CERRADO 8x60mm+TUERCA -CHAZO EX-;UND 
 899;5058                                              ;CANDADO MEDIANO 110-40YALE O F3-FLEXON.;UND 
-900;4872                                              ;CANDADO PEQUE√ëO 110-30YALE.;UND 
+900;4872                                              ;CANDADO PEQUE—O 110-30YALE.;UND 
 1017;13054                                             ;COCA EXTREMA RESORTE EK-6300200.;UND 
 150;24623                                             ;"ABRAZADERA PARA EXHOSTO 2_1/2"".";UND 
 155;11220                                             ;ABRAZADERA T/INDUSTRIAL T-509 57-62mm.;UND 
@@ -821,7 +821,7 @@
 2171;9290                                              ;"PIVOT BLOCK 3510 MANHOLE 20"" SOLIMAR.";UND 
 9903;0009903                                           ;CATALIZADOR POLIURETANO 275001 LEMBER;GAL 
 8089;08089                                             ;CATALIZADOR POLIURETANO 6201-Q PINTUNAL;GAL 
-2307;2110                                              ;"RACOR 500 1/4""√ò ANILLO";UND 
+2307;2110                                              ;"RACOR 500 1/4""ÿ ANILLO";UND 
 943;18159                                             ;CATALIZADOR POLIURETANOS IW205 AXALTA;GAL 
 5637;VG16260 DUPONT.                                   ;CATALIZADOR PRIME'N SEAL VG16260 DUPONT;Lt  
 2775;16404                                             ;SUSP.INTRAAX AAEDL30K 12RH ELEV.HENDRICK;UND 
@@ -830,7 +830,7 @@
 25;02245                                             ;CAUCHO GUARDAPOLVO-610x800mm-.;UND 
 26;6135                                              ;CAUCHO PARACHOQUE CONICO EH-0100100;UND 
 948;123                                               ;CAUCHO PARACHOQUE RECTANGULAR.;UND 
-7302;EG-13200601                                       ;CAUCHO SUJECION TABLILLA PELDA√ëO EG-132;UND 
+7302;EG-13200601                                       ;CAUCHO SUJECION TABLILLA PELDA—O EG-132;UND 
 951;127                                               ;CAUCHO SUPERIOR EJE REDONDO EK-1102400.;UND 
 14471;0014471                                           ;CAUCHO TENSIONADOR CARPA 1 m  -PULPO;UND 
 952;18304                                             ;"CAUCHO TENSIONADOR CARPA 10"" 2210 KINEDY";UND 
@@ -840,12 +840,12 @@
 955;473                                               ;CHAPETA RIN ARTILLERO 1927774.;UND 
 4422;11388                                             ;"CHUMACERA SY 1"" P-205 UCP205-100D1 NTN.";UND 
 959;14458 - 9295LH02-MAINEX-                          ;CIERRE PASADOR +SOPORTE GL-14125 PIN-12;UND 
-13380;"PARA TUBO DE 1/2""(21mm√òEXT)                       ";CIERRE PUERTA 21mm√ò GL11118 STEEL ZP-KIT;UND 
-10952;"PARA TUBO DE 3/4""(27mm√òEXT)                       ";CIERRE PUERTA 27mm√ò GL11130 STEEL ZP-KIT;UND 
+13380;"PARA TUBO DE 1/2""(21mmÿEXT)                       ";CIERRE PUERTA 21mmÿ GL11118 STEEL ZP-KIT;UND 
+10952;"PARA TUBO DE 3/4""(27mmÿEXT)                       ";CIERRE PUERTA 27mmÿ GL11130 STEEL ZP-KIT;UND 
 960;1201378-ESPECIAL-ADAICO                           ;CIERRE PUERTA+LLAVES 1201375-ESPECIAL;UND 
 961;17275                                             ;CIERRE PUERTA+LLAVES-1201375-ADAICO-;UND 
 10342;C305-1100 AMPARTS                                 ;CILINDRO DE CIERRE EJE AUTODIREC.AMPARTS;UND 
-964;0601150 ADAICO                                    ;CILINDRO ELEVACION 40√ò x 1000mm;UND 
+964;0601150 ADAICO                                    ;CILINDRO ELEVACION 40ÿ x 1000mm;UND 
 966;13475                                             ;CILINDRO ELEVACION 600mm 0601120 ADAICO.;UND 
 11645;FEE A179-5-06230-229-K1660-HC HYVA                ;CILINDRO H.FEE A179-5-06230-229-K1660-HC;UND 
 12492;GHS245x5x7100B REF:29-001 HIDROMAS - GALIPOGLU    ;CILINDRO HID. GHS245x5x7100B HIDROMAS;UND 
@@ -854,17 +854,17 @@
 14398;0014398                                           ;CILINDRO HID.GHS175-5-8000 E TEL.SIL.HID;UND 
 968;25627                                             ;"CILINDRO HIDR.1_1/2""x660mm-CARR.AX-01000";UND 
 970;AF-6000100                                        ;"CILINDRO HIDR.11""x5""x450mm AF-6000100.";UND 
-14060;0014060                                           ;"CILINDRO HIDR.1-1/4""√ò AO-11 CILINDRO AL";UND 
-9133;AP-2702700                                        ;"CILINDRO HIDR.2""√ò AP-2702700 COMPUERTA";UND 
+14060;0014060                                           ;"CILINDRO HIDR.1-1/4""ÿ AO-11 CILINDRO AL";UND 
+9133;AP-2702700                                        ;"CILINDRO HIDR.2""ÿ AP-2702700 COMPUERTA";UND 
 1641;19022                                             ;LEVA ENSAMBLADA+PALANCA ALUM.9980 HEIL.;UND 
-12199;AI-38000020                                       ;"CILINDRO HIDR.6""√òx4""x1050mm AI-38 XVAND";UND 
+12199;AI-38000020                                       ;"CILINDRO HIDR.6""ÿx4""x1050mm AI-38 XVAND";UND 
 12625;0012625                                           ;CILINDRO NEUM.MAL-CM-32-100-LB XHNOTION;UND 
 12626;0012626                                           ;CILINDRO NEUM.MAL-CM-40-100-LB XHNOTION;UND 
 12455;0012455                                           ;CILINDRO NEUM.MAL-U-40-150 XHNOTION;UND 
 12456;0012456                                           ;CILINDRO NEUM.MAL-U-40-75 XHNOTION;UND 
 12303;0012303                                           ;"CILINDRO NEUM.SC100-200-CB-AB 1/2""XHNOTI";UND 
 12629;0012629                                           ;"CILINDRO NEUM.SC80-160-CB-Y 3/8""XHNOTION";UND 
-3232;21926                                             ;"TUBERIA AC.INOX.304 SCH40 1_1/4""√ò.";m   
+3232;21926                                             ;"TUBERIA AC.INOX.304 SCH40 1_1/4""ÿ.";m   
 998;5485                                              ;CINTA DE AMARRE PLASTICA DE 10cm-NEGRA-;UND 
 999;1795                                              ;CINTA DE AMARRE PLASTICA DE 15cm.;UND 
 1000;6715                                              ;CINTA DE AMARRE PLASTICA DE 25cm-NEGRA-;UND 
@@ -885,47 +885,47 @@
 1013;14982                                             ;CLIP SENSOR CrNi 899 759 815 4.;UND 
 1605;24610                                             ;LAMINA ALFAJOR INOX.304 ACAB-1 3mm.;Kg  
 1014;EK-0100800                                        ;COCA EXTREMA DEL RESORTE COD:EK-0100800.;UND 
-7407;07407                                             ;"CODO 45¬∞ AC.3000PSI 3/4""NPT";UND 
-14442;0014442                                           ;"CODO 45¬∞ AC.3000PSI 3/8""NPT.";UND 
-1019;20823                                             ;"CODO 45¬∞ AC.GALV.150PSI 3""NPT.";UND 
-1021;25404                                             ;"CODO 45¬∞ ALUM.L/R 3"" 40111C BTI.";UND 
-1022;25406                                             ;"CODO 45¬∞ ALUM.L/R 4"" 40127C BTI.";UND 
-1024;20500                                             ;"CODO 45¬∞ LR ALUM.4"" BEL445AL BETTS.";UND 
-1028;2509                                              ;"CODO 45¬∞ SOLD.AC.SCH40 2""√ò.";UND 
-1029;2447                                              ;"CODO 45¬∞ SOLD.AC.SCH40 3""√ò.";UND 
-1030;1051                                              ;"CODO 45¬∞ SOLD.AC.SCH40 4""√ò.";UND 
-1032;20730                                             ;"CODO 45¬∞ SOLD.INOX.304 SCH10.2""√ò.";UND 
-1033;3068-(CC)                                         ;"CODO 45¬∞ SOLD.INOX.304.SCH10 3""√ò.";UND 
-1034;5867                                              ;"CODO 45¬∞ SOLD.INOX.304.SCH10.4""√ò.";UND 
-1035;3067                                              ;"CODO 45¬∞ SOLD.INOX.304.SCH40 4""√ò.";UND 
+7407;07407                                             ;"CODO 45∞ AC.3000PSI 3/4""NPT";UND 
+14442;0014442                                           ;"CODO 45∞ AC.3000PSI 3/8""NPT.";UND 
+1019;20823                                             ;"CODO 45∞ AC.GALV.150PSI 3""NPT.";UND 
+1021;25404                                             ;"CODO 45∞ ALUM.L/R 3"" 40111C BTI.";UND 
+1022;25406                                             ;"CODO 45∞ ALUM.L/R 4"" 40127C BTI.";UND 
+1024;20500                                             ;"CODO 45∞ LR ALUM.4"" BEL445AL BETTS.";UND 
+1028;2509                                              ;"CODO 45∞ SOLD.AC.SCH40 2""ÿ.";UND 
+1029;2447                                              ;"CODO 45∞ SOLD.AC.SCH40 3""ÿ.";UND 
+1030;1051                                              ;"CODO 45∞ SOLD.AC.SCH40 4""ÿ.";UND 
+1032;20730                                             ;"CODO 45∞ SOLD.INOX.304 SCH10.2""ÿ.";UND 
+1033;3068-(CC)                                         ;"CODO 45∞ SOLD.INOX.304.SCH10 3""ÿ.";UND 
+1034;5867                                              ;"CODO 45∞ SOLD.INOX.304.SCH10.4""ÿ.";UND 
+1035;3067                                              ;"CODO 45∞ SOLD.INOX.304.SCH40 4""ÿ.";UND 
 4326;17318                                             ;"CODO 90.AC-GALV.3/8""NPT.";UND 
-1037;2451                                              ;"CODO 90¬∞ AC.150PSI 2""NPT.";UND 
-1042;603                                               ;"CODO 90¬∞ AC.3000PSI 3/4""NPT.";UND 
-14111;0014111                                           ;"CODO 90¬∞ AC.3000PSI 3/8""NPT.";UND 
-1044;6935                                              ;"CODO 90¬∞ AC.300PSI 3""NPT.";UND 
-1039;7821                                              ;"CODO 90¬∞ AC.300PSI.1""NPT.";UND 
-1046;20824                                             ;"CODO 90¬∞ AC.GALV.3""NPT.150PSI.";UND 
-1053;25403                                             ;"CODO 90¬∞ ALUM.L/R 3"" 40111A BTI.";UND 
-1054;20501                                             ;"CODO 90¬∞ ALUM.L/R 3"" BEL390AL BETTS.";UND 
+1037;2451                                              ;"CODO 90∞ AC.150PSI 2""NPT.";UND 
+1042;603                                               ;"CODO 90∞ AC.3000PSI 3/4""NPT.";UND 
+14111;0014111                                           ;"CODO 90∞ AC.3000PSI 3/8""NPT.";UND 
+1044;6935                                              ;"CODO 90∞ AC.300PSI 3""NPT.";UND 
+1039;7821                                              ;"CODO 90∞ AC.300PSI.1""NPT.";UND 
+1046;20824                                             ;"CODO 90∞ AC.GALV.3""NPT.150PSI.";UND 
+1053;25403                                             ;"CODO 90∞ ALUM.L/R 3"" 40111A BTI.";UND 
+1054;20501                                             ;"CODO 90∞ ALUM.L/R 3"" BEL390AL BETTS.";UND 
 3607;2921                                              ;VALV.VENTEO 6238ALV PRESION+VACIO BET;UND 
 3626;19106                                             ;VIGA LOGISTICA K2 9075-102 ALUM.KINEDYNE;UND 
-1055;25405                                             ;"CODO 90¬∞ ALUM.L/R 4"" 40127A BTI.";UND 
-1056;20499                                             ;"CODO 90¬∞ ALUM.L/R 4"" BEL490AL BETTS.";UND 
-1063;2450                                              ;"CODO 90¬∞ SOLD.AC.SCH40 2""√ò.";UND 
-1064;2054                                              ;"CODO 90¬∞ SOLD.AC.SCH40 3""√ò.";UND 
-1065;599                                               ;"CODO 90¬∞ SOLD.AC.SCH40 4""√ò.";UND 
-12922;T40633A.40 BTI                                    ;"CODO 90¬∞ SOLD.ALUM.SCH40 3""√ò T40633A.40";UND 
-12685;T40591A.40 BTI                                    ;"CODO 90¬∞ SOLD.ALUM.SCH40 4""√ò T40591A.40";UND 
-1068;3064                                              ;"CODO 90¬∞ SOLD.INOX.304 SCH10 2""√ò.";UND 
-13149;0013149                                           ;"CODO 90¬∞ SOLD.INOX.304 SCH10 2_1/2""√ò.";UND 
-1069;3029                                              ;"CODO 90¬∞ SOLD.INOX.304 SCH10 3""√ò.";UND 
-1070;2470                                              ;"CODO 90¬∞ SOLD.INOX.304 SCH10 4""√ò.";UND 
-1073;3062                                              ;"CODO 90¬∞ SOLD.INOX.304 SCH40 4""√ò.";UND 
-1075;19437                                             ;"CODO 90¬∞ SOLD.INOX.316L SCH10 4""√ò.";UND 
-1077;15331                                             ;"CODO 90¬∫ AC.GALV.1_1/2""";UND 
-6292;0006292                                           ;"CODO 90¬∫ CALIBRE-16  4""√òEXT RADIO CORTO";UND 
-10860;0010860                                           ;"CODO HEMBRA-MACHO 45¬∞ AC.GALV.1""NPT.";UND 
-1080;3121                                              ;"CODO HEMBRA-MACHO 90¬∞ AC.GALV.2""NPT.";UND 
+1055;25405                                             ;"CODO 90∞ ALUM.L/R 4"" 40127A BTI.";UND 
+1056;20499                                             ;"CODO 90∞ ALUM.L/R 4"" BEL490AL BETTS.";UND 
+1063;2450                                              ;"CODO 90∞ SOLD.AC.SCH40 2""ÿ.";UND 
+1064;2054                                              ;"CODO 90∞ SOLD.AC.SCH40 3""ÿ.";UND 
+1065;599                                               ;"CODO 90∞ SOLD.AC.SCH40 4""ÿ.";UND 
+12922;T40633A.40 BTI                                    ;"CODO 90∞ SOLD.ALUM.SCH40 3""ÿ T40633A.40";UND 
+12685;T40591A.40 BTI                                    ;"CODO 90∞ SOLD.ALUM.SCH40 4""ÿ T40591A.40";UND 
+1068;3064                                              ;"CODO 90∞ SOLD.INOX.304 SCH10 2""ÿ.";UND 
+13149;0013149                                           ;"CODO 90∞ SOLD.INOX.304 SCH10 2_1/2""ÿ.";UND 
+1069;3029                                              ;"CODO 90∞ SOLD.INOX.304 SCH10 3""ÿ.";UND 
+1070;2470                                              ;"CODO 90∞ SOLD.INOX.304 SCH10 4""ÿ.";UND 
+1073;3062                                              ;"CODO 90∞ SOLD.INOX.304 SCH40 4""ÿ.";UND 
+1075;19437                                             ;"CODO 90∞ SOLD.INOX.316L SCH10 4""ÿ.";UND 
+1077;15331                                             ;"CODO 90∫ AC.GALV.1_1/2""";UND 
+6292;0006292                                           ;"CODO 90∫ CALIBRE-16  4""ÿEXT RADIO CORTO";UND 
+10860;0010860                                           ;"CODO HEMBRA-MACHO 45∞ AC.GALV.1""NPT.";UND 
+1080;3121                                              ;"CODO HEMBRA-MACHO 90∞ AC.GALV.2""NPT.";UND 
 1082;13724                                             ;"COLLAR 4"" MANHOLE-20"" AC.3176MS BETTS.";UND 
 1083;5695                                              ;"COLLAR 4"" MANHOLE-20""AC.INOX 3176SL BETT";UND 
 12866;0012866                                           ;"COLLAR 6"" AC. 6916MS-6 BETTS MH-20""8555";UND 
@@ -933,9 +933,9 @@
 4495;25424                                             ;"COLLAR ALUM.4"" MANHOLE-20""3176AE BETTS.";UND 
 1084;25372                                             ;"COLLAR FLANCHE AC.ZINC 3LC-2R20G 5/8""HUC";UND 
 4657;25371                                             ;"COLLAR FLANCHE AC.ZINC.3LC-2R16G 1/2""HUC";UND 
-4659;16223                                             ;"COLLAR STANDARD STEEL 2LC-R10G 5/16""√ò.";UND 
-1088;15126                                             ;"COLLAR STANDARD STEEL 2LC-R12G 3/8""√ò.";UND 
-1089;16222                                             ;"COLLAR STANDARD STEEL 2LC-R8G 1/4""√ò.";UND 
+4659;16223                                             ;"COLLAR STANDARD STEEL 2LC-R10G 5/16""ÿ.";UND 
+1088;15126                                             ;"COLLAR STANDARD STEEL 2LC-R12G 3/8""ÿ.";UND 
+1089;16222                                             ;"COLLAR STANDARD STEEL 2LC-R8G 1/4""ÿ.";UND 
 8533;0008533                                           ;COLLARIN FUNDIDO EJE K-30 -SPIDER-;UND 
 1287;21911                                             ;EMPAQUE NITRILO 146DEx70DIx3mm-ESP.S/PL.;UND 
 4469;26452                                             ;COLLARIN HUCK 11541 LC-2R36G.;UND 
@@ -954,7 +954,7 @@
 31;9087                                              ;CONECTOR TUBULAR AISLADO 16-14 AZUL.;UND 
 1109;24912                                             ;CONO TOLVA ALUM.5067 SOLIMAR.;UND 
 1111;9434                                              ;CONTACTOR 220VAC LC1D18M7 SCHNEIDER ELCT;UND 
-1059;8669                                              ;"CODO 90¬∞ SOLD.AC.INOX.304 SCH40 1""√ò.";UND 
+1059;8669                                              ;"CODO 90∞ SOLD.AC.INOX.304 SCH40 1""ÿ.";UND 
 8236;CB180S2R                                          ;CONTRABALANCE 1CAMISA 180CM AIRIBUZ-GAMI;UND 
 1112;2864                                              ;CONTROL AIRE ACK-203W&CH/AK-134-3 H(KIT);UND 
 4777;0004777                                           ;CONVERTIDOR 12-24v COMP. P/ ABS,ABS-RSS+;UND 
@@ -983,7 +983,7 @@
 1190;560                                               ;"CUADRADO AC.CIAL.LC.3/8"".";kg  
 1191;15373                                             ;"CUADRADO AC.SAE1020 CALIB.1"".";Kg  
 1193;3508                                              ;"CUADRADO AC.SAE1020 CALIB.5/8"".";Kg  
-4319;607                                               ;"CODO 90¬∑AC.GALV. 1/2""NPT.";UND 
+4319;607                                               ;"CODO 90∑AC.GALV. 1/2""NPT.";UND 
 12470;012470                                            ;"CUADRADO AC.SAE1020 CALIB.7/8"".";Kg  
 9744;0009744                                           ;"CUADRADO AC.SAE1020 CALIB.9/16"".";Kg  
 1196;8039                                              ;"CUADRADO AC.SAE1045.LC.1_1/2""-PALANQUILL";Kg  
@@ -992,8 +992,8 @@
 13462;0013462                                           ;CUNA HM-218210;UND 
 1198;1087                                              ;CUNA HM-518410 TIMKEN.;UND 
 1199;2143                                              ;CUNA REF:HM-518410.;UND 
-1203;23797                                             ;"CU√ëA EN EMPACK PARA TUBO DE 3/4"".ENCARP.";UND 
-1207;5422                                              ;"CURVA PVC ELECTRICA 1/2""√ò.";UND 
+1203;23797                                             ;"CU—A EN EMPACK PARA TUBO DE 3/4"".ENCARP.";UND 
+1207;5422                                              ;"CURVA PVC ELECTRICA 1/2""ÿ.";UND 
 9886;0009886                                           ;DESLIZADOR 169 71807169K HYVA;UND 
 1210;20259                                             ;DESLIZADOR CORTINA SLIDER EN NYLON.;UND 
 8167;69431 TODCO                                       ;DESLIZADOR SOPORTE SUP.FIJO 69431 TODCO;UND 
@@ -1008,13 +1008,13 @@
 12327;"9D0285 VIVOLO:IN: 1_1/4""BSP - OUT:1""BSP           ";DIVISOR FLUJO 9D0285 XV-3D/64 VIVOLO;UND 
 12328;"9RD0432 VIVOLO: IN: 1/2""BSP - OUT:3/8""BSP         ";DIVISOR FLUJO 9RD0432 RV-1D/6.5 VIVOLO;UND 
 12329;"9RD0447 VIVOLO: IN: 3/4""BSP - OUT:1/2""BSP         ";DIVISOR FLUJO 9RD0447 RV-2D/11 VIVOLO;UND 
-13434;0013434                                           ;"EJE 5_3/4""√ò 77.5""TRACK K30 -SOLO-";UND 
-1230;17633-(CC)                                        ;"EJE 5_3/4""√ò 77.5""TRACK K30 T3030 COMPLET";UND 
+13434;0013434                                           ;"EJE 5_3/4""ÿ 77.5""TRACK K30 -SOLO-";UND 
+1230;17633-(CC)                                        ;"EJE 5_3/4""ÿ 77.5""TRACK K30 T3030 COMPLET";UND 
 10345;FP50DB01AA44-0001 AMPARTS                         ;EJE AUTO-DIRECCI.DISCO FP50DB01AA44-0001;UND 
 12467;0012467                                           ;EJE DIRECCIONAL BOC+C. FP50AM01AA06-0002;UND 
 1236;20803-002                                         ;EJE EXTREMO CON CUADRANTE EQ-0600102.;UND 
 1238;23406                                             ;"EJE FRENO DISCO 77.5"" FP20DB01AA AMPRO.";UND 
-4479;"1_5/8""√òx260mm-LONG.TOTAL A.B FUWA -23618-051-     ";EJE LEVA DER.C11-0101-RH-CL216 37-ESTRIA;UND 
+4479;"1_5/8""ÿx260mm-LONG.TOTAL A.B FUWA -23618-051-     ";EJE LEVA DER.C11-0101-RH-CL216 37-ESTRIA;UND 
 9039;0009039                                           ;"EJE RED-5"" 71.5"" FR-190mm T3030 11T GUAN";UND 
 1240;5331                                              ;"EJE RED-5"" 71.5"" TRACK RODAM.IGUALES.";UND 
 10336;(CC) - SIN RATCHETS.                              ;"EJE RED-5"" 77.5"" FR-7"" T-30(SIN RAT)GUAN";UND 
@@ -1077,12 +1077,12 @@
 10072;0010072                                           ;ENGANCHE DE TIRO 890CL -PREMIER-.;UND 
 1332;15389                                             ;ENGANCHE DE TIRO 890CR -PREMIER-.;UND 
 1333;2117                                              ;ENGANCHE JAK 22 JOST. -CAMPANA-.;UND 
-8823;0008823                                           ;ENGANCHE NEUM√ÅTICO 2880A -KIT- PREMIER.;UND 
+8823;0008823                                           ;ENGANCHE NEUM¡TICO 2880A -KIT- PREMIER.;UND 
 1335;20209                                             ;"ENLACE 9.25"" 441 050 712 2 WABCO.";UND 
 1336;2862                                              ;"ENSAMBLE CIERRE MANHOLE 20"" 3528 SOLIMAR";UND 
 10223;033-00001A-033-00001B AMPARTS                     ;ENSAMBLE DE FRENO EJE K-30 033-1A-033-1B;UND 
 4493;23618-054                                         ;ENSAMBLE FRENO (420x180mm) D10-010101.;UND 
-12219;0012219                                           ;"ESLINGA EN CABLE AC.1""√ò x2100mm TIPO E-4";UND 
+12219;0012219                                           ;"ESLINGA EN CABLE AC.1""ÿ x2100mm TIPO E-4";UND 
 11428;9295R BIFUNCIONAL NEGRO MATE PINTUNAL             ;ESMALTE ALQUIDICO 9295R-5 NEGRO SEMIMATE;GAL 
 3738;20754                                             ;ESMALTE SINT.ULTRARAP.BLANCO ROMARCO.;GAL 
 33;33                                                ;ESMALTE SINTETICO;GAL 
@@ -1133,45 +1133,45 @@
 1418;15813                                             ;GRAPA AMARRE SOBRECHASIS EG-8101100.;UND 
 11427;EG-15201300                                       ;"GRAPA CUADRADA 4""x19""x3/4""RF EG-15201300";UND 
 11624;EG-14101200                                       ;"GRAPA CUADRADA 84x406x5/8""RF EG-14101200";UND 
-11643;0011643                                           ;"GRAPA EJE RED-5""√ò 12""x5_1/8""x7/8""RF-TL7H";UND 
-1423;11219 -EK-0104600- D=764mm -Hint=330mm- TL 9HOJAS ;"GRAPA EJE RED-5""√ò 13""x5_1/8""x7/8""RF-TL9H";UND 
-1426;23038 - EK-6800100 - D=830mm. -HD30000 10HOJAS-   ;"GRAPA EJE RED-5""√ò 14""x5_1/8""x7/8""RF -HD-";UND 
+11643;0011643                                           ;"GRAPA EJE RED-5""ÿ 12""x5_1/8""x7/8""RF-TL7H";UND 
+1423;11219 -EK-0104600- D=764mm -Hint=330mm- TL 9HOJAS ;"GRAPA EJE RED-5""ÿ 13""x5_1/8""x7/8""RF-TL9H";UND 
+1426;23038 - EK-6800100 - D=830mm. -HD30000 10HOJAS-   ;"GRAPA EJE RED-5""ÿ 14""x5_1/8""x7/8""RF -HD-";UND 
 1424;FW68-11/287                                       ;GRAPA FW68-11/287 (390,415) FUWA.;UND 
 4611;FW68-11/312                                       ;GRAPA FW68-11/312 FUWA H=440mm;UND 
 11626;SAMPA REF:500.868                                 ;GRAPA HT300-TUERCA+ARANDEL.SAMPA 500.868;UND 
 1427;21832                                             ;GRAPA SOPORTE GUARDABARRO AB-1651206.;UND 
 1428;20766-001                                         ;GRAPA TRUNNION SP-0187K SUSP.SINGLE POIN;UND 
-1431;4859                                              ;GRASA MULTIPROPOSITO EP-N¬∫2.;kg  
-1432;623                                               ;"GRASERA CODO 45¬∫ 1/8""NPT.";UND 
+1431;4859                                              ;GRASA MULTIPROPOSITO EP-N∫2.;kg  
+1432;623                                               ;"GRASERA CODO 45∫ 1/8""NPT.";UND 
 4329;22174                                             ;"GRASERA CODO 90g.1/4"" NPT";UND 
-1434;622                                               ;"GRASERA CODO 90¬∫ 1/8""NPT.";UND 
+1434;622                                               ;"GRASERA CODO 90∫ 1/8""NPT.";UND 
 1436;624                                               ;"GRASERA RECTA 1/8""NPT.";UND 
 1440;20769 -GUNNEBO                                    ;"GRILLETE PERNO ROSCADO 1"" G-209 CROSBY";UND 
 1441;10968                                             ;"GRILLETE PERNO ROSCADO G-209 1/2""CROSBY.";UND 
-1447;GL-23139 /GL-24114 / 3050-POLIPROPILENO 031-015-20;GUARDABARRO PL√ÅSTICO +SOPORTES GL-23139;UND 
-11733;0011733                                           ;GUARDABARRO PL√ÅSTICO -MEDIO CASCO-;UND 
+1447;GL-23139 /GL-24114 / 3050-POLIPROPILENO 031-015-20;GUARDABARRO PL¡STICO +SOPORTES GL-23139;UND 
+11733;0011733                                           ;GUARDABARRO PL¡STICO -MEDIO CASCO-;UND 
 12325;0012325                                           ;GUARDACABO REFORZADO CABLE AC.3/4 G-414;UND 
 12804;0012804                                           ;GUARDAPOLVO CAUCHO LISO 605x750mm.;UND 
 35;20810                                             ;"GUARDAPOLVO CAUCHO RM 3/8"" 24x30 IMPORTA";UND 
 1451;7253                                              ;"GUARDAPOLVO POLIETILENO 1/4"" 24""x11"" IMP";UND 
-1453;69                                                ;"GUASA PRESION 1/2""√ò.";UND 
-1457;71                                                ;"GUASA PRESION 3/4""√ò.";UND 
-1459;72                                                ;"GUASA PRESION 5/8""√ò.";UND 
-1461;79                                                ;"GUASA PRESION 9/16""√ò.";UND 
+1453;69                                                ;"GUASA PRESION 1/2""ÿ.";UND 
+1457;71                                                ;"GUASA PRESION 3/4""ÿ.";UND 
+1459;72                                                ;"GUASA PRESION 5/8""ÿ.";UND 
+1461;79                                                ;"GUASA PRESION 9/16""ÿ.";UND 
 36;1079                                              ;"GUASA PRESION GALV.1/2"" O.";UND 
-1463;1079-1                                            ;"GUASA PRESION GALV.1/2""√ò.";UND 
-1464;1111                                              ;"GUASA PRESION GALV.1/4""√ò.";UND 
-5559;05559                                             ;"GUASA PRESION GALV.3/16""√ò.";UND 
-1465;8150                                              ;"GUASA PRESION GALV.3/4""√ò.";UND 
-1462;80                                                ;"GUASA PRESION GALV.3/8""√ò.";UND 
-1466;78                                                ;"GUASA PRESION GALV.5/16""√ò.";UND 
+1463;1079-1                                            ;"GUASA PRESION GALV.1/2""ÿ.";UND 
+1464;1111                                              ;"GUASA PRESION GALV.1/4""ÿ.";UND 
+5559;05559                                             ;"GUASA PRESION GALV.3/16""ÿ.";UND 
+1465;8150                                              ;"GUASA PRESION GALV.3/4""ÿ.";UND 
+1462;80                                                ;"GUASA PRESION GALV.3/8""ÿ.";UND 
+1466;78                                                ;"GUASA PRESION GALV.5/16""ÿ.";UND 
 38;1323                                              ;"GUASA PRESION GALV.5/8"" O.";UND 
 39;1696                                              ;"GUASA PRESION GALV.7/8"" O.";UND 
-1469;75                                                ;"GUASA PRESION INOX.1/2""√ò.";UND 
-1470;81                                                ;"GUASA PRESION INOX.1/4""√ò.";UND 
+1469;75                                                ;"GUASA PRESION INOX.1/2""ÿ.";UND 
+1470;81                                                ;"GUASA PRESION INOX.1/4""ÿ.";UND 
 4497;25509                                             ;"POZUELO ALUMINIO 6"" SU25535AL BETTS.";UND 
-1471;76                                                ;"GUASA PRESION INOX.3/8""√ò.";UND 
-1472;11582                                             ;"GUASA PRESION INOX.5/8""√ò.";UND 
+1471;76                                                ;"GUASA PRESION INOX.3/8""ÿ.";UND 
+1472;11582                                             ;"GUASA PRESION INOX.5/8""ÿ.";UND 
 8848;109028 CRAMARO                                    ;GUIA ALUMINIO ANTILEVANTE 109028 CRAMARO;UND 
 10888;0010888                                           ;"HEXAGONAL AC.SAE1020 CALIB.1""";kg  
 1481;20417                                             ;"HEXAGONAL DE BRONCE 5/8"" (1.8325Kg/m)";Kg  
@@ -1184,15 +1184,15 @@
 1491;9906                                              ;"HORQUILLA 5/8RF+PASADOR 1/2""+PIN 1/8""";UND 
 4420;23618-045                                         ;HUB CAP H14-0201 ARGO BOGIE FUWA;UND 
 40;13875-001                                         ;HUBODOMETRO 295/80R22.5 STEMCO 650 05 39;UND 
-5681;"C50LR-BR16-12GA RD HD HB 1/2""√ò                    ";"HUCK BOLT C50LR-BR16-12GA RD HD HB 1/2""√ò";UND 
-5682;"C50LR-BR16-16GA RD HD HB 1/2""√ò                    ";"HUCK BOLT C50LR-BR16-16GA RD HD HB 1/2""√ò";UND 
+5681;"C50LR-BR16-12GA RD HD HB 1/2""ÿ                    ";"HUCK BOLT C50LR-BR16-12GA RD HD HB 1/2""ÿ";UND 
+5682;"C50LR-BR16-16GA RD HD HB 1/2""ÿ                    ";"HUCK BOLT C50LR-BR16-16GA RD HD HB 1/2""ÿ";UND 
 1492;25373                                             ;"HUCK BOLT C50LR-BR16-8GA RD HD HB 1/2""HU";UND 
 7187;C50LR-BR20-12GA                                   ;HUCK BOLT C50LR-BR20-12GA RD HD HB Z 5/8;UND 
 1493;25376                                             ;"HUCK BOLT C50LR-BR20-16GA RD HD HB 5/8""H";UND 
-5680;"C50LR-BR20-24GA RD HD HB ZNC 5/8""√ò                ";HUCK BOLT C50LR-BR20-24GA RD HD HB Z 5/8;UND 
+5680;"C50LR-BR20-24GA RD HD HB ZNC 5/8""ÿ                ";HUCK BOLT C50LR-BR20-24GA RD HD HB Z 5/8;UND 
 1494;25375                                             ;"HUCK BOLT C50LR-BR20-8GA RD HD HB 5/8""HU";UND 
 7186;C6LB-R12-10G                                      ;HUCK BOLT C6LB-R12-10G BRAZIER STEEL HEA;UND 
-10010;"C6LB-R12-12G 3/8""√ò (15.875-22.225mm)              ";HUCK BOLT C6LB-R12-12G BRAZIER STEEL HEA;UND 
+10010;"C6LB-R12-12G 3/8""ÿ (15.875-22.225mm)              ";HUCK BOLT C6LB-R12-12G BRAZIER STEEL HEA;UND 
 4620;15122                                             ;HUCK BOLT C6LB-R12-8G BRAZIER STEEL HEAD;UND 
 12108;0012108                                           ;IMPERMEABILIZANTE PERMEX NEGRO 113416;GAL 
 14745;45880 A+B HEMPEL LT                               ;IMPRIMANTE EPOXICO 45880 A+B HEMPEL LT;Lt  
@@ -1352,7 +1352,7 @@
 5399;"LTL532 14.17""x1.22""x1"" -SOPORTE+3LAMP-            ";LAMPARA LED INDICADORA ROJA LTL532/MV C.;UND 
 5400;LTL538                                            ;LAMPARA LED LUZ FRENO ROJA LTL538/MV CJ.;UND 
 8386;60381-3                                           ;LAMPARA LED LUZ PLACA 60381-3 GROTE 12V.;UND 
-6067;INCRUSTAR                                         ;"LAMPARA LED PANEL LIGHT RED.8""√ò 18W 110V";UND 
+6067;INCRUSTAR                                         ;"LAMPARA LED PANEL LIGHT RED.8""ÿ 18W 110V";UND 
 3654;20222                                             ;LAMPARA LED-42 12V 44088Y AMBAR TRUCK LI;UND 
 3651;20618                                             ;"LAMPARA LED-60 4"" AMBAR 44024Y TRUCK LIT";UND 
 3650;21437-014                                         ;LAMPARA LUZ PLACA 005L009-6/MV;UND 
@@ -1360,18 +1360,18 @@
 1626;2444                                              ;LENTE AMARILLO 90203-3 (LAMP:45933-3).;UND 
 1630;9512                                              ;"LENTE REFLECTIVO ROJO VSM-44 4.5""x3.75"".";UND 
 3588;11813                                             ;VALV.PRESION-VACIO 3008-SSV BETTS.;UND 
-8534;0008534                                           ;"LEVA DER.10-ESTRIA 1.5""√òx23_3/4""LONG.EJE";UND 
+8534;0008534                                           ;"LEVA DER.10-ESTRIA 1.5""ÿx23_3/4""LONG.EJE";UND 
 1638;11921-002                                         ;"LEVA EJE 28 ESTRIAS 24 1/8""LONG.IZQ.";UND 
-8535;0008535                                           ;"LEVA IZQ.10-ESTRIA 1.5""√òx23_3/4""LONG.EJE";UND 
+8535;0008535                                           ;"LEVA IZQ.10-ESTRIA 1.5""ÿx23_3/4""LONG.EJE";UND 
 1643;15011                                             ;LEVA IZQ.28ESTRIAS S-24636-1L INTRAAX HE;UND 
 1646;9056                                              ;LIMPIADOR AC.INOX.ND-29O NCH COLOMBIA;GAL 
 6170;11025                                             ;LIMPIADOR INOXIDABLE ND-150.ESACHEM.;Lt  
 1647;HTR-30 UNDx19oz -GENOX PICKLING PASTE UNDx1.25Kg  ;LIMPIADOR SOLDADURA INOX.;UND 
 6878;06878                                             ;LLANTA 275/70R22.5 MICHELIN X MULTI T;UND 
-1652;10577                                             ;LLANTA 295/80 R22.5 -(√çTEM GENERICO);UND 
+1652;10577                                             ;LLANTA 295/80 R22.5 -(ÕTEM GENERICO);UND 
 1661;17743                                             ;LLANTA 315/80 R22.5 (ITEM GENERICO);UND 
-8805;8805                                              ;LLANTA S/S 385/65 R22.5 -(√çTEM GENERICO);UND 
-6232;06232                                             ;LLANTA S/S 445/50 R22.5 -(√çTEM GENERICO);UND 
+8805;8805                                              ;LLANTA S/S 385/65 R22.5 -(ÕTEM GENERICO);UND 
+6232;06232                                             ;LLANTA S/S 445/50 R22.5 -(ÕTEM GENERICO);UND 
 8844;160000 CRAMARO                                    ;"LLAVES 3/16"" DD MOTOR 160000 CRAMARO";UND 
 1223;20812                                             ;DISTRIB.AIRE SECUENC.AD36097-2ALB BE;UND 
 4408;23618-047                                         ;LOCK WASHER A11-0101 ARGO BOGIE FUWA;UND 
@@ -1383,7 +1383,7 @@
 1691;13002530L BTI.                                    ;"MANG. 4_1/2"" 13002530L BTI.";m   
 5622;1004001 BTI.                                      ;"MANG. AIRE 1_1/2"" 1004001 BTI";m   
 1693;N325 BTI.                                         ;"MANG. AIRE 2"" 4516-A200 N325 BTI.";m   
-11728;0011728                                           ;"MANG. LUBRICACION R7 1/8""√òx0.4m.MR-HR.";UND 
+11728;0011728                                           ;"MANG. LUBRICACION R7 1/8""ÿx0.4m.MR-HR.";UND 
 13313;0013313                                           ;MANG. POLIETILENO 10mm.OD.-SINFLEX.;m   
 1688;19244                                             ;MANG. POLIETILENO 12mm OD -SINFLEX-.;m   
 13311;0013311                                           ;MANG. POLIETILENO 16mm.OD.-SINFLEX.;m   
@@ -1394,8 +1394,8 @@
 4764;A37701A17 - 37601 PRESSURE GUARD                  ;MANG.EXT.37701 INFLADO-DESINFLADO -CURVA;UND 
 13825;0013825                                           ;MANG.EXT.P/LLANTAS TR52220;UND 
 1726;6516                                              ;"MANG.FRENO RACOR-3/8""NPT(1.60m).";UND 
-1731;3142                                              ;"MANG.GR.ALIMENTICIO 1_1/2""√ò.";m   
-1730;3143                                              ;"MANG.GR.ALIMENTICIO 2""√ò.";m   
+1731;3142                                              ;"MANG.GR.ALIMENTICIO 1_1/2""ÿ.";m   
+1730;3143                                              ;"MANG.GR.ALIMENTICIO 2""ÿ.";m   
 1742;01742                                             ;"MANG.HID.1/2""x0.65m.HR-HR AC-47";UND 
 1741;01741                                             ;"MANG.HID.1/2""x0.75m.HR-MR AC-47";UND 
 1743;01743                                             ;"MANG.HID.1/2""x0.85m.HR-MR AC-47";UND 
@@ -1403,9 +1403,9 @@
 1757;01757                                             ;"MANG.HID.1/2""x1m HR-HR AC-47";UND 
 1754;01745                                             ;"MANG.HID.1/2""x1m HR-MR AC-47";UND 
 1760;01760                                             ;"MANG.HID.1/2""x2.6m HR-HR-8JIC";UND 
-14327;0014327                                           ;"MANG.HID.3000PSI 1/2√òx0.4m HR-HR-3/4""JIC";UND 
+14327;0014327                                           ;"MANG.HID.3000PSI 1/2ÿx0.4m HR-HR-3/4""JIC";UND 
 589;23694-002                                         ;BUJE ESFERICO K-30 38.5DIx54.5DEx26.3mm.;UND 
-14326;0014326                                           ;"MANG.HID.3000PSI 1/2√òx0.5m HR-HR-3/4""JIC";UND 
+14326;0014326                                           ;"MANG.HID.3000PSI 1/2ÿx0.5m HR-HR-3/4""JIC";UND 
 11747;AM-65009400                                       ;"MANG.HID.3000PSI 1/4""x0.80m.AM-65";UND 
 13487;AM-71005800                                       ;"MANG.HID.3000PSI 1/4""x11,50m.AM-71005800";UND 
 14473;0014473                                           ;"MANG.HID.3000PSI 1/4""x2.2m HR-HR AO-11";UND 
@@ -1419,12 +1419,12 @@
 3055;13032                                             ;"TORN.HEX.G5.GALV.RF.5/8""x4"".";UND 
 11825;0011825                                           ;"MANG.HID.3000PSI 1/4""x5.80m.EG-157";UND 
 13486;AM-71005700                                       ;"MANG.HID.3000PSI 1/4""x8,60m.AM-71005700";UND 
-14382;G-256002000                                       ;"MANG.HID.3000PSI 1/4√òx1.2m HR-HR-7/16""JI";UND 
-14381;G-256001900                                       ;"MANG.HID.3000PSI 1/4√òx3.9m HR-HR-7/16""JI";UND 
-13244;AM-70005700 - CENTRAL                             ;MANG.HID.3000PSI 1/4√òx4.3m.HR-HR+2-ADAP;UND 
-14380;G-256001700                                       ;"MANG.HID.3000PSI 1/4√òx4.6m HR-HR-7/16""JI";UND 
-12787;AM-69006300 - CILINDROS TRASEROS -                ;MANG.HID.3000PSI 1/4√òx5.05m.HR-HR+1-ADAP;UND 
-13105;0013105                                           ;MANG.HID.3000PSI 1/4√òx6.10m.HR-HR+1-ADAP;UND 
+14382;G-256002000                                       ;"MANG.HID.3000PSI 1/4ÿx1.2m HR-HR-7/16""JI";UND 
+14381;G-256001900                                       ;"MANG.HID.3000PSI 1/4ÿx3.9m HR-HR-7/16""JI";UND 
+13244;AM-70005700 - CENTRAL                             ;MANG.HID.3000PSI 1/4ÿx4.3m.HR-HR+2-ADAP;UND 
+14380;G-256001700                                       ;"MANG.HID.3000PSI 1/4ÿx4.6m HR-HR-7/16""JI";UND 
+12787;AM-69006300 - CILINDROS TRASEROS -                ;MANG.HID.3000PSI 1/4ÿx5.05m.HR-HR+1-ADAP;UND 
+13105;0013105                                           ;MANG.HID.3000PSI 1/4ÿx6.10m.HR-HR+1-ADAP;UND 
 12406;0012406                                           ;MANG.HID.3000PSI 1/4x3.5m3/8NPT-Mx7/16HR;UND 
 12197;0012197                                           ;MANG.HID.3000PSI 1/4x3m.3/8NPT M-M AM-67;UND 
 12196;0012196                                           ;MANG.HID.3000PSI 1/4x6.1m3/8NPT M-M AM67;UND 
@@ -1448,7 +1448,7 @@
 12719;BE-100002900                                      ;"MANG.HID.5100PSI.1""x1600mm HR JIC1-5/16-";UND 
 1768;21800-004                                         ;"MANG.HID.R12 3/4""x0.95m.HR+HR-12JIC";UND 
 1809;23199                                             ;"MANG.HID.R2.1""x1.22Mts.HR-HR.XV.";UND 
-14514;0014514                                           ;"MANG.HID.RETORN √ò-3/4""x1.0mt HR-HR";UND 
+14514;0014514                                           ;"MANG.HID.RETORN ÿ-3/4""x1.0mt HR-HR";UND 
 14460;0014460                                           ;"MANG.HID.SUCCION 1""x1.2m HR-HR AO-12";UND 
 1811;15984                                             ;MANG.INT.37000 AUTOINFLADO RECTA.;UND 
 4765;A37700A17 - 37600 PRESSURE GUARD.                 ;MANG.INT.37700 INFLADO-DESINFLADO -RECTA;UND 
@@ -1459,8 +1459,8 @@
 1829;8612                                              ;"MANG.PLASTICA TRANSP.2""D.I.";m   
 2134;3503                                              ;PERNO BOCIN 22mm P-1.5x102mm(110LT)39EST;UND 
 5684;0005684                                           ;"MANG.PLASTICA TRASP.3/8""D.I.";m   
-5647;AE-4104200                                        ;"MANG.R7 1/8""√òx1.10m MR-1/8NPT+HR-7/16JIC";UND 
-1838;13938                                             ;"MANG.RADIADOR LISA 3_1/2""√ò.";m   
+5647;AE-4104200                                        ;"MANG.R7 1/8""ÿx1.10m MR-1/8NPT+HR-7/16JIC";UND 
+1838;13938                                             ;"MANG.RADIADOR LISA 3_1/2""ÿ.";m   
 5563;05563                                             ;MANG.TRAILER-ESPIRALADA-;UND 
 1850;2230                                              ;MANG.TRAILER-SERVICIO Y EMERGENCIA-.;UND 
 7444;88175K32 BRANDES                                  ;MANGUERA PROCTECCION TUBING 88175K32 BRA;m   
@@ -1477,19 +1477,19 @@
 7150;1602020 ADAICO                                    ;MANIJA -ASA- 1602020;UND 
 1872;14805                                             ;"MANIJA CANDADO CON EJE 1.5"" HACKNEY.";UND 
 1874;10016                                             ;MANIJA MECANISMO CIERRE PUERTA AP-10.;UND 
-13014;EG-163002300                                      ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mm√ò;UND 
-13907;EG-14300003                                       ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mm√ò;UND 
+13014;EG-163002300                                      ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mmÿ;UND 
+13907;EG-14300003                                       ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mmÿ;UND 
 2966;6087                                              ;"TORN.AUTOPERF.AVELL.TORX.#14x2 3/4""SCT.";UND 
-10998;EG-15205200                                       ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mm√ò;UND 
+10998;EG-15205200                                       ;MANIJA PLASTICA GRIS+REATA -TUBO 42.2mmÿ;UND 
 1879;12379                                             ;"MANIJA Y PLATINA CROMADA VALV.4""-6""SURE.";UND 
-1881;19274                                             ;"MANILA DE NYLON 1/4""√ò.";m   
+1881;19274                                             ;"MANILA DE NYLON 1/4""ÿ.";m   
 4439;9000                                              ;"TORN.HEX.G8.RO.1_1/8""x10"".";UND 
 8610;0008610                                           ;"MANOMETR 0-3000PSI 2.5"" 1/4""NPT-VERT.GLI";UND 
-14512;0014512                                           ;"MANOMETR 0-3000PSI- √ò2-1/2-GLI- 3/4""NPT";UND 
+14512;0014512                                           ;"MANOMETR 0-3000PSI- ÿ2-1/2-GLI- 3/4""NPT";UND 
 1885;9269                                              ;"MANOMETRO 0-150PSI 1_1/2""CT-1/8""NPT.";UND 
 1887;13728                                             ;MANOMETRO 0-160PSI PG-16349MS-BETTS-.;UND 
-1889;"2493 -CV=CONEXION VERTICAL 1/2""NPT                ";"MANOMETRO 0-30PSI 4""√ò CV-1/2""NPT+GLICERI";UND 
-1891;"24775 -CV=CONEXION VERTICAL 1/2""NPT               ";"MANOMETRO 0-60PSI 4""√ò CV-1/2""NPT+GLICERI";UND 
+1889;"2493 -CV=CONEXION VERTICAL 1/2""NPT                ";"MANOMETRO 0-30PSI 4""ÿ CV-1/2""NPT+GLICERI";UND 
+1891;"24775 -CV=CONEXION VERTICAL 1/2""NPT               ";"MANOMETRO 0-60PSI 4""ÿ CV-1/2""NPT+GLICERI";UND 
 5641;779R / 211S / 219SM AXALTA                        ;MASILLA 779R CROMAX (UNDx2Kg=1/2GAL);GAL 
 1255;24797-021                                         ;"EMPAQUE ACOPLE BTC-GG-GSKT-4"" BTI.";UND 
 1898;14803                                             ;MECANISMO CERRADURA HACKNEY.;UND 
@@ -1500,7 +1500,7 @@
 1913;19862                                             ;MINI-MESS-PURGADOR 06012700 ADAICO.;UND 
 1914;9493 R07-200-RNKA NORGREN                         ;"MINI-REGULADOR 3/8""NPT BR3000 XHNOTION";UND 
 1915;11741                                             ;"MINI-VALV.BOLA 3/8""NPT HyM BR-CR BV-01";UND 
-12805;0012805                                           ;M√ìDULO ALARMA + PILOTO PELDA√ëO EG-161;UND 
+12805;0012805                                           ;M”DULO ALARMA + PILOTO PELDA—O EG-161;UND 
 9602;RM-70/2-EJES ENTORNO INDUSTRIAL                   ;MODULO BLOQUEO 2-EJE RM-70/2 ENTORNO IND;KIT 
 1917;FT-208 DIXON - 890-400-02 EBW  2-CABLES           ;MODULO CONTROL FT-208 DIXON/89040002 EBW;UND 
 12586;SN-M718 SOLO, SIN CAMARA-SIN ANTENA               ;"MONITOR INALAMBRICO LCD 7"" SN-M718(SOLO)";UND 
@@ -1521,7 +1521,7 @@
 1982;20030                                             ;O-RING API H20058M-HEIL H20658M-CIVACON.;UND 
 1983;20374                                             ;O-RING ASIENTO 18872TS BETTS -VALV.FONDO;UND 
 10885;010885                                            ;O-RING BUNA 14mmD.INT.x2mmESP.;UND 
-10758;0010758                                           ;O-RING BUNA 70mm√òEXTx60mm√òINTx5mm ESP.;UND 
+10758;0010758                                           ;O-RING BUNA 70mmÿEXTx60mmÿINTx5mm ESP.;UND 
 1989;17513                                             ;O-RING EJE #112 4118VT VITON-BROWN BETTS;UND 
 6813;17946TS.                                          ;O-RING EJE LEVA TEF-SIL 17946TS BETTS;UND 
 2008;19964                                             ;O-RING TEF-O-SIL 7342 CIVACON(VALV.5x4).;UND 
@@ -1536,9 +1536,9 @@
 2034;FW68-10                                           ;PASADOR TENSOR+BUJES FW68-10 FUWA (KIT).;UND 
 5902;7895                                              ;PASADOR ZAPATA DE FRENO-COLLARIN EJE;UND 
 2035;25410                                             ;"PASARELA ALUM.9_1/2""x2""x12' B-380261 BTI";m   
-4772;"25684-001 - 1_1/2""x1_1/4""x60""(1524mm)             ";"PELDA√ëO AC.GALV.M6LRST2460x60"" McNICHOLS";m   
-4773;"25684-003 - 1_1/8""x1_5/8""x48,75""(1238,25mm)       ";"PELDA√ëO AC.INOX.304 M8LR034899x48.75"" Mc";m   
-4774;"25684-002 - 1_1/8""x1_5/8""x60""(1524mm)             ";"PELDA√ëO ALUMINIO M5LRST3460x60"" McNICHOL";m   
+4772;"25684-001 - 1_1/2""x1_1/4""x60""(1524mm)             ";"PELDA—O AC.GALV.M6LRST2460x60"" McNICHOLS";m   
+4773;"25684-003 - 1_1/8""x1_5/8""x48,75""(1238,25mm)       ";"PELDA—O AC.INOX.304 M8LR034899x48.75"" Mc";m   
+4774;"25684-002 - 1_1/8""x1_5/8""x60""(1524mm)             ";"PELDA—O ALUMINIO M5LRST3460x60"" McNICHOL";m   
 2040;19503-001                                         ;"PERCHA D-21082-1 IZQ.AAT-30K-16""HENDRICK";UND 
 2041;19503-002                                         ;"PERCHA D-21082-2 DER.AAT-30K-16""HENDRICK";UND 
 2133;1157-005/ROM010                                   ;PERFIL ALUM. 45x45x3.3mm 1157-005/ROM010;m   
@@ -1552,7 +1552,7 @@
 2046;23303                                             ;PERFIL ALUM.07-304664.JACK OLSTA.;UND 
 12618;0012618                                           ;PERFIL ALUM.1000-269;m   
 12617;1000-884                                          ;PERFIL ALUM.1000-884-REFZO PERFIL TECHO-;m   
-4527;AD-4900004 - 1000-058 AAG - 25188                 ;"PERFIL ALUM.4.5""√òEXTx6mmESP.1000-058 AAG";m   
+4527;AD-4900004 - 1000-058 AAG - 25188                 ;"PERFIL ALUM.4.5""ÿEXTx6mmESP.1000-058 AAG";m   
 6430;T-129 ALUMINA                                     ;PERFIL ALUM.6005-T6 101x25.4mm ALU:T-129;m   
 7830;1157-002/ROM-1000-557                             ;PERFIL ALUM.76x45x4.3mm 1157-002/ROM-557;m   
 2070;1157-003/ROM-009 ALUMINA                          ;PERFIL ALUM.AMARRE T-P 1157-003/ROM-009;m   
@@ -1572,7 +1572,7 @@
 12610;1153-009                                          ;PERFIL ALUM.CANAL CENT.PANEL TRA1153-009;m   
 12616;1153-015                                          ;PERFIL ALUM.CANAL INF.PANEL DEL.1153-015;m   
 12615;1153-014                                          ;PERFIL ALUM.CANAL INF.PANEL TRA.1153-014;m   
-6398;ROM-023 PL:22857 /1000-138 AAG/1000-407 AL√â       ;PERFIL ALUM.CANAL LATER. ROM023 ALUMINA;m   
+6398;ROM-023 PL:22857 /1000-138 AAG/1000-407 AL…       ;PERFIL ALUM.CANAL LATER. ROM023 ALUMINA;m   
 8108;ROM-032 ALUMINA                                   ;PERFIL ALUM.CANAL SOPORT WINCHE ROM-032;m   
 12614;1153-013                                          ;PERFIL ALUM.CANAL SOPORT.DIV.TRA1153-013;m   
 12764;ROM-039 ALUM/1153-020 ROMARCO                     ;PERFIL ALUM.CANAL SUP.CABALL.ROM-039 ALU;m   
@@ -1584,11 +1584,11 @@
 2073;18680                                             ;PERFIL ALUM.COMPL.PARAL TRASERO ROM-055.;m   
 7539;1000-210                                          ;PERFIL ALUM.CONTENC.ESTIBAS AAG:1000-210;m   
 2076;1000-150/ ROM-022                                 ;PERFIL ALUM.CORTINERO 1000-150/ ROM-022;m   
-9909;ROM-1000-242 AL√â (34mm√ò)                          ;PERFIL ALUM.DELANTERO LONA 1000-242 AAG;m   
+9909;ROM-1000-242 AL… (34mmÿ)                          ;PERFIL ALUM.DELANTERO LONA 1000-242 AAG;m   
 17;25184                                             ;PERFIL ALUM.DUCTO CAJA MH AB-19300008;m   
 10862;IMC024 ALUMINA                                    ;PERFIL ALUM.ESQUINERO IMC024 ALUMINA;m   
 7540;1000-134                                          ;PERFIL ALUM.FRONTAL TECHO  AAG:1000-134;m   
-2055;16205- 1402434 ADAICO - 1000-444 AL√â -1000-389 AAG;PERFIL ALUM.HORIZ.1000-389 AAG (m)CBCLA;m   
+2055;16205- 1402434 ADAICO - 1000-444 AL… -1000-389 AAG;PERFIL ALUM.HORIZ.1000-389 AAG (m)CBCLA;m   
 13945;1000-888                                          ;PERFIL ALUM.INF.CAB.SLIDER 1000-888 ALUM;m   
 10658;ROM-571 ALUMINA / 1000-571 ROMARCO                ;PERFIL ALUM.INF.CAB.SLIDER ROM-571 ALUMI;m   
 7148;ROM-026 ALUMINA                                   ;PERFIL ALUM.INFERIOR TAP.1157-008/ROM026;m   
@@ -1614,37 +1614,37 @@
 10864;IMC012 ALUMINA                                    ;PERFIL ALUM.POSTE LATERAL IMC012 ALUMINA;m   
 10702;ROM-552 ALUMINA / 1000-552 ROMARCO                ;PERFIL ALUM.PROTEC.CORT.1000-993/ROM552 ;m   
 4517;25189                                             ;PERFIL ALUM.RECTANG.127x102x9 AD-4900005;m   
-1047;13941                                             ;"CODO 90¬∞ AC.INOX.304 1/2""NPT.";UND 
+1047;13941                                             ;"CODO 90∞ AC.INOX.304 1/2""NPT.";UND 
 12765;ROM-037 ALUM/1153-022 ROMARCO                     ;PERFIL ALUM.REFUER.CENTR.DIV.ROM-037 ALU;m   
-1202;23796                                             ;"CU√ëA EN EMPACK PARA TUBO DE 1_1/2"".ENCAR";UND 
+1202;23796                                             ;"CU—A EN EMPACK PARA TUBO DE 1_1/2"".ENCAR";UND 
 12766;ROM-038 ALUM/1153-023 ROMARCO                     ;PERFIL ALUM.REFUERZO PANEL ROM-038 ALUM;m   
 10868;TRAN2198 ALUMINA                                  ;PERFIL ALUM.REFUERZO PARAL BOT.TRAN2198;m   
 10995;0010995                                           ;PERFIL ALUM.REFUERZO PARAL CARR.1000-591;m   
 10865;IMC019 ALUMINA                                    ;PERFIL ALUM.RIEL INTER.TECHO IMC019 ALUM;m   
 2097;ROM-018 ALUMINA                                   ;PERFIL ALUM.RIEL MALLA ROM-018 ALUMINA;m   
-10011;ROM-1000-480 AL√â                                  ;PERFIL ALUM.RIEL MALLAS ROM-1000-480 AL√â;m   
+10011;ROM-1000-480 AL…                                  ;PERFIL ALUM.RIEL MALLAS ROM-1000-480 AL…;m   
 10867;IMCA011 ALUMINA                                   ;PERFIL ALUM.SOLERA INFERIOR IMCA011 ALUM;m   
 10866;IMC011 ALUMINA                                    ;PERFIL ALUM.SOLERA SUPERIOR IMC011 ALUMI;m   
-9973;1150-004 AL√â                                      ;PERFIL ALUM.SOPORTE CARPADO 1150-004 AL√â;m   
+9973;1150-004 AL…                                      ;PERFIL ALUM.SOPORTE CARPADO 1150-004 AL…;m   
 8106;ROM-031 ALUMINA                                   ;PERFIL ALUM.SOPORTE RIEL ROM-031 ALUMINA;m   
 4530;8610                                              ;LAMINA AC.ANTIDESGASTE-450 19mm.(XAR-HAR;KG  
 10659;ROM-573 ALUMINA / 1000-573 ROMARCO                ;PERFIL ALUM.SUP.CAB.SLIDER ROM-573 ALUMI;m   
 2065;ROM-1000-555 ALUMINA                              ;PERFIL ALUM.SUP.CABALLE 1000-922/ROM555 ;m   
 12605;1153-004                                          ;PERFIL ALUM.SUPERIOR 1153-004;m   
 12603;1153-002                                          ;PERFIL ALUM.SUPERIOR 4 CARRILES 1153-002;m   
-9972;1150-003 AL√â                                      ;PERFIL ALUM.SUPERIOR CAJA 1150-003 AL√â;m   
+9972;1150-003 AL…                                      ;PERFIL ALUM.SUPERIOR CAJA 1150-003 AL…;m   
 10863;IMC016 ALUMINA                                    ;PERFIL ALUM.SUPERIOR IMC016 ALUMINA;m   
 3717;20260/20265                                       ;"LAMPARA LED 3/4"" 33051 R/Y  TRUCK LITE.";UND 
 6477;1000-149                                          ;PERFIL ALUM.TABLIL.COMODIN PISO 1000-149;m   
 6476;1000-148                                          ;PERFIL ALUM.TABLILL PISO-XP 1000-148 AAG;m   
 12611;1153-010                                          ;PERFIL ALUM.TABLILLA PISO CENT. 1153-010;m   
 12612;1153-011                                          ;PERFIL ALUM.TABLILLA PISO COMPL.1153-011;m   
-405;3880                                              ;PERFIL ALUM.TENSOR LONA 35√òx3m 1402530 A;UND 
-9907;ROM-1000-240 AL√â (CUADRADO)                       ;PERFIL ALUM.TENSOR LONA TRAS.1000-240AAG;m   
+405;3880                                              ;PERFIL ALUM.TENSOR LONA 35ÿx3m 1402530 A;UND 
+9907;ROM-1000-240 AL… (CUADRADO)                       ;PERFIL ALUM.TENSOR LONA TRAS.1000-240AAG;m   
 2098;1157-001/ROM-001 ALUMINA                          ;PERFIL ALUM.TRANS.PANEL 1157-001/ROM-001;m   
-9908;ROM1000-241 AL√â (CLIP)                            ;PERFIL ALUM.TRAS.SUJETA LONA 1000-241AAG;m   
+9908;ROM1000-241 AL… (CLIP)                            ;PERFIL ALUM.TRAS.SUJETA LONA 1000-241AAG;m   
 2100;1000-408 / ROM-007 ALUMINA                        ;PERFIL ALUM.TRAV.TECHO ROM-007/1000-408;m   
-6478;1000-169                                          ;PERFIL ALUM.TRAVESA√ëO I PISO XP 1000-169;m   
+6478;1000-169                                          ;PERFIL ALUM.TRAVESA—O I PISO XP 1000-169;m   
 2081;16030 - ROMARCO:ROM-036                           ;PERFIL ALUM.TUBU.BUMPER 1157-010/ROM011;m   
 2020;8972                                              ;"PASADOR ELASTICO GALV.1/4""x1_1/2"".";UND 
 4526;AB-19300002 - 25178                               ;PERFIL ALUM.TUBULAR BRAZOS AB-19300002;m   
@@ -1688,8 +1688,8 @@
 2116;2124                                              ;PERFIL TUBULAR AC.A-572 90x90x3mm.;m   
 10959;0010959                                           ;PERFIL TUBULAR AC.STRENX-700 100x100x3mm;m   
 8798;0505017 ADAICO                                    ;PILAR FIJO CTF-10 2600/85 0505017 ADAICO;UND 
-13483;0013483                                           ;PILOTO SE√ëALIZAC.22MM AMARILLO 24V ;UND 
-9432;0009432                                           ;PILOTO SE√ëALIZAC.22MM ROJO 24V PEV0001;UND 
+13483;0013483                                           ;PILOTO SE—ALIZAC.22MM AMARILLO 24V ;UND 
+9432;0009432                                           ;PILOTO SE—ALIZAC.22MM ROJO 24V PEV0001;UND 
 13035;0013035                                           ;"PIN 1/16""x3/4"" GALV.";UND 
 2146;1262                                              ;"PIN 1/4""x2"" GALV.";UND 
 2147;2762                                              ;"PIN 1/8""x1"" GALV.";UND 
@@ -1701,14 +1701,14 @@
 2156;24373                                             ;"PIN 5/16""x 5"" GALV.";UND 
 2157;24472                                             ;"PIN 5/16""x1_1/2"" GALV.";UND 
 7587;1105-3629-INNER                                   ;PIN ENSAMBLE 1105-3629-INNER BUFFERS;UND 
-2032;730                                               ;"PIN R 5/32""√òx130mm.LONG-PASADOR RESORTAD";UND 
-2031;23622                                             ;PIN R GALV. 2.5√òx64mm LONG.-PASADOR RESO;UND 
+2032;730                                               ;"PIN R 5/32""ÿx130mm.LONG-PASADOR RESORTAD";UND 
+2031;23622                                             ;PIN R GALV. 2.5ÿx64mm LONG.-PASADOR RESO;UND 
 2904;25408                                             ;"TE ALUM.L/R 3"" 40279B BTI.";UND 
-10991;0010991                                           ;"PIN R GALV.1/16""√òx30mm LONG.-PASADOR RES";UND 
+10991;0010991                                           ;"PIN R GALV.1/16""ÿx30mm LONG.-PASADOR RES";UND 
 8159;61026 TODCO                                       ;PIN SOPORTE CABLE 61026 TODCO;UND 
 2164;2215                                              ;PINTURA EPOXICA BLANCA 43-30-03 -A-.;GAL 
-8836;601415 CRAMARO                                    ;"PI√ëON #50B18-1"" AGUJ.5/16 601415 CRAMARO";UND 
-8843;601410 CRAMARO                                    ;"PI√ëON #50BS9-3/4""AGUJ.3/16 601410 CRAMAR";UND 
+8836;601415 CRAMARO                                    ;"PI—ON #50B18-1"" AGUJ.5/16 601415 CRAMARO";UND 
+8843;601410 CRAMARO                                    ;"PI—ON #50BS9-3/4""AGUJ.3/16 601410 CRAMAR";UND 
 12992;0012992                                           ;PLACA AC-INOX. 220x140 A3 COLORES;UND 
 4689;AB-19309700                                       ;PLACA AC-INOX. XT FABRICADO EN ALUMINIO;UND 
 2211;1153-026/1000-691                                 ;PLACA ALUM.GUIA PANEL DEL-DER 1153-026;UND 
@@ -1770,7 +1770,7 @@
 2279;16546                                             ;"PRENSA CABLE AC.3/16"" T/PESADO.";UND 
 2280;17642                                             ;"PRENSA CABLE AC.3/4"" T/PESADO.";UND 
 2282;1957                                              ;"PRENSA CABLE AC.5/16"" G450 1010079 CROSB";UND 
-2284;6824 (6-12mm√ò)x1/2                                ;PRENSAESTOPA IP-68 PG-13.5(12mm√ò)x1/2NPT;UND 
+2284;6824 (6-12mmÿ)x1/2                                ;PRENSAESTOPA IP-68 PG-13.5(12mmÿ)x1/2NPT;UND 
 13826;0013826                                           ;PRESOSTATO DE 100 PSI CB26100;UND 
 2286;KIT (A-3/4 + B-3/4)                               ;PRIMER EPOX.BLANCO 2K A+B PINTECH;GAL 
 4531;25908 PINTUNAL:6072(A)+6092(B) LEMBER:270011(A)+VC;PRIMER EPOXICO A+B (GENERICO);GAL 
@@ -1789,24 +1789,24 @@
 2304;17609                                             ;PVC SUPERIOR.Rx14m. 1404170 ADAICO.;m   
 4629;15354                                             ;PVC SUPERIOR.Rx16.5m. 1404170 ADAICO.;m   
 8807;1001321/JSK38C1-2 JOST                            ;"QUINTA RUEDA 2"" H=190mm JSK38C1-2 JOST.";UND 
-2306;98                                                ;"RACOR 500 1/2""√ò ANILLO (B-60).";UND 
-2308;3318                                              ;"RACOR 500 3/8""√ò ANILLO.";UND 
-2310;101                                               ;"RACOR 501 3/8""√ò (TUERCA)";UND 
-6360;0006360                                           ;"RACOR 502 1/4""√ò (UNION).";UND 
-2312;103                                               ;"RACOR 502 3/8""√ò (UNION)";UND 
-2313;21811                                             ;"RACOR 502 5/8""√ò (UNION).";UND 
-2316;1078                                              ;"RACOR 504 3/8""√ò (TE).";UND 
+2306;98                                                ;"RACOR 500 1/2""ÿ ANILLO (B-60).";UND 
+2308;3318                                              ;"RACOR 500 3/8""ÿ ANILLO.";UND 
+2310;101                                               ;"RACOR 501 3/8""ÿ (TUERCA)";UND 
+6360;0006360                                           ;"RACOR 502 1/4""ÿ (UNION).";UND 
+2312;103                                               ;"RACOR 502 3/8""ÿ (UNION)";UND 
+2313;21811                                             ;"RACOR 502 5/8""ÿ (UNION).";UND 
+2316;1078                                              ;"RACOR 504 3/8""ÿ (TE).";UND 
 2320;2013                                              ;"RACOR 507 1/2""x1/2""NPT.";UND 
 2321;2012                                              ;"RACOR 507 1/2""x3/8""NPT RECTO (B-68).";UND 
 10781;0010781                                           ;"RACOR 507 1/4""ODx1/4""NPT";UND 
 2324;106                                               ;"RACOR 507 3/8""x1/4""NPT";UND 
 2326;107                                               ;"RACOR 507 3/8""x3/8""NPT";UND 
-11168;0011168                                           ;"RACOR 508 1/2""x1/2""NPT CODO-90¬∞ (B-69).";UND 
-2328;2019                                              ;"RACOR 508 1/2""x3/8""NPT CODO-90¬∞ (B-69).";UND 
+11168;0011168                                           ;"RACOR 508 1/2""x1/2""NPT CODO-90∞ (B-69).";UND 
+2328;2019                                              ;"RACOR 508 1/2""x3/8""NPT CODO-90∞ (B-69).";UND 
 2330;108                                               ;"RACOR 508 1/4""x1/8""NPT.";UND 
 2331;167                                               ;"RACOR 508 3/8""x1/4""NPT.";UND 
 2332;2224                                              ;"RACOR 508 3/8""x1/8""NPT.";UND 
-2333;166                                               ;"RACOR 508 3/8""x3/8""NPT CODO-90¬∞ (B-69).";UND 
+2333;166                                               ;"RACOR 508 3/8""x3/8""NPT CODO-90∞ (B-69).";UND 
 2339;180                                               ;"RACOR 540 1/4""NPT -TAPON-.";UND 
 2340;181                                               ;"RACOR 540 1/8""NPT -TAPON-.";UND 
 2343;9346                                              ;"RACOR 541 1/2""NPTx1/8""NPT.";UND 
@@ -1842,7 +1842,7 @@
 10565;MPMF 3/8-N03 XHNOTION -                           ;RACOR RAP.RECT3/8ODx3/8NPT-H MPMF3/8-N03;UND 
 12721;MPB1/4-N02                                        ;RACOR RAP.TE 1/4ODx1/4NPT MPB1/4-N02;UND 
 90;15607                                             ;"RACOR RAP.TE 3/8""ODx3/8NPT-LAT.MPD3/8N03";UND 
-2389;15262                                             ;RACOR RAP.TE 3/8√òx3/8NPT-CENT BPB3/8-N03;UND 
+2389;15262                                             ;RACOR RAP.TE 3/8ÿx3/8NPT-CENT BPB3/8-N03;UND 
 11174;MPM 3/8 XHNOTION -PASAMURO-                       ;"RACOR RAP.UNION P/M 3/8ODx3/8OD MPM 3/8""";UND 
 12627;0012627                                           ;RACOR RAPID CODO 1/2ODx1/2NPT MPL1/2-N04;UND 
 86;20351                                             ;RACOR RAPID CODO 1/2ODx3/8NPT MPL1/2-N03;UND 
@@ -1854,10 +1854,10 @@
 2382;8839                                              ;RACOR RAPID RECT 3/8ODx1/4NPT MPC3/8-N02;UND 
 2384;1236                                              ;RACOR RAPID RECT 3/8ODx3/8NPT MPC3/8-N03;UND 
 2383;"MPC 3/8""-N01                                      ";"RACOR RAPID.REC.3/8""ODx1/8NPT MPC3/8-N01";UND 
-2370;19216                                             ;"RACOR RAPIDO CODO 90¬∞ 1/2""ODx1/4""NPT.";UND 
-2371;20402                                             ;"RACOR RAPIDO CODO 90¬∞ 1/4""ODx1/4""NPT.";UND 
-2372;1072                                              ;"RACOR RAPIDO CODO 90¬∞ 1/4""ODx1/8""NPT.";UND 
-2373;21920                                             ;"RACOR RAPIDO CODO 90¬∞ 1/4""ODx3/8""NPT.";UND 
+2370;19216                                             ;"RACOR RAPIDO CODO 90∞ 1/2""ODx1/4""NPT.";UND 
+2371;20402                                             ;"RACOR RAPIDO CODO 90∞ 1/4""ODx1/4""NPT.";UND 
+2372;1072                                              ;"RACOR RAPIDO CODO 90∞ 1/4""ODx1/8""NPT.";UND 
+2373;21920                                             ;"RACOR RAPIDO CODO 90∞ 1/4""ODx3/8""NPT.";UND 
 2379;21526                                             ;"RACOR RAPIDO RECTO 1/4""ODx1/8""NPT.";UND 
 2380;1073                                              ;"RACOR RAPIDO RECTO 12mmODx3/8""NPT.";UND 
 4432;22707                                             ;"RACOR RAPIDO RECTO 5/16""ODx1/4NPT.";UND 
@@ -1870,111 +1870,111 @@
 2394;21802                                             ;"RACOR RAPIDO UNION 1/2""ODx1/2""OD MPU 1/2";UND 
 2395;18710                                             ;"RACOR RAPIDO UNION 1/4""ODx1/4""OD.";UND 
 4619;19105                                             ;RIEL LOGIST.VERT.K2 2071-072 6'ALUM.KINE;m   
-13315;0013315                                           ;RACOR R√ÅPIDO UNION 10mm√ò;UND 
-14712;0014712                                           ;RACOR R√ÅPIDO UNION 12mm√ò;UND 
-2401;7065                                              ;RACOR R√ÅPIDO UNION 16mm√ò;UND 
+13315;0013315                                           ;RACOR R¡PIDO UNION 10mmÿ;UND 
+14712;0014712                                           ;RACOR R¡PIDO UNION 12mmÿ;UND 
+2401;7065                                              ;RACOR R¡PIDO UNION 16mmÿ;UND 
 2396;15263                                             ;"RACOR RAPIDO UNION 3/8""OD MPU 3/8";UND 
 2397;19507                                             ;"RACOR RAPIDO UNION 5/16""ODx5/16""OD.";UND 
-2402;7069                                              ;RACOR R√ÅPIDO UNION 6mm√ò;UND 
-13314;0013314                                           ;RACOR R√ÅPIDO UNION 8mm√ò;UND 
+2402;7069                                              ;RACOR R¡PIDO UNION 6mmÿ;UND 
+13314;0013314                                           ;RACOR R¡PIDO UNION 8mmÿ;UND 
 2341;2964                                              ;"RACOR TAPON 3/4""NPT NO-06";UND 
 83;182                                               ;"RACOR TAPON 3/8""NPT NO-03";UND 
 12628;0012628                                           ;"RACOR TE HOR.3/8""NPT-Mx3/8NPT-H-H NTD03";UND 
 2404;15699                                             ;"RATCHET 2"" 811KINEDYNE/2909-6009-1BUFFER";UND 
-8536;0008536                                           ;"RATCHET AUTOM√ÅTICO 10-ESTRIAS 1.5""√ò";UND 
+8536;0008536                                           ;"RATCHET AUTOM¡TICO 10-ESTRIAS 1.5""ÿ";UND 
 2406;11139                                             ;RATCHET AUTOMATICO 28 ESTRIAS 40-20212;UND 
 2407;3002                                              ;RATCHET AUTOMATICO 37 ESTRIAS.;UND 
-4239;A20-0101 AMPRO                                    ;"RATCHET MANUAL 28-ESTRIAS P/EJE 5""√ò PRO-";UND 
+4239;A20-0101 AMPRO                                    ;"RATCHET MANUAL 28-ESTRIAS P/EJE 5""ÿ PRO-";UND 
 2410;912                                               ;RATCHET MANUAL 37 ESTRIAS.;UND 
 2412;10001                                             ;RECIBIDOR DER.CIERRE PUERTA AP-10-D.;UND 
 8157;70093 TODCO                                       ;RECIBIDOR GANCHO 70093 TODCO;UND 
 2413;10002                                             ;RECIBIDOR IZQ.CIERRE PUERTA AP-10I;UND 
 91;428                                               ;"REDONDO AC.CIAL.LC.1"" O.";kg  
-2416;427                                               ;"REDONDO AC.CIAL.LC.1_1/4""√ò.";kg  
-2417;430                                               ;"REDONDO AC.CIAL.LC.3/4""√ò.";Kg  
-2418;16712                                             ;"REDONDO AC.INOX.420 BONIFICADO 1""√ò.";Kg  
-2422;2503                                              ;"REDONDO AC.INOX.AISI304 1_1/4""√ò.";Kg  
-14756;INOX - 1_3/4                                      ;"REDONDO AC.INOX.AISI304 1_3/4""√ò.";Kg  
-2419;8162                                              ;"REDONDO AC.INOX.AISI304.1""√ò.";Kg  
-2420;4777                                              ;"REDONDO AC.INOX.AISI304.1/2""√ò.";Kg  
-2421;17851                                             ;"REDONDO AC.INOX.AISI304.1/4""√ò.";Kg  
-6939;06939                                             ;"REDONDO AC.INOX.AISI304.1_1/2""√ò.";kg  
-7826;0007826                                           ;"REDONDO AC.INOX.AISI304.1_1/8""√ò.";Kg  
-7827;0007827                                           ;"REDONDO AC.INOX.AISI304.1_5/8""√ò.";Kg  
-14099;0014099                                           ;"REDONDO AC.INOX.AISI304.3""√ò.";kg  
-2424;9517                                              ;"REDONDO AC.INOX.AISI304.3/8""√ò.";Kg  
-2427;2478                                              ;"REDONDO AC.INOX.AISI304.5/8""√ò.";Kg  
-2428;4783                                              ;"REDONDO AC.INOX.AISI304.7/8""√ò.";Kg  
-2430;13900                                             ;"REDONDO AC.INOX.ROSCADO RO.1/2""√ò.";m   
-2431;16572                                             ;REDONDO AC.INOX.T2316 25.5mm.√ò.;Kg  
+2416;427                                               ;"REDONDO AC.CIAL.LC.1_1/4""ÿ.";kg  
+2417;430                                               ;"REDONDO AC.CIAL.LC.3/4""ÿ.";Kg  
+2418;16712                                             ;"REDONDO AC.INOX.420 BONIFICADO 1""ÿ.";Kg  
+2422;2503                                              ;"REDONDO AC.INOX.AISI304 1_1/4""ÿ.";Kg  
+14756;INOX - 1_3/4                                      ;"REDONDO AC.INOX.AISI304 1_3/4""ÿ.";Kg  
+2419;8162                                              ;"REDONDO AC.INOX.AISI304.1""ÿ.";Kg  
+2420;4777                                              ;"REDONDO AC.INOX.AISI304.1/2""ÿ.";Kg  
+2421;17851                                             ;"REDONDO AC.INOX.AISI304.1/4""ÿ.";Kg  
+6939;06939                                             ;"REDONDO AC.INOX.AISI304.1_1/2""ÿ.";kg  
+7826;0007826                                           ;"REDONDO AC.INOX.AISI304.1_1/8""ÿ.";Kg  
+7827;0007827                                           ;"REDONDO AC.INOX.AISI304.1_5/8""ÿ.";Kg  
+14099;0014099                                           ;"REDONDO AC.INOX.AISI304.3""ÿ.";kg  
+2424;9517                                              ;"REDONDO AC.INOX.AISI304.3/8""ÿ.";Kg  
+2427;2478                                              ;"REDONDO AC.INOX.AISI304.5/8""ÿ.";Kg  
+2428;4783                                              ;"REDONDO AC.INOX.AISI304.7/8""ÿ.";Kg  
+2430;13900                                             ;"REDONDO AC.INOX.ROSCADO RO.1/2""ÿ.";m   
+2431;16572                                             ;REDONDO AC.INOX.T2316 25.5mm.ÿ.;Kg  
 4640;0004640                                           ;"REDONDO AC.ROSCADO GALV.RO.1/2""";m   
 14033;0014033                                           ;"REDONDO AC.ROSCADO GALV.RO.5/8""";m   
 12865;0012865                                           ;"REDONDO AC.ROSCADO GALV.RO.9/16""";m   
 94;17257                                             ;"REDONDO AC.ROSCADO RO 3/4""";m   
 2433;14339                                             ;"REDONDO AC.ROSCADO RO.5/8"".";m   
 2435;13287                                             ;"REDONDO AC.ROSCADO RO.7/8"".";m   
-2436;433                                               ;"REDONDO AC.SAE1016.LC.3""√ò.";Kg  
-2437;1155                                              ;"REDONDO AC.SAE1020 CALIB.1""√ò.";Kg  
-2438;411                                               ;"REDONDO AC.SAE1020 CALIB.1/2""√ò.";Kg  
-2439;412                                               ;"REDONDO AC.SAE1020 CALIB.1/4""√ò.";Kg  
-2440;263                                               ;"REDONDO AC.SAE1020 CALIB.1_1/2""√ò.";Kg  
-2441;1003                                              ;"REDONDO AC.SAE1020 CALIB.1_1/4""√ò.";Kg  
-13533;0013533                                           ;"REDONDO AC.SAE1020 CALIB.1_5/8""√ò.";Kg  
-2442;1004                                              ;"REDONDO AC.SAE1020 CALIB.2""√ò.";Kg  
-2444;413                                               ;"REDONDO AC.SAE1020 CALIB.3/4""√ò.";Kg  
-2445;414                                               ;"REDONDO AC.SAE1020 CALIB.3/8""√ò.";Kg  
-2447;416                                               ;"REDONDO AC.SAE1020 CALIB.5/8""√ò.";Kg  
-5374;0005374                                           ;"REDONDO AC.SAE1020 CALIB.7/8""√ò.";Kg  
-2452;420                                               ;"REDONDO AC.SAE1045 CALIB.1""√ò.";Kg  
-2453;1201                                              ;"REDONDO AC.SAE1045 CALIB.1/2""√ò.";Kg  
-2454;1195                                              ;"REDONDO AC.SAE1045 CALIB.1_1/2""√ò.";Kg  
-2455;1194                                              ;"REDONDO AC.SAE1045 CALIB.1_1/4""√ò.";Kg  
-2456;1020                                              ;"REDONDO AC.SAE1045 CALIB.1_3/4""√ò.";Kg  
-2458;422                                               ;"REDONDO AC.SAE1045 CALIB.2""√ò.";Kg  
-2459;421                                               ;"REDONDO AC.SAE1045 CALIB.2_1/2""√ò.";Kg  
-2461;419                                               ;"REDONDO AC.SAE1045 CALIB.3""√ò.";Kg  
-2462;423                                               ;"REDONDO AC.SAE1045 CALIB.3/4""√ò.";Kg  
-6082;424                                               ;"REDONDO AC.SAE1045 CALIB.4""√ò.";kg  
-2464;425                                               ;"REDONDO AC.SAE1045 CALIB.5/8""√ò.";Kg  
-2465;426                                               ;"REDONDO AC.SAE1045 CALIB.7/8""√ò.";Kg  
-2467;9035                                              ;"REDONDO AC.SAE1045 LC.5""√ò.";Kg  
+2436;433                                               ;"REDONDO AC.SAE1016.LC.3""ÿ.";Kg  
+2437;1155                                              ;"REDONDO AC.SAE1020 CALIB.1""ÿ.";Kg  
+2438;411                                               ;"REDONDO AC.SAE1020 CALIB.1/2""ÿ.";Kg  
+2439;412                                               ;"REDONDO AC.SAE1020 CALIB.1/4""ÿ.";Kg  
+2440;263                                               ;"REDONDO AC.SAE1020 CALIB.1_1/2""ÿ.";Kg  
+2441;1003                                              ;"REDONDO AC.SAE1020 CALIB.1_1/4""ÿ.";Kg  
+13533;0013533                                           ;"REDONDO AC.SAE1020 CALIB.1_5/8""ÿ.";Kg  
+2442;1004                                              ;"REDONDO AC.SAE1020 CALIB.2""ÿ.";Kg  
+2444;413                                               ;"REDONDO AC.SAE1020 CALIB.3/4""ÿ.";Kg  
+2445;414                                               ;"REDONDO AC.SAE1020 CALIB.3/8""ÿ.";Kg  
+2447;416                                               ;"REDONDO AC.SAE1020 CALIB.5/8""ÿ.";Kg  
+5374;0005374                                           ;"REDONDO AC.SAE1020 CALIB.7/8""ÿ.";Kg  
+2452;420                                               ;"REDONDO AC.SAE1045 CALIB.1""ÿ.";Kg  
+2453;1201                                              ;"REDONDO AC.SAE1045 CALIB.1/2""ÿ.";Kg  
+2454;1195                                              ;"REDONDO AC.SAE1045 CALIB.1_1/2""ÿ.";Kg  
+2455;1194                                              ;"REDONDO AC.SAE1045 CALIB.1_1/4""ÿ.";Kg  
+2456;1020                                              ;"REDONDO AC.SAE1045 CALIB.1_3/4""ÿ.";Kg  
+2458;422                                               ;"REDONDO AC.SAE1045 CALIB.2""ÿ.";Kg  
+2459;421                                               ;"REDONDO AC.SAE1045 CALIB.2_1/2""ÿ.";Kg  
+2461;419                                               ;"REDONDO AC.SAE1045 CALIB.3""ÿ.";Kg  
+2462;423                                               ;"REDONDO AC.SAE1045 CALIB.3/4""ÿ.";Kg  
+6082;424                                               ;"REDONDO AC.SAE1045 CALIB.4""ÿ.";kg  
+2464;425                                               ;"REDONDO AC.SAE1045 CALIB.5/8""ÿ.";Kg  
+2465;426                                               ;"REDONDO AC.SAE1045 CALIB.7/8""ÿ.";Kg  
+2467;9035                                              ;"REDONDO AC.SAE1045 LC.5""ÿ.";Kg  
 4464;5810                                              ;"REDONDO AC.SAE1045.LC.4 1/2"" O.";KG  
-14970;0014970                                           ;"REDONDO AC.SAE4140.1_1/4""√ò.";Kg  
-2470;9480                                              ;"REDONDO AC.SAE4140.BONIF.1_1/4""√ò.";Kg  
-11498;0011498                                           ;"REDONDO AC.SAE4140.BONIF.3""√ò.";Kg  
+14970;0014970                                           ;"REDONDO AC.SAE4140.1_1/4""ÿ.";Kg  
+2470;9480                                              ;"REDONDO AC.SAE4140.BONIF.1_1/4""ÿ.";Kg  
+11498;0011498                                           ;"REDONDO AC.SAE4140.BONIF.3""ÿ.";Kg  
 526;18932                                             ;BOLSA AIRE S-25319 HENDRICKSON.;UND 
-2414;22078                                             ;"REDONDO AC.SAE4140.BONIF.5""√ò.";Kg  
-2472;965                                               ;"REDONDO AC.SAE4140.BONIF.7/8""√ò.";Kg  
-2474;3322                                              ;"REDONDO AC.SAE4140.BONIF.CALIB.1_1/2""√ò.";Kg  
-2476;3101                                              ;"REDONDO AC.SAE4140.BONIF.CALIB.2""√ò.";Kg  
+2414;22078                                             ;"REDONDO AC.SAE4140.BONIF.5""ÿ.";Kg  
+2472;965                                               ;"REDONDO AC.SAE4140.BONIF.7/8""ÿ.";Kg  
+2474;3322                                              ;"REDONDO AC.SAE4140.BONIF.CALIB.1_1/2""ÿ.";Kg  
+2476;3101                                              ;"REDONDO AC.SAE4140.BONIF.CALIB.2""ÿ.";Kg  
 4362;2039                                              ;"REDONDO AC.SAE4140.BONIF-LC.2"" O.";KG  
-13289;0013289                                           ;"REDONDO AC.SAE4340 BONIF. 5_1/2""√ò.";Kg  
-11418;0011418                                           ;"REDONDO AC.SAE4340 BONIF.CALIB 6""√ò.";Kg  
-2479;21638                                             ;"REDONDO AC.SAE4340 BONIF.CALIB 7""√ò.";Kg  
-2482;8204                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.2""√ò.";Kg  
-2483;1167                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.2_1/2""√ò.";Kg  
-2484;4758                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.3""√ò.";Kg  
-2485;1960                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.4""√ò.";Kg  
-2487;9003                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.5""√ò.";Kg  
-2490;18072                                             ;"REDONDO ALUMINIO 1""√ò LR-011 LEHNER.";m   
-2488;8266                                              ;"REDONDO ALUMINIO 1/2""√ò.";m   
-4146;17895                                             ;"REDONDO ALUMINIO 2""√ò";m   
-14967;0014967                                           ;"REDONDO ALUMINIO 3""√ò";m   
-6632;0006632                                           ;"REDONDO ALUMINIO 3/8""√ò.";m   
-10948;0010948                                           ;REDONDO CROMADO CK45, 25√òEx200mm ANBAO;UND 
-10947;0010947                                           ;REDONDO CROMADO CK45, 37√òEx600mm ANBAO;UND 
-12266;0012266                                           ;"REDONDO DE EMPACK 1""√ò -UHMW-.";m   
-2491;3520                                              ;"REDONDO DE EMPACK 1_1/4""√ò -UHMW-.";m   
-2492;6034                                              ;"REDONDO DE EMPACK 2""√ò -UHMW-.";m   
+13289;0013289                                           ;"REDONDO AC.SAE4340 BONIF. 5_1/2""ÿ.";Kg  
+11418;0011418                                           ;"REDONDO AC.SAE4340 BONIF.CALIB 6""ÿ.";Kg  
+2479;21638                                             ;"REDONDO AC.SAE4340 BONIF.CALIB 7""ÿ.";Kg  
+2482;8204                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.2""ÿ.";Kg  
+2483;1167                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.2_1/2""ÿ.";Kg  
+2484;4758                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.3""ÿ.";Kg  
+2485;1960                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.4""ÿ.";Kg  
+2487;9003                                              ;"REDONDO AC.SAE4340.BONIF.CALIB.5""ÿ.";Kg  
+2490;18072                                             ;"REDONDO ALUMINIO 1""ÿ LR-011 LEHNER.";m   
+2488;8266                                              ;"REDONDO ALUMINIO 1/2""ÿ.";m   
+4146;17895                                             ;"REDONDO ALUMINIO 2""ÿ";m   
+14967;0014967                                           ;"REDONDO ALUMINIO 3""ÿ";m   
+6632;0006632                                           ;"REDONDO ALUMINIO 3/8""ÿ.";m   
+10948;0010948                                           ;REDONDO CROMADO CK45, 25ÿEx200mm ANBAO;UND 
+10947;0010947                                           ;REDONDO CROMADO CK45, 37ÿEx600mm ANBAO;UND 
+12266;0012266                                           ;"REDONDO DE EMPACK 1""ÿ -UHMW-.";m   
+2491;3520                                              ;"REDONDO DE EMPACK 1_1/4""ÿ -UHMW-.";m   
+2492;6034                                              ;"REDONDO DE EMPACK 2""ÿ -UHMW-.";m   
 12380;0012380                                           ;"REDUC.BUSHING AC.150PSI 1/2""x3/8""NPT.";UND 
 2499;5457                                              ;REDUC.BUSHING AC.150PSI/GALV.1x3/4NPT.;UND 
 14603;0014603                                           ;"REDUC.BUSHING AC.3000PSI 1/2""x 1/4"" NPT.";UND 
 2497;0002497                                           ;"REDUC.BUSHING AC.3000PSI 1_1/4""x1/4""NPT.";UND 
 8286;08286                                             ;"REDUC.BUSHING AC.3000PSI 3/4""x 1/2"" NPT.";UND 
 2504;25407                                             ;"REDUC.CONCENTR.ALUM 4""x3"" 20343 BTI.";UND 
-2513;2449                                              ;"REDUC.COPA SOLD.AC.SCH40 4""x3""√ò.";UND 
-2519;7167                                              ;"REDUC.COPA SOLD.INOX.304 SCH10 4""x3""√ò.";UND 
-2520;23227                                             ;"REDUC.COPA SOLD.INOX.316 SCH40 3""x2""√ò.";UND 
+2513;2449                                              ;"REDUC.COPA SOLD.AC.SCH40 4""x3""ÿ.";UND 
+2519;7167                                              ;"REDUC.COPA SOLD.INOX.304 SCH10 4""x3""ÿ.";UND 
+2520;23227                                             ;"REDUC.COPA SOLD.INOX.316 SCH40 3""x2""ÿ.";UND 
 95;19968                                             ;REDUCCION TRIPLE 1/2NPTx3/8NPT -ZINCADA-;UND 
 2523;13733                                             ;REFLECTOR DE REVERSA 450033. -BETTS-;UND 
 2524;13734                                             ;REFLECTOR GIRATORIO 315007 BETTS.;UND 
@@ -2005,17 +2005,17 @@
 2543;5985                                              ;"REMACHE CIEGO ALUM/AC.3/16""AD64H (0.470)";UND 
 2544;5986                                              ;"REMACHE CIEGO ALUM/AC.3/16""AD66H (0.595)";UND 
 2545;13466                                             ;"REMACHE CIEGO ALUM/AC.3/16""AD68H (0.720)";UND 
-6810;38-206-08-16 (5.16-7.52mm)                        ;"REMACHE DRIVE ALUM. 3/16""√ò 0.203""-0.296""";UND 
+6810;38-206-08-16 (5.16-7.52mm)                        ;"REMACHE DRIVE ALUM. 3/16""ÿ 0.203""-0.296""";UND 
 4488;26451                                             ;"REMACHE HUCK 14165 28.3mmx1O""LONG.";UND 
 1495;15123                                             ;REMACHE HUCK BOLT C6LB-R10-8G ;UND 
 7828;BOM-R10-10 5/16                                   ;REMACHE HUCK BOM-R10-10 5/16 0.563-0.687;UND 
 7189;HUCK BOM-R10-12                                   ;REMACHE HUCK BOM-R10-12 5/16 0.688-0.812;UND 
-2547;BOM-R10-6                                         ;"REMACHE HUCK BOM-R10-6 5/16""√ò0.313-0.437";UND 
+2547;BOM-R10-6                                         ;"REMACHE HUCK BOM-R10-6 5/16""ÿ0.313-0.437";UND 
 6513;BOM-R10-8                                         ;"REMACHE HUCK BOM-R10-8 5/16"" 0.438-0.562";UND 
 7190;HUCK BOM-R12-10                                   ;"REMACHE HUCK BOM-R12-10 3/8"" 0.563-0.812";UND 
 12995;"HUCK BOM-R12-6  3/8""                              ";"REMACHE HUCK BOM-R12-6  3/8"" 0.313-0.437";UND 
 6514;BOM-R12-8                                         ;"REMACHE HUCK BOM-R12-8 3/8"" 0.438-0.562";UND 
-14849;0014849                                           ;"REMACHE HUCK BOM-R8-6 1/4""√ò8.8mm-10.3mm";UND 
+14849;0014849                                           ;"REMACHE HUCK BOM-R8-6 1/4""ÿ8.8mm-10.3mm";UND 
 2550;2027                                              ;"REMACHE POP ALUM.3/16""x1/2""#6-6.";UND 
 2551;6509                                              ;"REMACHE POP ALUM.3/16""x1_1/16""#6-14.";UND 
 2555;677                                               ;"REMACHE POP ALUM.3/16""x5/8""#6-8.";UND 
@@ -2034,14 +2034,14 @@
 4393;23618-052                                         ;REMACHE TUBULAR PARA BANDA DE FRENO;UND 
 2574;15341                                             ;RESBALON ACERO 1201385 ADAICO -BASE+TAPA;UND 
 2576;FW68-0507III                                      ;RESORTE 10H FW68-0507III FUWA.;UND 
-14280;EG-16906304                                       ;"RESORTE 16√òEx1/16""ESPx80mmLONG.EG-169063";UND 
-4276;AN-1606206                                        ;RESORTE 17√òEx1ESPx26mmLONG.AN-1606206.;UND 
-11843;EG-15903800                                       ;RESORTE 18√òEx2.5ESPx50mmLONG.GALV.EG-159;UND 
-12803;0012803                                           ;RESORTE 22√òEx2ESPx122mmL.GALV.EG16105400;UND 
-9135;AN-36001100.                                      ;RESORTE 30√òEx7ESPx90mmLONG.GALV.AN-36001;UND 
-13416;0013416                                           ;RESORTE 35√òEx2ESPx120mmLONG.EG-16503404;UND 
-12558;AI-38012402                                       ;RESORTE 36√òEx2.5ESPx123mmLONG.AI38012402;UND 
-12443;AI-38012402-NO SE USO-                            ;RESORTE 36√òEx4-ESPx123mmLONG.;UND 
+14280;EG-16906304                                       ;"RESORTE 16ÿEx1/16""ESPx80mmLONG.EG-169063";UND 
+4276;AN-1606206                                        ;RESORTE 17ÿEx1ESPx26mmLONG.AN-1606206.;UND 
+11843;EG-15903800                                       ;RESORTE 18ÿEx2.5ESPx50mmLONG.GALV.EG-159;UND 
+12803;0012803                                           ;RESORTE 22ÿEx2ESPx122mmL.GALV.EG16105400;UND 
+9135;AN-36001100.                                      ;RESORTE 30ÿEx7ESPx90mmLONG.GALV.AN-36001;UND 
+13416;0013416                                           ;RESORTE 35ÿEx2ESPx120mmLONG.EG-16503404;UND 
+12558;AI-38012402                                       ;RESORTE 36ÿEx2.5ESPx123mmLONG.AI38012402;UND 
+12443;AI-38012402-NO SE USO-                            ;RESORTE 36ÿEx4-ESPx123mmLONG.;UND 
 2577;17511                                             ;RESORTE 4122MS BETTS (SPRING)-PPVL820-.;UND 
 2578;20573 - AN-1605100 - GALVANIZADO                  ;RESORTE 9mmESPx44mmDEx100mmLONG.GALVANIZ;UND 
 6472;25755                                             ;RESORTE AC.CAL9.5x85DEx66DIx176LONG;UND 
@@ -2050,8 +2050,8 @@
 2590;24097                                             ;RESORTE BALLESTA TL-644A-7HOJAS.;UND 
 2593;1225                                              ;RESORTE BALLESTA TR-8900-7HOJAS.;UND 
 2594;14800-1784 HACKNEY.-ESINCO SAS.                   ;"RESORTE CONTRAPESO 28"" ESINCO SAS.";UND 
-2598;21918                                             ;RESORTE HD-30000 10-HOJAS 1-U√ëA HERCULES;UND 
-2599;22071                                             ;RESORTE HD-30000 10-HOJAS 2-U√ëA HERCULES;UND 
+2598;21918                                             ;RESORTE HD-30000 10-HOJAS 1-U—A HERCULES;UND 
+2599;22071                                             ;RESORTE HD-30000 10-HOJAS 2-U—A HERCULES;UND 
 2601;17854                                             ;RESORTE INOX. CIERRE-PASADOR AN-22.;UND 
 2606;1326                                              ;RESORTE PEQ.ZAPATA DE FRENO 208502.;UND 
 14022;EG-16901902                                       ;RESORTE SEG. PUERTA 133 x 17 EG-16901902;UND 
@@ -2061,7 +2061,7 @@
 2622;19729                                             ;RETENEDOR BUJE COLLARIN LEVA 40x51x7.5mm;UND 
 11743;0011743-GUANGZHOU CHENSAI                         ;RETENEDOR DE GRASA K-30(A-26) G.CH.;UND 
 2623;15069                                             ;RETENEDOR DE GRASA K-30(A-26)714672-673.;UND 
-2626;23088 - -SEAL- B11-0202 AMPRO..                   ;"RETENEDOR DE GRASA P/ EJE 5""√ò PRO-ROLL";UND 
+2626;23088 - -SEAL- B11-0202 AMPRO..                   ;"RETENEDOR DE GRASA P/ EJE 5""ÿ PRO-ROLL";UND 
 2624;517                                               ;RETENEDOR DEL RESORTE COD:EK-0105600.;UND 
 13464;0013464                                           ;RETENEDOR GRASA 681734 P/EJE 11-TON;UND 
 9027;"2072-084"" ALUM.KINEDYN                            ";RIEL DOBLE VERT.K2 2072-084 ALUM.KINEDYN;m   
@@ -2074,7 +2074,7 @@
 8796;RC00164-COFRE RIN COLOR BLANCO                    ;"RIN DISCO AC. 13""x 22.5"" OFFSET 2""";UND 
 10467;0010467                                           ;"RIN DISCO AC.10-AGUJEROS 6.75""x17.5""";UND 
 2643;12907 -ACCURIDE:29300PW-COFRE:RC00149 +VALV.TR-573;RIN DISCO AC.9.0x22.5 5V 9000Lb BLANCO;UND 
-97;ACCURIDE:WH2251-5(KIC)√≥29169PW/AMPARTS:8.25x22.5B2;"RIN DISCO ACERO 8.25""x22.5"" 5V-10V  8000";UND 
+97;ACCURIDE:WH2251-5(KIC)Û29169PW/AMPARTS:8.25x22.5B2;"RIN DISCO ACERO 8.25""x22.5"" 5V-10V  8000";UND 
 4263;84U627 - TRUCK WHEEL -ARCONIC /42140SP ACCURIDE   ;"RIN DISCO ALUM.10-AGUJ. 14""x22.5""";UND 
 13324;0013324                                           ;"RIN DISCO ALUM.10-VENT.22.5""x12.25""";UND 
 13321;0013321                                           ;"RIN DISCO ALUM.8.25""x22.5"" 10V-TRAP.";UND 
@@ -2088,8 +2088,8 @@
 8558;0008558                                           ;RODAMIENTO 6308-2RSR-C3-L38;UND 
 2649;22823                                             ;RODAMIENTO AGUJAS NK 50/35 TN.;UND 
 2648;SHANDONG-17460 REF:0701395 ADAICO-                ;RODAMIENTO CARROS CBCLA SHANDONG KECHI;UND 
-10020;0010020                                           ;RODAMIENTO ESF√âRICO 50.8DI 71875455 HYVA;UND 
-3987;23086 -  H120100(CHINESE) AMPRO                   ;"RODAMIENTO HM-518445 P/EJE 5""√ò PRO-ROLL";UND 
+10020;0010020                                           ;RODAMIENTO ESF…RICO 50.8DI 71875455 HYVA;UND 
+3987;23086 -  H120100(CHINESE) AMPRO                   ;"RODAMIENTO HM-518445 P/EJE 5""ÿ PRO-ROLL";UND 
 2653;0002653                                           ;RODAMIENTO ROD.CONICO HM-218248;UND 
 2652;HM-518445 TIMKEN / H12-0100 AMPRO                 ;RODAMIENTO ROD.CONICO HM-518445 TIMKEN.;UND 
 2654;21083                                             ;RODAMIENTO RODILLOS CONICOS 740.;UND 
@@ -2112,15 +2112,15 @@
 2679;14813                                             ;"SELLO LAMPARA 2"" HACKNEY REF-811595.";UND 
 2682;14825                                             ;SELLO LAMPARA PLACA T/L#15700 HACKNEY.;UND 
 2790;10036                                             ;SWING BOLT 3765SL BETTS(MANHOLE 8327).;UND 
-2683;40√òINTx51√òEXTx5mm-ESP. -23618-006 ARGO BOGIE      ;SELLO P/LEVAC14-0301 A.B FUWA(40x51x5mm);UND 
+2683;40ÿINTx51ÿEXTx5mm-ESP. -23618-006 ARGO BOGIE      ;SELLO P/LEVAC14-0301 A.B FUWA(40x51x5mm);UND 
 2685;14981 - 441 032 808 0 WABCO.                      ;SENSOR 1.5ft(0.5m) + CLIP SENSOR ABS-EBS;UND 
 5126;FT150 DIXON                                       ;"SENSOR OPTICO 7"" 2-CABLES FT150 DIXON";UND 
 5132;FT152 DIXON                                       ;SENSOR OPTICO REMANENTE 2CABLE FT152 DIX;UND 
-12536;PR30-15DP AUTONICS                                ;SENSOR PROX.INDUCTIV.30mm√ò12-24V 15mm-PR;UND 
+12536;PR30-15DP AUTONICS                                ;SENSOR PROX.INDUCTIV.30mmÿ12-24V 15mm-PR;UND 
 11189;SN-4TW006 SHENZHEN SUNNUO -CBCLA-                 ;SENSORES + CAMARA DE REVERSA SN-4TW006;KIT 
 13928;0013928                                           ;SENSORES DE REVERSA SN-TW005-4PS;KIT 
-2693;24965                                             ;SE√ëAL METALICA DUO-FLIP 126CT LABELMASTE;UND 
-10993;EG-14403201                                       ;SE√ëAL ROJA CBCLA  EG-14403201 -PALETA-;UND 
+2693;24965                                             ;SE—AL METALICA DUO-FLIP 126CT LABELMASTE;UND 
+10993;EG-14403201                                       ;SE—AL ROJA CBCLA  EG-14403201 -PALETA-;UND 
 8554;0008554                                           ;SET RODAMIENTO+CUNA 740/742 EJE K-30;UND 
 8555;0008555                                           ;SET RODAMIENTO+CUNA 759/752 EJE K-30;UND 
 2696;20007                                             ;SIKA-AKTIVADOR -TARROx250ml- SIKA.;UND 
@@ -2139,18 +2139,18 @@
 5131;FT300 DIXON                                       ;SOCKET API/WOGA 6PIN-3RANURA-J FT300 DIX;UND 
 2721;574                                               ;"SOLDADURA AC.INOX.ER308LSi 0.045""+0.035""";Kg  
 2737;8871                                              ;"SOLDADURA AC.INOX.ER309LSi 0.045""+0.035""";Kg  
-5359;0005359                                           ;"SOLDADURA ALUM.ER-4043 0.035"" √ò. (1mm)";Kg  
-2723;11661                                             ;"SOLDADURA ALUM.ER-4043 0.045""√ò. (1.2mm)";Kg  
-12678;0012678                                           ;"SOLDADURA ALUM.ER-5554 0.035""√ò. (1.0mm).";kg  
-2724;11984                                             ;"SOLDADURA ALUM.ER-5554 0.045""√ò. (1.2mm).";Kg  
+5359;0005359                                           ;"SOLDADURA ALUM.ER-4043 0.035"" ÿ. (1mm)";Kg  
+2723;11661                                             ;"SOLDADURA ALUM.ER-4043 0.045""ÿ. (1.2mm)";Kg  
+12678;0012678                                           ;"SOLDADURA ALUM.ER-5554 0.035""ÿ. (1.0mm).";kg  
+2724;11984                                             ;"SOLDADURA ALUM.ER-5554 0.045""ÿ. (1.2mm).";Kg  
 2726;19258                                             ;"SOLDADURA APORTE ALUM.4043 3/32"".";Kg  
 2730;4871                                              ;"SOLDADURA APORTE INOX.308L 3/32""-TIG.";Kg  
-7714;0007714                                           ;SOLDADURA ARCO SUMERGIDO ER-70S-6 1.6mm√ò;Kg  
+7714;0007714                                           ;SOLDADURA ARCO SUMERGIDO ER-70S-6 1.6mmÿ;Kg  
 2733;25486                                             ;SOLDADURA ARCO SUMERGIDO ER-70S-6 2mm.;Kg  
-2734;570                                               ;"SOLDADURA E-7018 1/8""√ò.";Kg  
-2736;1295                                              ;"SOLDADURA ER-70S-6 DE 0.035""√ò. (1.0mm).";Kg  
+2734;570                                               ;"SOLDADURA E-7018 1/8""ÿ.";Kg  
+2736;1295                                              ;"SOLDADURA ER-70S-6 DE 0.035""ÿ. (1.0mm).";Kg  
 3635;19842                                             ;"VOLANTE ALUM.VALV-4"" 25245AL BETTS.";UND 
-98;569                                               ;"SOLDADURA ER-70S-6 DE 0.045""√ò (1.2mm).";kg  
+98;569                                               ;"SOLDADURA ER-70S-6 DE 0.045""ÿ (1.2mm).";kg  
 11116;NORDVALVES                                        ;SOLENOIDE 12V VALV.CONTR.DIREC.SVV90-G12;UND 
 9968;164705 CRAMARO                                    ;SOLENOIDE+SWITCH KIT 12V 164705 CRAMARO;UND 
 7507;1702060-ADAICO                                    ;SOPORTE ANTIEMPOTRAMIENTO 1702060 ADAICO;UND 
@@ -2163,8 +2163,8 @@
 99;11482                                             ;SOPORTE DE CAUCHO VSM-9526 -LAMP-6164A-.;UND 
 8851;601066 CRAMARO                                    ;SOPORTE EXTREMO FRONTAL DER 601066 CRAMA;UND 
 8850;601065 CRAMARO                                    ;SOPORTE EXTREMO FRONTAL IZQ 601065 CRAMA;UND 
-11735;0011735                                           ;SOPORTE GUARDABARRO PL√ÅSTICO BYF0086A;UND 
-11734;0011734                                           ;SOPORTE GUARDABARRO PL√ÅSTICO BYF0087A;UND 
+11735;0011735                                           ;SOPORTE GUARDABARRO PL¡STICO BYF0086A;UND 
+11734;0011734                                           ;SOPORTE GUARDABARRO PL¡STICO BYF0087A;UND 
 2757;20766-008                                         ;SOPORTE INF.BARRA SP-0006/EK-7300300;UND 
 8160;61352 TODCO                                       ;SOPORTE INFERIOR FIJO 61352 TODCO;UND 
 2760;21743                                             ;"SOPORTE LAMPARA 2_1/2"" 8-113-3.MULTIPART";UND 
@@ -2210,7 +2210,7 @@
 2830;17138                                             ;"TABLILLA PUERTA SUP.67.88"" 306571 HACK";UND 
 2844;22891                                             ;TABLON 76x76x4000mm.CHANUL.;UND 
 2843;20572                                             ;TABLON 76x76x5000mm. CHANUL.;UND 
-4153;"BRAKE DRUM H32-0601 AMPRO P/EJE 5""√ò PRO-ROLL      ";"TAMBOR FRENO 16.5""x7"" B.C.285.75mm E-13T";UND 
+4153;"BRAKE DRUM H32-0601 AMPRO P/EJE 5""ÿ PRO-ROLL      ";"TAMBOR FRENO 16.5""x7"" B.C.285.75mm E-13T";UND 
 10211;010211                                            ;"TAMBOR FRENO 8""x16.5 AMPRO";UND 
 118;719                                               ;TANQUE ACERO PARA AIRE SIST.FRENOS 1208;UND 
 11464;0011464                                           ;TANQUE ALUMINIO PARA AIRE SIST.FRENOS;UND 
@@ -2263,12 +2263,12 @@
 2911;24797-007                                         ;TE RECTA BT-500LP-D-GG BTI.;UND 
 2918;748                                               ;"TE ROSCADA AC.GALV.1/4""NPT.";UND 
 2919;6816                                              ;"TE ROSCADA AC.INOX.304 150PSI 3/8""NPT";UND 
-2921;3065                                              ;"TE SOLD.AC.INOX.304 SCH10 2""√ò.";UND 
-2922;3060                                              ;"TE SOLD.AC.INOX.304 SCH10 3""√ò.";UND 
-2923;5868                                              ;"TE SOLD.AC.INOX.304 SCH10 4""√ò.";UND 
-6949;0006949                                           ;"TE SOLD.AC.INOX.304 SCH10 6""√ò.";UND 
-2927;2510                                              ;"TE SOLD.AC.SCH40 2""√ò.";UND 
-2928;4851                                              ;"TE SOLD.AC.SCH40 3""√ò.";UND 
+2921;3065                                              ;"TE SOLD.AC.INOX.304 SCH10 2""ÿ.";UND 
+2922;3060                                              ;"TE SOLD.AC.INOX.304 SCH10 3""ÿ.";UND 
+2923;5868                                              ;"TE SOLD.AC.INOX.304 SCH10 4""ÿ.";UND 
+6949;0006949                                           ;"TE SOLD.AC.INOX.304 SCH10 6""ÿ.";UND 
+2927;2510                                              ;"TE SOLD.AC.SCH40 2""ÿ.";UND 
+2928;4851                                              ;"TE SOLD.AC.SCH40 3""ÿ.";UND 
 2929;7293                                              ;TEFLON LIQUIDO 193SS SEALCO.;UND 
 2931;17567                                             ;TEMPORIZADOR MCE-T/12V -KIT-. ACCEVAL;UND 
 11213;0011213                                           ;"TENSOR CABLE 1/2""x12""HG226 OJO-OJO CROSB";UND 
@@ -2290,9 +2290,9 @@
 11674;0011674                                           ;TERMINAL IZQ.B34-0101L EJE AUTOD.AMPARTS;UND 
 2949;9088                                              ;TERMINAL MACHO AISLADO 12-10 AMARILLO.;UND 
 2950;3128                                              ;TERMINAL MACHO AISLADO 16-14 AZUL.;UND 
-2951;13951-008                                         ;"TERMINAL OJO 5/16""√ò P/CABLE # 8.";UND 
+2951;13951-008                                         ;"TERMINAL OJO 5/16""ÿ P/CABLE # 8.";UND 
 8700;08700                                             ;"TERMINAL OJO AISLADO 1/4"" CABLE #10-12";UND 
-9155;0009155                                           ;"TERMINAL OJO AISLADO 3/8""√ò #22-10 4AWG";UND 
+9155;0009155                                           ;"TERMINAL OJO AISLADO 3/8""ÿ #22-10 4AWG";UND 
 2952;13951-010                                         ;"TERMINAL OJO AISLADO 5/32"" # 14-16.";UND 
 120;13951-004                                         ;"TERMINAL OJO AISLADO AMARILL 5/16"" 10-12";UND 
 2953;13951-002                                         ;"TERMINAL OJO AISLADO AZUL 3/16""CAL-14.";UND 
@@ -2446,7 +2446,7 @@
 3134;8924                                              ;"TORN.HEX.G8.RF.5/8""x7"".";UND 
 3155;0003155                                           ;"TORN.HEX.G8.RF.7/8""x3_1/2"".";UND 
 3137;9499                                              ;"TORN.HEX.G8.RF.9/16""x1_1/2"".";UND 
-14463;0014463                                           ;"TORN.HEX.G8.RF.√ò1""x2"".";UND 
+14463;0014463                                           ;"TORN.HEX.G8.RF.ÿ1""x2"".";UND 
 3138;17910                                             ;"TORN.HEX.G8.RO.1""x5"".";UND 
 6394;0215                                              ;"TORN.HEX.G8.RO.1/2""x1"".";UND 
 3141;0003141                                           ;"TORN.HEX.G8.RO.1/2""x1_1/2"".";UND 
@@ -2507,7 +2507,7 @@
 9157;0009157                                           ;"TORN.T/BROCA HEX.GALV.1/4""x3/4"".";UND 
 8163;80015-0040 TODCO                                  ;TORNILLO BISAGRA 1/4NCx1_1/4 80015-0040;UND 
 6032;06032                                             ;TRABA-ROSCA FUERZA ALTA 277 LOCTITE.;Lt  
-11202;FW3719E40-504ZE100-001 FUWA                       ;TREN APOYO ELECTR√ìNICO FW3719E40-504ZE10;UND 
+11202;FW3719E40-504ZE100-001 FUWA                       ;TREN APOYO ELECTR”NICO FW3719E40-504ZE10;UND 
 12299;SHANDONG SHUIPO                                   ;TREN APOYO HIDR.+UNIDAD PODER SHANDONG S;UND 
 234;1092                                              ;"ADAPT.BRONCE OPW PARTE-A 3""NPT.";UND 
 13310;HLLGS3A115                                        ;TREN APOYO HLLGS3A115 MARK-V SAF HOLLAND;UND 
@@ -2515,57 +2515,57 @@
 3206;FW2819E00-5005TE05-001-FUWA / LG61909700-HOLLAND  ;"TREN DE APOYO 19"" 28000KG/80000KG FUWA";UND 
 5835;LGS-5A105-9000 HOLLAND                            ;TREN DE APOYO MARK-V SAF HOLLAND;UND 
 9582;0009582                                           ;TUBERIA AC. A-572 GR-50 229O.D.x219I.D.;m   
-3209;311                                               ;"TUBERIA AC.GALV.1""√ò.";m   
+3209;311                                               ;"TUBERIA AC.GALV.1""ÿ.";m   
 3211;312                                               ;"TUBERIA AC.GALV.1/2""x2.0mm-ESP.AGUA.";m   
-3215;314                                               ;"TUBERIA AC.GALV.3/4""√òx2.35mm-ESP.";m   
+3215;314                                               ;"TUBERIA AC.GALV.3/4""ÿx2.35mm-ESP.";m   
 3217;24341                                             ;"TUBERIA AC.GALV.SCH40 1"".";m   
 5589;05589                                             ;"TUBERIA AC.GALV.SCH40 1_1/4""";m   
-3213;5127                                              ;"TUBERIA AC.GALV.SCH40 2""√ò (53.65mm√ò-INT)";m   
+3213;5127                                              ;"TUBERIA AC.GALV.SCH40 2""ÿ (53.65mmÿ-INT)";m   
 3219;24985                                             ;"TUBERIA AC.GALV.SCH40 3/4""(2.87mmESP)";m   
-12504;0012504                                           ;"TUBERIA AC.GALV.SCH80 3/4""√ò S/C.";m   
-3220;318                                               ;"TUBERIA AC.INOX.304 SCH10 1""√ò.";m   
-3221;2244                                              ;"TUBERIA AC.INOX.304 SCH10 1/2""√ò.";m   
+12504;0012504                                           ;"TUBERIA AC.GALV.SCH80 3/4""ÿ S/C.";m   
+3220;318                                               ;"TUBERIA AC.INOX.304 SCH10 1""ÿ.";m   
+3221;2244                                              ;"TUBERIA AC.INOX.304 SCH10 1/2""ÿ.";m   
 4496;25397                                             ;"ADAPTADOR ALUM.RANURADO 4"" BG4AL BETTS.";UND 
 254;20556                                             ;ADAPTADOR PTO ISUZU 40TI7568-1 MUNCIE;UND 
 1339;2A5800B1A0A0A0A TRUCK SCALE KIT, LOADMAXX         ;AIR WEIGH 2A5800B1A0A0A0A ESCALA CAMION;UND 
-3222;9585                                              ;"TUBERIA AC.INOX.304 SCH10 1_1/2""√ò.";m   
+3222;9585                                              ;"TUBERIA AC.INOX.304 SCH10 1_1/2""ÿ.";m   
 282;20232                                             ;AMORTIGUADOR B-25437 HENDRICKSON.;UND 
-14065;0014065                                           ;"TUBERIA AC.INOX.304 SCH10 1_1/4""√ò.";m   
-3223;3066                                              ;"TUBERIA AC.INOX.304 SCH10 2""√ò.";m   
+14065;0014065                                           ;"TUBERIA AC.INOX.304 SCH10 1_1/4""ÿ.";m   
+3223;3066                                              ;"TUBERIA AC.INOX.304 SCH10 2""ÿ.";m   
 316;19351                                             ;ANILLO RETENEDOR SELLO EJE 9Q4976 BETTS.;UND 
-13150;0013150                                           ;"TUBERIA AC.INOX.304 SCH10 2_1/2""√ò.";m   
-3224;324                                               ;"TUBERIA AC.INOX.304 SCH10 3""√ò.";m   
+13150;0013150                                           ;"TUBERIA AC.INOX.304 SCH10 2_1/2""ÿ.";m   
+3224;324                                               ;"TUBERIA AC.INOX.304 SCH10 3""ÿ.";m   
 4416;26453                                             ;ARANDELA ALINEACION SOLDABLE 8mm 20203IH;UND 
-3225;320                                               ;"TUBERIA AC.INOX.304 SCH10 3/4""√ò.";m   
-3226;2471                                              ;"TUBERIA AC.INOX.304 SCH10 4""√ò.";m   
-3227;6353                                              ;"TUBERIA AC.INOX.304 SCH10 6""√ò.";m   
-3228;4312                                              ;"TUBERIA AC.INOX.304 SCH40 1""√ò.";m   
+3225;320                                               ;"TUBERIA AC.INOX.304 SCH10 3/4""ÿ.";m   
+3226;2471                                              ;"TUBERIA AC.INOX.304 SCH10 4""ÿ.";m   
+3227;6353                                              ;"TUBERIA AC.INOX.304 SCH10 6""ÿ.";m   
+3228;4312                                              ;"TUBERIA AC.INOX.304 SCH40 1""ÿ.";m   
 383;14003                                             ;ASIENTO DE TEFLON 18897TF BETTS.;UND 
-3229;321                                               ;"TUBERIA AC.INOX.304 SCH40 1/2""√ò.";m   
-3231;9586                                              ;"TUBERIA AC.INOX.304 SCH40 1_1/2""√ò.";m   
+3229;321                                               ;"TUBERIA AC.INOX.304 SCH40 1/2""ÿ.";m   
+3231;9586                                              ;"TUBERIA AC.INOX.304 SCH40 1_1/2""ÿ.";m   
 393;7965                                              ;BALANCIN FUNDIDO Y BUJE 0850-00 REYCO.;UND 
-3233;7162                                              ;"TUBERIA AC.INOX.304 SCH40 2""√ò.";m   
-3234;322                                               ;"TUBERIA AC.INOX.304 SCH40 3""√ò.";m   
-3235;12037                                             ;"TUBERIA AC.INOX.304 SCH40 3/4""√ò.";m   
-14057;0014057                                           ;"TUBERIA AC.INOX.304 SCH40 3/8""√ò.";m   
-3236;3061                                              ;"TUBERIA AC.INOX.304 SCH40 4""√ò.";m   
-14896;0014896                                           ;"TUBERIA AC.INOX.304 SCH80 1/2""√ò.";m   
+3233;7162                                              ;"TUBERIA AC.INOX.304 SCH40 2""ÿ.";m   
+3234;322                                               ;"TUBERIA AC.INOX.304 SCH40 3""ÿ.";m   
+3235;12037                                             ;"TUBERIA AC.INOX.304 SCH40 3/4""ÿ.";m   
+14057;0014057                                           ;"TUBERIA AC.INOX.304 SCH40 3/8""ÿ.";m   
+3236;3061                                              ;"TUBERIA AC.INOX.304 SCH40 4""ÿ.";m   
+14896;0014896                                           ;"TUBERIA AC.INOX.304 SCH80 1/2""ÿ.";m   
 537;13112                                             ;BOMBA HIDRONEUM.450mm 0601020 ADAICO;UND 
 13903;0013903                                           ;TUBERIA ALUM. 200mmIDx210mmOD BOMBA HID;UND 
-4176;04176                                             ;"TUBERIA ALUM.1_1/2""√òx1.5mm. SIN TEMPLE.";m   
+4176;04176                                             ;"TUBERIA ALUM.1_1/2""ÿx1.5mm. SIN TEMPLE.";m   
 554;24001                                             ;BRAZO INF.INOX.REF-6759SL. BETTS;UND 
 556;23964                                             ;BRAZO SUP.INOX.REF-6170SL BETTS.;UND 
-4175;19657                                             ;"TUBERIA ALUM.1_1/2""√òx2.77mm. SIN TEMPLE.";m   
-4516;AD-4900006 - 1000-060 AAG - 25190 (88.9x5.5mm ESP);"TUBERIA ALUM.3.5""√òEx5.5mmESP.1000-060 AA";m   
+4175;19657                                             ;"TUBERIA ALUM.1_1/2""ÿx2.77mm. SIN TEMPLE.";m   
+4516;AD-4900006 - 1000-060 AAG - 25190 (88.9x5.5mm ESP);"TUBERIA ALUM.3.5""ÿEx5.5mmESP.1000-060 AA";m   
 587;10694                                             ;BUJE DURALON NYLON EK-6101300.;UND 
 7419;448A PREMIER                                      ;BUJE POLIURETANO 448A PREMIER;UND 
-3242;2535                                              ;"TUBERIA ALUM.3/8""√ò.";m   
+3242;2535                                              ;"TUBERIA ALUM.3/8""ÿ.";m   
 3246;25663                                             ;"TUBERIA ALUM.6061-T0 TC036 2""DEx3.91mmAL";m   
 630;19352                                             ;CABLE CONTROL REMOTO 35603SL BETTS.;UND 
 3252;11713                                             ;TUBERIA ALUM.6061-T6 TC028 31.8x2.1mmESP;m   
 633;20390                                             ;CABLE DIAGNOSTICO 3m 449 639 030 0 WABCO;UND 
 3249;11714                                             ;TUBERIA ALUM.LTC-221 25.4x2.5mm.ESP.;m   
-3250;14494                                             ;"TUBERIA ALUM.SCH10 4""√ò.";m   
+3250;14494                                             ;"TUBERIA ALUM.SCH10 4""ÿ.";m   
 3255;23455-002                                         ;"TUBERIA CERRAMIENTO GALV.1_1/2""x2mm.";m   
 3256;23455-001                                         ;"TUBERIA CERRAMIENTO GALV.3/4""x 2mm.";m   
 13411;0013411                                           ;TUBERIA CROMADA CK45 58mmIDx70mmOD;m   
@@ -2578,32 +2578,32 @@
 4487;15165                                             ;"TUBERIA NEGRA AC.3""x3.0mmESP";m   
 3261;3054                                              ;"TUBERIA NEGRA AC.3/4""x2mm-ESP.";m   
 3262;17684                                             ;"TUBERIA NEGRA AC.4""x2.7mm ESP.";m   
-3264;341                                               ;"TUBERIA NEGRA AC.SCH40 1""√ò";m   
-3265;17501                                             ;"TUBERIA NEGRA AC.SCH40 1""√ò.SIN COSTURA.";m   
-3266;4896                                              ;"TUBERIA NEGRA AC.SCH40 1/2""√ò SIN COSTURA";m   
-3267;21728                                             ;"TUBERIA NEGRA AC.SCH40 1/4""√ò.";m   
-3268;336                                               ;"TUBERIA NEGRA AC.SCH40 1_1/2""√ò. SIN COST";m   
-3269;337                                               ;"TUBERIA NEGRA AC.SCH40 1_1/4""√ò.";m   
-3272;345                                               ;"TUBERIA NEGRA AC.SCH40 2""√ò.";m   
-3273;343                                               ;"TUBERIA NEGRA AC.SCH40 2_1/2""√ò.";m   
-4468;16724                                             ;"TUBERIA NEGRA AC.SCH40 3""√ò SIN-COSTURA.";m   
-3274;347                                               ;"TUBERIA NEGRA AC.SCH40 3""√ò.";m   
-3275;1144                                              ;"TUBERIA NEGRA AC.SCH40 3/4""√ò.";m   
-5289;0005289                                           ;"TUBERIA NEGRA AC.SCH40 3/4""√ò-SIN COSTURA";m   
-3276;13744                                             ;"TUBERIA NEGRA AC.SCH40 3/8""√ò.";m   
-3277;348                                               ;"TUBERIA NEGRA AC.SCH40 4""√ò.";m   
-3281;353                                               ;"TUBERIA NEGRA AC.SCH80 1""√ò SIN COSTURA";m   
-3282;354                                               ;"TUBERIA NEGRA AC.SCH80 1/2""√ò. SIN COSTUR";m   
-131;2147                                              ;"TUBERIA NEGRA AC.SCH80 1_1/2""√ò.SIN COSTU";m   
-3284;1630                                              ;"TUBERIA NEGRA AC.SCH80 2""√ò. SIN COSTURA";m   
-3287;357                                               ;"TUBERIA NEGRA AC.SCH80 3/4""√ò.SIN COSTURA";m   
-3293;1222                                              ;"TUBERIA PVC AGUA 1""√ò.";m   
+3264;341                                               ;"TUBERIA NEGRA AC.SCH40 1""ÿ";m   
+3265;17501                                             ;"TUBERIA NEGRA AC.SCH40 1""ÿ.SIN COSTURA.";m   
+3266;4896                                              ;"TUBERIA NEGRA AC.SCH40 1/2""ÿ SIN COSTURA";m   
+3267;21728                                             ;"TUBERIA NEGRA AC.SCH40 1/4""ÿ.";m   
+3268;336                                               ;"TUBERIA NEGRA AC.SCH40 1_1/2""ÿ. SIN COST";m   
+3269;337                                               ;"TUBERIA NEGRA AC.SCH40 1_1/4""ÿ.";m   
+3272;345                                               ;"TUBERIA NEGRA AC.SCH40 2""ÿ.";m   
+3273;343                                               ;"TUBERIA NEGRA AC.SCH40 2_1/2""ÿ.";m   
+4468;16724                                             ;"TUBERIA NEGRA AC.SCH40 3""ÿ SIN-COSTURA.";m   
+3274;347                                               ;"TUBERIA NEGRA AC.SCH40 3""ÿ.";m   
+3275;1144                                              ;"TUBERIA NEGRA AC.SCH40 3/4""ÿ.";m   
+5289;0005289                                           ;"TUBERIA NEGRA AC.SCH40 3/4""ÿ-SIN COSTURA";m   
+3276;13744                                             ;"TUBERIA NEGRA AC.SCH40 3/8""ÿ.";m   
+3277;348                                               ;"TUBERIA NEGRA AC.SCH40 4""ÿ.";m   
+3281;353                                               ;"TUBERIA NEGRA AC.SCH80 1""ÿ SIN COSTURA";m   
+3282;354                                               ;"TUBERIA NEGRA AC.SCH80 1/2""ÿ. SIN COSTUR";m   
+131;2147                                              ;"TUBERIA NEGRA AC.SCH80 1_1/2""ÿ.SIN COSTU";m   
+3284;1630                                              ;"TUBERIA NEGRA AC.SCH80 2""ÿ. SIN COSTURA";m   
+3287;357                                               ;"TUBERIA NEGRA AC.SCH80 3/4""ÿ.SIN COSTURA";m   
+3293;1222                                              ;"TUBERIA PVC AGUA 1""ÿ.";m   
 3294;06361-002                                         ;"TUBERIA PVC AGUA PRESION 1/2"" 500PSI.";m   
 3296;19048                                             ;"TUBERIA PVC DUAL 8""DIA NOVAFORT.";m   
-3297;361                                               ;"TUBERIA PVC ELECTRICA 1/2""√ò.";m   
-10949;0010949                                           ;TUBO ALUM.210mm√òEx5mm-ESPx1000mm-LONG.;UND 
-10946;0010946                                           ;TUBO CILINDRO HIDR.30√òIx42√òEx200mm.ANBAO;UND 
-10945;0010945                                           ;TUBO CILINDRO HIDR.45√òIx54√òEx550mm.ANBAO;UND 
+3297;361                                               ;"TUBERIA PVC ELECTRICA 1/2""ÿ.";m   
+10949;0010949                                           ;TUBO ALUM.210mmÿEx5mm-ESPx1000mm-LONG.;UND 
+10946;0010946                                           ;TUBO CILINDRO HIDR.30ÿIx42ÿEx200mm.ANBAO;UND 
+10945;0010945                                           ;TUBO CILINDRO HIDR.45ÿIx54ÿEx550mm.ANBAO;UND 
 3307;635                                               ;"TUBO INSERTOR 1/2""-BRONCE-.";UND 
 3308;1014                                              ;"TUBO INSERTOR 1/4""-BRONCE-.";UND 
 3310;1013                                              ;"TUBO INSERTOR 3/8""-BRONCE-.";UND 
@@ -2626,13 +2626,13 @@
 3335;1061                                              ;"TUERCA HEX.GALV.RF.3/8"".";UND 
 3336;12411                                             ;"TUERCA HEX.GALV.RF.5/16"".";UND 
 133;1324                                              ;"TUERCA HEX.GALV.RF.5/8"".";UND 
-1026;6966                                              ;"CODO 45¬∞ ROSCADO AC.300PSI 3""NPT.";UND 
-1027;20010                                             ;"CODO 45¬∞ SOLD.AC.INOX.316L SCH40 4""√ò.";UND 
+1026;6966                                              ;"CODO 45∞ ROSCADO AC.300PSI 3""NPT.";UND 
+1027;20010                                             ;"CODO 45∞ SOLD.AC.INOX.316L SCH40 4""ÿ.";UND 
 4354;26269                                             ;"CODO 90 SOLDABLE AC INOX 304 SCH-10 1"".";UND 
 13726;013726                                            ;"TUERCA HEX.GALV.RF.7/8"".";UND 
 3339;383                                               ;"TUERCA HEX.GALV.RO.1/2"".";UND 
-1050;4315                                              ;"CODO 90¬∞ AC.INOX.304 150PSI 3/8""NPT.";UND 
-1060;601                                               ;"CODO 90¬∞ SOLD.AC.SCH40 1""√ò.";UND 
+1050;4315                                              ;"CODO 90∞ AC.INOX.304 150PSI 3/8""NPT.";UND 
+1060;601                                               ;"CODO 90∞ SOLD.AC.SCH40 1""ÿ.";UND 
 3340;959                                               ;"TUERCA HEX.GALV.RO.1/4"".";UND 
 3341;10009                                             ;"TUERCA HEX.GALV.RO.1/8"".";UND 
 1078;20166                                             ;CODO 9607-0326 HEIL.;UND 
@@ -2650,7 +2650,7 @@
 12539;0012539                                           ;"TUERCA HEX.GR8 RF.3/4"".";UND 
 10051;010051                                            ;"TUERCA HEX.GR8 RF.3/8"".";UND 
 10050;010050                                            ;"TUERCA HEX.GR8 RF.5/16"".";UND 
-1206;18809                                             ;CU√ëA SOPORTE IZQ.TOLVA HEIL.;UND 
+1206;18809                                             ;CU—A SOPORTE IZQ.TOLVA HEIL.;UND 
 3352;1056                                              ;"TUERCA HEX.GR8 RF.5/8"".";UND 
 3353;12587                                             ;"TUERCA HEX.GR8 RF.9/16"".";UND 
 1221;1117                                              ;DISTRIB.AIRE AD25011-3ALB BETTS.;UND 
@@ -2664,7 +2664,7 @@
 5058;BTV-6-SEAT-530 BTI                                ;"EMPAQUE 6"" BTV-6-SEAT-530 BLK NITRIL BTI";UND 
 3355;396                                               ;"TUERCA HEX.GR8 RO.5/8"".";UND 
 1258;2497                                              ;"EMPAQUE ASBESTO PLOMAGINADO CUAD.3/16""";Lb  
-1271;18815                                             ;EMPAQUE FLANCHE SILICONA 450¬∫ HEIL.;UND 
+1271;18815                                             ;EMPAQUE FLANCHE SILICONA 450∫ HEIL.;UND 
 1273;13208                                             ;"EMPAQUE LLENADO 10"" 3024BU BETTS(MH8020)";UND 
 1274;18940                                             ;"EMPAQUE LLENADO 10"" 3024TF BETTS(MH8020)";UND 
 1275;24372                                             ;"EMPAQUE LLENADO 10"" 3024WH BETTS(MH8020)";UND 
@@ -2743,7 +2743,7 @@
 3408;406                                               ;"TUERCA PARA PINAR RF.1_1/4"".";UND 
 3410;3311                                              ;"TUERCA PARA PINAR RF.3/4"".";UND 
 3411;13675                                             ;"TUERCA PARA PINAR RF.GALV.3/4"".";UND 
-4411;25759 - 79.9mm √òEXT. PASO-2mm.                    ;TUERCA PINAR PUNTA EJE K30(79.9mm√òP-2mm);UND 
+4411;25759 - 79.9mm ÿEXT. PASO-2mm.                    ;TUERCA PINAR PUNTA EJE K30(79.9mmÿP-2mm);UND 
 3413;22075                                             ;TUERCA PUNTA DE EJE.REF:2303(INNER NUT);UND 
 3417;14345-01 REYCO / LN106 MANSONS                    ;"TUERCA SEGURID.7/8""-14"" 14345-01/LN106";UND 
 3418;20766-010 - 10003 W&CH.                           ;"TUERCA SEGURIDAD 1.125""UNF GR8 10003";UND 
@@ -2863,8 +2863,8 @@
 3565;24797-016                                         ;"VALV.MARIPOSA 4"" 795-531-HD10 BTI.";UND 
 2905;25409                                             ;"TE ALUM.S/R 4"" 40727C BTI.";UND 
 2906;19025                                             ;"TE BELLED ALUM.3"" 40727B HEIL.";UND 
-2924;24570                                             ;"TE SOLD.AC.INOX.304 SCH40 1_1/2""√ò.";UND 
-2926;25019                                             ;"TE SOLD.AC.SCH40 1_1/2""√ò.";UND 
+2924;24570                                             ;"TE SOLD.AC.INOX.304 SCH40 1_1/2""ÿ.";UND 
+2926;25019                                             ;"TE SOLD.AC.SCH40 1_1/2""ÿ.";UND 
 3567;6802                                              ;"VALV.MARIPOSA 4""500/AL/NI/17-4/NIT/10PHD";UND 
 3568;24797-019                                         ;"VALV.MARIPOSA 5"" 790-531-HD10 BTI.";UND 
 3571;24797-017                                         ;VALV.MARIPOSA AIREACION BTV-2AV-FTHB BTI;UND 
@@ -2899,7 +2899,7 @@
 3624;19797                                             ;VIGA AC.WF12 22Lb/Pie 313x102x6.6x10.8mm;Kg  
 4152;25943                                             ;"VIGA LOGIST. E/A FE8050-10 94.3""-104""KIN";UND 
 9420;"FE8050-0423-0530 KINEDYNE ( 42.3""-A-53"" )         ";VIGA LOGIST.S.E/A EHD FE8050-0423-0530;UND 
-3271;15938                                             ;"TUBERIA NEGRA AC.SCH40 10""√ò.";m   
+3271;15938                                             ;"TUBERIA NEGRA AC.SCH40 10""ÿ.";m   
 7400;"FE8050-12 97,8""-107,5""                            ";"VIGA LOGIST.S/EHD FE8050-12 97,8""-107.5""";UND 
 12463;0012463                                           ;"VIGA LOGIST.S/HD DB1801A 100""-106"" QINDA";UND 
 3630;14095                                             ;"VIGA LOGIST.S/HD FE8000-12XL 96,2""-106.6";UND 
@@ -2912,7 +2912,7 @@
 3637;2109                                              ;WINCHE 7820LP.KINEDYNE/2693BUFFERS LOW P;UND 
 3420;24292                                             ;TUERCA SEGURIDAD M24x3 GB/T6185-2000 FUW;UND 
 3638;16201                                             ;WINCHE DESLIZABLE 3820-STANDARD KINEDYNE;UND 
-10012;0010012                                           ;WINCHE MANUAL DE PI√ëON 2000Lbs;UND 
+10012;0010012                                           ;WINCHE MANUAL DE PI—ON 2000Lbs;UND 
 3640;10033                                             ;WING NUT 3576SL BETTS(MANHOLE 8327).;UND 
 4365;7180                                              ;"YOKE CUADRANTE 1"" CORTO.";UND 
 3476;16876                                             ;VALV.5 PORT 2-WAY VALVE 110052-5 SEAL;UND 
