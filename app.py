@@ -97,10 +97,13 @@ with st.form("form_registro", clear_on_submit=True):
         # Normalizar el valor ingresado por el usuario
         item_normalizado = item.strip().upper()
         
-        # Buscar la unidad automáticamente
+        # Buscar la unidad automáticamente y proporcionar retroalimentación
         unidad = ""
-        if siesa_items is not None and item_normalizado in siesa_items.index:
-            unidad = siesa_items.loc[item_normalizado, 'Unidad']
+        if siesa_items is not None:
+            if item_normalizado in siesa_items.index:
+                unidad = siesa_items.loc[item_normalizado, 'Unidad']
+            elif item_normalizado:
+                st.warning(f"El ID de ítem '{item}' no se encontró en el listado de Siesa. La unidad no se llenará automáticamente.")
         
         st.text_input("Unidad", value=unidad, disabled=True)
         cantidad = st.number_input("Cantidad", min_value=0, step=1)
