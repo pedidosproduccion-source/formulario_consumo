@@ -62,6 +62,8 @@ if "data" not in st.session_state:
     load_data_from_db()
 if "edited_kit_data" not in st.session_state:
     st.session_state.edited_kit_data = None
+if "show_all_records" not in st.session_state:
+    st.session_state.show_all_records = False
 
 
 # Cargar el archivo de kits automáticamente
@@ -241,49 +243,60 @@ try:
 except Exception as e:
     st.error(f"No se pudo obtener el total de registros: {e}")
 
-# Ahora cargamos todos los datos para poder filtrar correctamente
-try:
-    df_all_data = pd.read_sql_query("SELECT * FROM registros", conn)
+
+# --- Nuevo botón para ver todos los registros ---
+if st.button("Ver historial completo"):
+    # Cambia el estado para que se carguen todos los registros
+    st.session_state.show_all_records = True
+
+# --- Lógica para cargar y mostrar los datos ---
+if st.session_state.show_all_records:
+    # Cargar todos los datos si el botón fue presionado
+    try:
+        df_all_data = pd.read_sql_query("SELECT * FROM registros", conn)
+        if not df_all_data.empty:
+            df_all_data["Fecha"] = pd.to_datetime(df_all_data["Fecha"])
+        else:
+            st.write("No hay registros en la base de datos.")
+    except Exception as e:
+        st.error(f"Error al cargar todos los datos de la base de datos: {e}")
+        df_all_data = pd.DataFrame()
+
     if not df_all_data.empty:
-        df_all_data["Fecha"] = pd.to_datetime(df_all_data["Fecha"])
+        min_date = df_all_data['Fecha'].min().date()
+        max_date = df_all_data['Fecha'].max().date()
+        
+        col_filter1, col_filter2 = st.columns(2)
+        with col_filter1:
+            start_date = st.date_input(
+                "Fecha de inicio", 
+                min_value=min_date, 
+                max_value=max_date, 
+                value=min_date
+            )
+        with col_filter2:
+            end_date = st.date_input(
+                "Fecha de fin", 
+                min_value=min_date, 
+                max_value=max_date, 
+                value=max_date
+            )
+            
+        start_date = pd.to_datetime(start_date)
+        end_date = pd.to_datetime(end_date)
+        
+        df_filtered = df_all_data[
+            (df_all_data['Fecha'] >= start_date) &
+            (df_all_data['Fecha'] <= end_date)
+        ]
+        
+        st.dataframe(df_filtered, use_container_width=True)
+else:
+    # Por defecto, mostrar solo los últimos 50 registros
+    if not st.session_state.data.empty:
+        st.dataframe(st.session_state.data, use_container_width=True)
     else:
         st.write("No hay registros en la base de datos.")
-except Exception as e:
-    st.error(f"Error al cargar todos los datos de la base de datos: {e}")
-    df_all_data = pd.DataFrame()
-
-# Solo mostramos el filtro si hay datos
-if not df_all_data.empty:
-    min_date = df_all_data['Fecha'].min().date()
-    max_date = df_all_data['Fecha'].max().date()
-    
-    col_filter1, col_filter2 = st.columns(2)
-    with col_filter1:
-        start_date = st.date_input(
-            "Fecha de inicio", 
-            min_value=min_date, 
-            max_value=max_date, 
-            value=min_date
-        )
-    with col_filter2:
-        end_date = st.date_input(
-            "Fecha de fin", 
-            min_value=min_date, 
-            max_value=max_date, 
-            value=max_date
-        )
-        
-    start_date = pd.to_datetime(start_date)
-    end_date = pd.to_datetime(end_date)
-    
-    # Aplicar el filtro directamente sobre los datos cargados
-    df_filtered = df_all_data[
-        (df_all_data['Fecha'] >= start_date) &
-        (df_all_data['Fecha'] <= end_date)
-    ]
-    
-    st.dataframe(df_filtered, use_container_width=True)
-# --- Fin de la sección de Registros Acumulados ---
 
 
 # Firma y Descargas
@@ -299,12 +312,15 @@ firma = st_canvas(
 )
 
 # Ahora la descarga de Excel y PDF usa todos los datos filtrados
-if not df_all_data.empty:
+if not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
+    # Si se han filtrado datos, usamos df_filtered, de lo contrario usamos los 50 últimos
+    df_to_export = df_filtered if st.session_state.show_all_records else st.session_state.data
+    
     # Descargar en Excel
     excel_buffer = BytesIO()
-    df_filtered.to_excel(excel_buffer, index=False, engine="openpyxl")
+    df_to_export.to_excel(excel_buffer, index=False, engine="openpyxl")
     excel_buffer.seek(0)
     
     st.download_button(
@@ -375,7 +391,7 @@ if not df_all_data.empty:
         return buffer_pdf
 
     if firma.image_data is not None:
-        pdf_buffer = generate_pdf(df_filtered, firma.image_data)
+        pdf_buffer = generate_pdf(df_to_export, firma.image_data)
         st.download_button(
             label="Descargar PDF con firma",
             data=pdf_buffer,
