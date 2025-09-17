@@ -88,7 +88,7 @@ except Exception as e:
 
 
 # Registro Manual de Ítems
-with st.form("form_registro", clear_on_submit=True):
+with st.form("form_registro", clear_on_submit=False): # Cambiado a False para evitar que se borren los campos al enviar
     st.subheader("Registro Manual")
     col1, col2 = st.columns(2)
     with col1:
@@ -96,15 +96,14 @@ with st.form("form_registro", clear_on_submit=True):
         id_recibe = st.text_input("ID Recibe")
         orden = st.text_input("Orden de Producción")
     with col2:
-        tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
-        item = st.text_input("ID Item")
+        item = st.text_input("ID Item", key="item_input")
         
         # Normalizar el valor ingresado por el usuario a string y mayúsculas
         item_normalizado = item.strip().upper()
         
-        # Buscar la unidad usando un método más seguro
+        # Buscar la unidad en tiempo real
         unidad = ""
-        if siesa_items is not None:
+        if siesa_items is not None and item_normalizado:
             # Filtrar el DataFrame donde el 'ID Item' coincida con el valor normalizado
             matching_row = siesa_items[siesa_items['ID Item'] == item_normalizado]
             if not matching_row.empty:
