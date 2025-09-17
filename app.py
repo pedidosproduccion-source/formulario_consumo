@@ -67,6 +67,18 @@ except FileNotFoundError:
     st.error("Archivo 'Kits.xlsx' no encontrado en la misma carpeta.")
     kit_data = None
 
+# Cargar el archivo de Siesa para buscar la unidad
+try:
+    siesa_items = pd.read_excel("listado de items Siesa.xlsx")
+    siesa_items.set_index('ID Item', inplace=True)
+    st.success("Archivo 'listado de items Siesa' cargado correctamente.")
+except FileNotFoundError:
+    st.error("Archivo 'listado de items Siesa.xlsx' no encontrado. La unidad no se llenará automáticamente.")
+    siesa_items = None
+except KeyError:
+    st.error("El archivo 'listado de items Siesa.xlsx' no contiene las columnas 'ID Item' o 'Unidad'.")
+    siesa_items = None
+
 
 # Registro Manual de Ítems
 with st.form("form_registro", clear_on_submit=True):
@@ -79,11 +91,17 @@ with st.form("form_registro", clear_on_submit=True):
     with col2:
         tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
         item = st.text_input("ID Item")
+        
+        # Buscar la unidad automáticamente
+        unidad = ""
+        if siesa_items is not None and item in siesa_items.index:
+            unidad = siesa_items.loc[item, 'Unidad']
+        
+        st.text_input("Unidad", value=unidad, disabled=True)
         cantidad = st.number_input("Cantidad", min_value=0, step=1)
     
     col3, col4 = st.columns(2)
     with col3:
-        unidad = st.selectbox("Unidad", ["m", "und", "kg"], index=1)
         fecha = st.date_input("Fecha de diligenciamiento", datetime.today())
     with col4:
         observacion = st.text_area("Observación")
@@ -98,17 +116,21 @@ with st.form("form_registro", clear_on_submit=True):
             "Tipo": tipo,
             "Item": item,
             "Cantidad": cantidad,
-            "Unidad": unidad,
+            "Unidad": unidad, # La unidad ahora viene de la variable 'unidad'
             "Observación": observacion,
             "Fecha": fecha
         }
         
-        c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
-        conn.commit()
-        
-        load_data_from_db()
-        st.success("Registro agregado correctamente")
-        st.rerun()
+        # Validación de campos
+        if not id_entrega or not id_recibe or not orden or not item or cantidad is None or not unidad:
+            st.warning("Por favor, complete todos los campos requeridos (ID Entrega, ID Recibe, Orden, ID Item, Cantidad y Unidad).")
+        else:
+            c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(nuevo.values()))
+            conn.commit()
+            
+            load_data_from_db()
+            st.success("Registro agregado correctamente")
+            st.rerun()
 
 # Registro por Kit
 if kit_data is not None:
