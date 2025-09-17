@@ -69,14 +69,12 @@ except FileNotFoundError:
 
 # Cargar el archivo de Siesa para buscar la unidad
 try:
-    # Cambio: Vuelve a leer el archivo de Excel
     siesa_items = pd.read_excel("listado de items Siesa.xlsx")
     # Verificar que las columnas existan antes de procesar
     if 'ID Item' in siesa_items.columns and 'Unidad' in siesa_items.columns:
-        # Limpiar ambas columnas de texto (espacios y mayúsculas)
+        # Limpiar ambas columnas de texto (espacios y mayúsculas) y convertirlas a string
         siesa_items['ID Item'] = siesa_items['ID Item'].astype(str).str.strip().str.upper()
         siesa_items['Unidad'] = siesa_items['Unidad'].astype(str).str.strip().str.upper()
-        siesa_items.set_index('ID Item', inplace=True)
         st.success("Archivo 'listado de items Siesa' cargado correctamente.")
     else:
         st.error("El archivo 'listado de items Siesa.xlsx' no contiene las columnas requeridas ('ID Item' y 'Unidad').")
@@ -101,14 +99,17 @@ with st.form("form_registro", clear_on_submit=True):
         tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
         item = st.text_input("ID Item")
         
-        # Normalizar el valor ingresado por el usuario
+        # Normalizar el valor ingresado por el usuario a string y mayúsculas
         item_normalizado = item.strip().upper()
         
-        # Buscar la unidad automáticamente y proporcionar retroalimentación
+        # Buscar la unidad usando un método más seguro
         unidad = ""
         if siesa_items is not None:
-            if item_normalizado in siesa_items.index:
-                unidad = siesa_items.loc[item_normalizado, 'Unidad']
+            # Filtrar el DataFrame donde el 'ID Item' coincida con el valor normalizado
+            matching_row = siesa_items[siesa_items['ID Item'] == item_normalizado]
+            if not matching_row.empty:
+                # Si se encuentra una coincidencia, obtener la unidad
+                unidad = matching_row['Unidad'].iloc[0]
             elif item_normalizado:
                 st.warning(f"El ID de ítem '{item}' no se encontró en el listado de Siesa. La unidad no se llenará automáticamente.")
         
