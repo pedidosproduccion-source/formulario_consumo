@@ -364,15 +364,17 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         
         c.setFont("Helvetica-Bold", 9)
         y_pos = height - 4*cm
-        col_widths = [1.5, 2.5, 2.5, 2.5, 2.5, 2.5, 1.5, 2, 3] # Ajuste de anchos para la tabla
         
-        x_offsets = [margin]
-        for i in range(len(dataframe.columns) - 1):
-            x_offsets.append(x_offsets[-1] + col_widths[i])
+        # --- Lógica de ajuste de ancho de columnas (versión mejorada) ---
+        num_cols = len(dataframe.columns)
+        total_table_width = width - 2 * margin
+        col_width = total_table_width / num_cols
+        
+        x_offsets = [margin + i * col_width for i in range(num_cols)]
         
         # Dibuja los encabezados
         for i, header in enumerate(dataframe.columns):
-            c.drawString(x_offsets[i]*cm, y_pos, str(header))
+            c.drawString(x_offsets[i], y_pos, str(header))
         
         c.setFont("Helvetica", 8)
         y_pos -= 0.5*cm
@@ -384,14 +386,13 @@ if 'data' in st.session_state and not st.session_state.data.empty:
                 y_pos = height - margin
                 c.setFont("Helvetica-Bold", 9)
                 for i, header in enumerate(dataframe.columns):
-                    c.drawString(x_offsets[i]*cm, y_pos, str(header))
+                    c.drawString(x_offsets[i], y_pos, str(header))
                 c.setFont("Helvetica", 8)
                 y_pos -= 0.5*cm
             
             for i, val in enumerate(row.values):
-                # Convierte cada valor a string y maneja NaN (valores vacíos)
                 display_val = "" if pd.isna(val) else str(val)
-                c.drawString(x_offsets[i]*cm, y_pos, display_val)
+                c.drawString(x_offsets[i], y_pos, display_val)
             y_pos -= 0.5*cm
             
         if signature_image is not None:
