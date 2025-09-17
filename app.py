@@ -70,6 +70,8 @@ except FileNotFoundError:
 # Cargar el archivo de Siesa para buscar la unidad
 try:
     siesa_items = pd.read_excel("listado de items Siesa.xlsx")
+    # Limpia la columna de ID y la usa como índice
+    siesa_items['ID Item'] = siesa_items['ID Item'].astype(str).str.strip().str.upper()
     siesa_items.set_index('ID Item', inplace=True)
     st.success("Archivo 'listado de items Siesa' cargado correctamente.")
 except FileNotFoundError:
@@ -92,10 +94,13 @@ with st.form("form_registro", clear_on_submit=True):
         tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
         item = st.text_input("ID Item")
         
+        # Normalizar el valor ingresado por el usuario
+        item_normalizado = item.strip().upper()
+        
         # Buscar la unidad automáticamente
         unidad = ""
-        if siesa_items is not None and item in siesa_items.index:
-            unidad = siesa_items.loc[item, 'Unidad']
+        if siesa_items is not None and item_normalizado in siesa_items.index:
+            unidad = siesa_items.loc[item_normalizado, 'Unidad']
         
         st.text_input("Unidad", value=unidad, disabled=True)
         cantidad = st.number_input("Cantidad", min_value=0, step=1)
