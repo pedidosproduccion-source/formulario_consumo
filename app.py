@@ -42,7 +42,12 @@ conn.commit()
 # Cargar los datos desde la base de datos al DataFrame de la sesión
 def load_data_from_db():
     try:
-        df = pd.read_sql_query("SELECT * FROM registros", conn)
+        # Cargar solo los últimos 50 registros, ordenados por ID descendente
+        df = pd.read_sql_query("SELECT * FROM registros ORDER BY ID DESC LIMIT 50", conn)
+        
+        # Invertir el orden para que los más recientes aparezcan al final de la tabla en la interfaz
+        df = df.iloc[::-1]
+
         if not isinstance(df, pd.DataFrame):
             df = pd.DataFrame()
         if not df.empty:
@@ -71,7 +76,6 @@ except FileNotFoundError:
 try:
     siesa_items = pd.read_excel("listado de items Siesa.xlsx")
     # Verificar que las columnas existan antes de procesar
-    # Ahora también se busca la columna 'Descripción Item'
     if 'ID Item' in siesa_items.columns and 'Unidad' in siesa_items.columns and 'Descripción Item' in siesa_items.columns:
         # Limpiar ambas columnas de texto (espacios y mayúsculas) y convertirlas a string
         siesa_items['ID Item'] = siesa_items['ID Item'].astype(str).str.strip().str.upper()
@@ -230,6 +234,15 @@ if kit_data is not None:
 
 # Registros Acumulados con filtro de fecha
 st.subheader("Registros acumulados")
+
+# --- Lógica para el nuevo indicador de total de registros ---
+try:
+    total_registros_query = c.execute("SELECT COUNT(*) FROM registros").fetchone()[0]
+    st.metric(label="Total de Registros", value=total_registros_query)
+except Exception as e:
+    st.error(f"No se pudo obtener el total de registros: {e}")
+# --- Fin de la lógica del indicador ---
+
 if 'data' in st.session_state and not st.session_state.data.empty:
     
     min_date = st.session_state.data['Fecha'].min()
