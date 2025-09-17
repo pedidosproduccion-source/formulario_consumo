@@ -67,20 +67,22 @@ except FileNotFoundError:
     st.error("Archivo 'Kits.xlsx' no encontrado en la misma carpeta.")
     kit_data = None
 
-# Cargar el archivo de Siesa para buscar la unidad
+# Cargar el archivo de Siesa para buscar la unidad y la descripción
 try:
     siesa_items = pd.read_excel("listado de items Siesa.xlsx")
     # Verificar que las columnas existan antes de procesar
-    if 'ID Item' in siesa_items.columns and 'Unidad' in siesa_items.columns:
+    # Ahora también se busca la columna 'Descripción Item'
+    if 'ID Item' in siesa_items.columns and 'Unidad' in siesa_items.columns and 'Descripción Item' in siesa_items.columns:
         # Limpiar ambas columnas de texto (espacios y mayúsculas) y convertirlas a string
         siesa_items['ID Item'] = siesa_items['ID Item'].astype(str).str.strip().str.upper()
         siesa_items['Unidad'] = siesa_items['Unidad'].astype(str).str.strip().str.upper()
+        siesa_items['Descripción Item'] = siesa_items['Descripción Item'].astype(str).str.strip()
         st.success("Archivo 'listado de items Siesa' cargado correctamente.")
     else:
-        st.error("El archivo 'listado de items Siesa.xlsx' no contiene las columnas requeridas ('ID Item' y 'Unidad').")
+        st.error("El archivo 'listado de items Siesa.xlsx' no contiene las columnas requeridas ('ID Item', 'Unidad' y/o 'Descripción Item').")
         siesa_items = None
 except FileNotFoundError:
-    st.error("Archivo 'listado de items Siesa.xlsx' no encontrado. La unidad no se llenará automáticamente.")
+    st.error("Archivo 'listado de items Siesa.xlsx' no encontrado. La unidad y la descripción no se llenarán automáticamente.")
     siesa_items = None
 except Exception as e:
     st.error(f"Ocurrió un error al procesar el archivo 'listado de items Siesa.xlsx': {e}")
@@ -102,18 +104,21 @@ with st.form("form_registro", clear_on_submit=False):
         # Normalizar el valor ingresado por el usuario a string y mayúsculas
         item_normalizado = item.strip().upper()
         
-        # Buscar la unidad en tiempo real
+        # Buscar la unidad y la descripción en tiempo real
         unidad = ""
+        descripcion = "" # Nuevo campo para la descripción
         if siesa_items is not None and item_normalizado:
             # Filtrar el DataFrame donde el 'ID Item' coincida con el valor normalizado
             matching_row = siesa_items[siesa_items['ID Item'] == item_normalizado]
             if not matching_row.empty:
-                # Si se encuentra una coincidencia, obtener la unidad
+                # Si se encuentra una coincidencia, obtener la unidad y la descripción
                 unidad = matching_row['Unidad'].iloc[0]
+                descripcion = matching_row['Descripción Item'].iloc[0]
             elif item_normalizado:
-                st.warning(f"El ID de ítem '{item}' no se encontró en el listado de Siesa. La unidad no se llenará automáticamente.")
+                st.warning(f"El ID de ítem '{item}' no se encontró en el listado de Siesa. La unidad y la descripción no se llenarán automáticamente.")
         
         st.text_input("Unidad", value=unidad, disabled=True)
+        st.text_area("Descripción del Ítem", value=descripcion, disabled=True) # Nuevo campo de texto para la descripción
         cantidad = st.number_input("Cantidad", min_value=0, step=1)
     
     col3, col4 = st.columns(2)
