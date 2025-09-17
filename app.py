@@ -69,8 +69,8 @@ except FileNotFoundError:
 
 # Cargar el archivo de Siesa para buscar la unidad
 try:
-    # Cambio: Ahora se lee el archivo CSV
-    siesa_items = pd.read_csv("listado de items Siesa.csv")
+    # Cambio: Vuelve a leer el archivo de Excel
+    siesa_items = pd.read_excel("listado de items Siesa.xlsx")
     # Verificar que las columnas existan antes de procesar
     if 'ID Item' in siesa_items.columns and 'Unidad' in siesa_items.columns:
         # Limpiar ambas columnas de texto (espacios y mayúsculas)
@@ -79,13 +79,13 @@ try:
         siesa_items.set_index('ID Item', inplace=True)
         st.success("Archivo 'listado de items Siesa' cargado correctamente.")
     else:
-        st.error("El archivo 'listado de items Siesa.csv' no contiene las columnas requeridas ('ID Item' y 'Unidad').")
+        st.error("El archivo 'listado de items Siesa.xlsx' no contiene las columnas requeridas ('ID Item' y 'Unidad').")
         siesa_items = None
 except FileNotFoundError:
-    st.error("Archivo 'listado de items Siesa.csv' no encontrado. La unidad no se llenará automáticamente.")
+    st.error("Archivo 'listado de items Siesa.xlsx' no encontrado. La unidad no se llenará automáticamente.")
     siesa_items = None
 except Exception as e:
-    st.error(f"Ocurrió un error al procesar el archivo 'listado de items Siesa.csv': {e}")
+    st.error(f"Ocurrió un error al procesar el archivo 'listado de items Siesa.xlsx': {e}")
     siesa_items = None
 
 
