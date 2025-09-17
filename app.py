@@ -362,34 +362,42 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         c.setFont("Helvetica-Bold", 12)
         c.drawString(margin, height - margin - 0.7*cm, f"Fecha: {datetime.today().strftime('%Y-%m-%d')}")
         
-        c.setFont("Helvetica-Bold", 9)
+        # Tamaño de fuente para encabezados
+        c.setFont("Helvetica-Bold", 8)
         y_pos = height - 4 * cm
 
-        # Cálculo dinámico del ancho de las columnas
+        # Nombres de las columnas del DataFrame
         columns = dataframe.columns.tolist()
         num_cols = len(columns)
-        total_width = width - 2 * margin
-        col_widths = []
-        for col in columns:
-            # Ancho mínimo para cada columna
-            col_widths.append(max(len(str(col)), 10) * 0.1 * cm)
+        total_table_width = width - 2 * margin
         
-        total_col_width = sum(col_widths)
-        if total_col_width > total_width:
-            # Escala los anchos si son demasiado grandes
-            scale_factor = total_width / total_col_width
-            col_widths = [w * scale_factor for w in col_widths]
-
+        # --- Lógica de cálculo dinámico y proporcional de ancho de columnas ---
+        # Anchos base por defecto para que la tabla sea legible
+        base_widths = [1.5, 2.5, 2.5, 2.0, 2.0, 2.5, 1.5, 2.0, 2.5, 3.0]
+        
+        # Si el número de columnas cambia, distribuimos el ancho de forma equitativa
+        if num_cols != len(base_widths):
+            col_width = total_table_width / num_cols
+            col_widths_cm = [col_width / cm] * num_cols
+        else:
+            col_widths_cm = base_widths
+            total_base_width = sum(base_widths) * cm
+            if total_base_width > total_table_width:
+                # Si los anchos base son demasiado grandes, los escalamos
+                scale_factor = total_table_width / total_base_width
+                col_widths_cm = [w * scale_factor for w in base_widths]
+        
         # Calcular los offsets (posiciones x) de las columnas
         x_offsets = [margin]
         for i in range(num_cols - 1):
-            x_offsets.append(x_offsets[-1] + col_widths[i])
+            x_offsets.append(x_offsets[-1] + col_widths_cm[i] * cm)
         
         # Dibuja los encabezados
         for i, header in enumerate(columns):
             c.drawString(x_offsets[i], y_pos, str(header))
         
-        c.setFont("Helvetica", 8)
+        # Tamaño de fuente para los datos (más pequeño para mejor legibilidad)
+        c.setFont("Helvetica", 7)
         y_pos -= 0.5 * cm
         
         # Dibuja los datos de cada fila
@@ -397,17 +405,22 @@ if 'data' in st.session_state and not st.session_state.data.empty:
             if y_pos < margin + 5 * cm: 
                 c.showPage()
                 y_pos = height - margin
-                c.setFont("Helvetica-Bold", 9)
+                c.setFont("Helvetica-Bold", 8)
                 for i, header in enumerate(columns):
                     c.drawString(x_offsets[i], y_pos, str(header))
-                c.setFont("Helvetica", 8)
+                c.setFont("Helvetica", 7)
                 y_pos -= 0.5 * cm
             
             for i, val in enumerate(row.values):
                 display_val = "" if pd.isna(val) else str(val)
                 # Verifica que el valor no exceda el ancho de la columna
-                if len(display_val) * 0.05 * cm > col_widths[i]:
-                    display_val = display_val[:int(col_widths[i] / (0.05 * cm))] + '...'
+                max_width = col_widths_cm[i] * cm
+                text_width = c.stringWidth(display_val, "Helvetica", 7)
+                
+                if text_width > max_width:
+                    # Trunca el texto si es demasiado largo
+                    truncated_text = c.set_font_and_get_string_width(display_val, "Helvetica", 7, max_width - 0.5*cm)
+                    display_val = truncated_text + "..."
                 
                 c.drawString(x_offsets[i], y_pos, display_val)
             y_pos -= 0.5 * cm
