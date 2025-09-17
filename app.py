@@ -337,10 +337,8 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         label="Descargar Excel",
         data=excel_buffer,
         file_name=f"registros_consumo_{fecha_hoy}.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    )
-
-       
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",)
+ 
     # Descargar en PDF
     def generate_pdf(dataframe, signature_image):
         buffer_pdf = BytesIO()
