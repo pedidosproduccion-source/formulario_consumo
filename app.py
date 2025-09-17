@@ -65,7 +65,6 @@ if "edited_kit_data" not in st.session_state:
 if "show_all_records" not in st.session_state:
     st.session_state.show_all_records = False
 
-
 # Cargar el archivo de kits automáticamente
 try:
     kit_data = pd.read_excel("Kits.xlsx")
@@ -95,42 +94,49 @@ except Exception as e:
     siesa_items = None
 
 
-# Registro Manual de Ítems
+# --- Registro Manual de Ítems (ORGANIZADO) ---
 with st.form("form_registro", clear_on_submit=False): 
     st.subheader("Registro Manual")
-    col1, col2 = st.columns(2)
+
+    # Sección 1: Datos de la Orden
+    st.markdown("**Datos de la Orden**")
+    col1, col2, col3 = st.columns(3)
     with col1:
         id_entrega = st.text_input("ID Entrega")
-        id_recibe = st.text_input("ID Recibe")
-        orden = st.text_input("Orden de Producción")
     with col2:
+        id_recibe = st.text_input("ID Recibe")
+    with col3:
+        orden = st.text_input("Orden de Producción")
+
+    # Sección 2: Información del Ítem
+    st.markdown("**Información del Ítem**")
+    col4, col5 = st.columns(2)
+    with col4:
         tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
         item = st.text_input("ID Item", key="item_input")
-        
-        # Normalizar el valor ingresado por el usuario a string y mayúsculas
+        cantidad = st.number_input("Cantidad", min_value=0, step=1)
+    with col5:
+        # Lógica para buscar unidad y descripción
         item_normalizado = item.strip().upper()
-        
-        # Buscar la unidad y la descripción en tiempo real
         unidad = ""
-        descripcion = "" # Nuevo campo para la descripción
+        descripcion = ""
         if siesa_items is not None and item_normalizado:
-            # Filtrar el DataFrame donde el 'ID Item' coincida con el valor normalizado
             matching_row = siesa_items[siesa_items['ID Item'] == item_normalizado]
             if not matching_row.empty:
-                # Si se encuentra una coincidencia, obtener la unidad y la descripción
                 unidad = matching_row['Unidad'].iloc[0]
                 descripcion = matching_row['Descripción Item'].iloc[0]
             elif item_normalizado:
-                st.warning(f"El ID de ítem '{item}' no se encontró en el listado de Siesa. La unidad y la descripción no se llenarán automáticamente.")
+                st.warning(f"El ID de ítem '{item}' no se encontró. La unidad y la descripción no se llenarán.")
         
         st.text_input("Unidad", value=unidad, disabled=True)
-        st.text_area("Descripción del Ítem", value=descripcion, disabled=True) # Nuevo campo de texto para la descripción
-        cantidad = st.number_input("Cantidad", min_value=0, step=1)
+        st.text_area("Descripción del Ítem", value=descripcion, disabled=True)
     
-    col3, col4 = st.columns(2)
-    with col3:
+    # Sección 3: Observaciones y Fecha
+    st.markdown("**Detalles del Registro**")
+    col6, col7 = st.columns(2)
+    with col6:
         fecha = st.date_input("Fecha de diligenciamiento", datetime.today())
-    with col4:
+    with col7:
         observacion = st.text_area("Observación")
 
     submitted = st.form_submit_button("Agregar registro")
@@ -158,82 +164,84 @@ with st.form("form_registro", clear_on_submit=False):
             st.success("Registro agregado correctamente")
             st.rerun()
 
-# Registro por Kit
+---
+
+# --- Registro por Kit (ORGANIZADO) ---
 if kit_data is not None:
     st.subheader("Registro por Kit")
     
-    try:
-        kit_data['Kit'] = kit_data['Kit'].str.strip()
-        kit_options = kit_data['Kit'].unique()
-        
+    # Sección 1: Selección de Kit y Datos de la Orden
+    col_kit_info1, col_kit_info2, col_kit_info3 = st.columns(3)
+    with col_kit_info1:
         selected_kit = st.selectbox(
             "Selecciona o digita un kit", 
-            options=kit_options, 
+            options=kit_data['Kit'].unique(), 
             key="selectbox_kit"
         )
-        
-        col_kit_info1, col_kit_info2 = st.columns(2)
-        with col_kit_info1:
-            orden_kit = st.text_input("Orden de Producción (Kit)")
-        with col_kit_info2:
-            observacion_kit = st.text_area("Observación (Kit)")
+    with col_kit_info2:
+        orden_kit = st.text_input("Orden de Producción (Kit)")
+    with col_kit_info3:
+        observacion_kit = st.text_area("Observación (Kit)")
+    
+    if st.button("Ver y editar kit"):
+        items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
+        if items_to_add.empty:
+            st.warning(f"El kit '{selected_kit}' no se encontró en el archivo.")
+            st.session_state.edited_kit_data = None
+        else:
+            st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
 
-        if st.button("Ver y editar kit"):
-            items_to_add = kit_data[kit_data['Kit'] == selected_kit].copy()
-            if items_to_add.empty:
-                st.warning(f"El kit '{selected_kit}' no se encontró en el archivo.")
-                st.session_state.edited_kit_data = None
-            else:
-                st.session_state.edited_kit_data = items_to_add.reset_index(drop=True)
+    if st.session_state.edited_kit_data is not None:
+        st.write(f"Editando ítems para el kit: **{selected_kit}**")
+        edited_df = st.data_editor(st.session_state.edited_kit_data, 
+                                   column_config={
+                                       "Cantidad": st.column_config.NumberColumn(
+                                           "Cantidad",
+                                           help="Puedes editar las cantidades de cada ítem",
+                                           min_value=0
+                                       )
+                                   },
+                                   key="data_editor_kit")
 
-        if st.session_state.edited_kit_data is not None:
-            st.write(f"Editando ítems para el kit: **{selected_kit}**")
-            edited_df = st.data_editor(st.session_state.edited_kit_data, 
-                                       column_config={
-                                           "Cantidad": st.column_config.NumberColumn(
-                                               "Cantidad",
-                                               help="Puedes editar las cantidades de cada ítem",
-                                               min_value=0
-                                           )
-                                       },
-                                       key="data_editor_kit")
+        col_kit_submit1, col_kit_submit2 = st.columns(2)
+        with col_kit_submit1:
+            id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
+        with col_kit_submit2:
+            id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
 
-            col_kit1, col_kit2 = st.columns(2)
-            with col_kit1:
-                id_entrega_kit = st.text_input("ID Entrega (Kit)", key="id_entrega_kit")
-            with col_kit2:
-                id_recibe_kit = st.text_input("ID Recibe (Kit)", key="id_recibe_kit")
+        if st.button("Agregar kit al registro", key="add_kit_button"):
+            nuevos_registros = []
+            for _, row in edited_df.iterrows():
+                nuevo = {
+                    "ID Entrega": id_entrega_kit,
+                    "ID Recibe": id_recibe_kit,
+                    "Orden": orden_kit,
+                    "Tipo": "Materia prima",
+                    "Item": row['Item'],
+                    "Cantidad": int(row['Cantidad']),
+                    "Unidad": row['Unidad'],
+                    "Observación": observacion_kit,
+                    "Fecha": datetime.today().date()
+                }
+                nuevos_registros.append(nuevo)
 
-            if st.button("Agregar kit al registro", key="add_kit_button"):
-                nuevos_registros = []
-                for _, row in edited_df.iterrows():
-                    nuevo = {
-                        "ID Entrega": id_entrega_kit,
-                        "ID Recibe": id_recibe_kit,
-                        "Orden": orden_kit,
-                        "Tipo": "Materia prima",
-                        "Item": row['Item'],
-                        "Cantidad": int(row['Cantidad']),
-                        "Unidad": row['Unidad'],
-                        "Observación": observacion_kit,
-                        "Fecha": datetime.today().date()
-                    }
-                    nuevos_registros.append(nuevo)
+            for registro in nuevos_registros:
+                c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
+            conn.commit()
 
-                for registro in nuevos_registros:
-                    c.execute("INSERT INTO registros (\"ID Entrega\", \"ID Recibe\", \"Orden\", \"Tipo\", \"Item\", \"Cantidad\", \"Unidad\", \"Observación\", \"Fecha\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(registro.values()))
-                conn.commit()
+            load_data_from_db()
+            st.success(f"Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
+            st.session_state.edited_kit_data = None
+            
+            st.rerun()
+            
+except KeyError:
+    st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
-                load_data_from_db()
-                st.success(f"Se agregaron los ítems modificados del kit '{selected_kit}' al registro.")
-                st.session_state.edited_kit_data = None
-                
-                st.rerun()
-                
-    except KeyError:
-        st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
-# --- Sección de Registros Acumulados actualizada para manejar el filtrado ---
+---
+
+# Registros Acumulados con filtro de fecha
 st.subheader("Registros acumulados")
 
 # Lógica para el nuevo indicador de total de registros
@@ -242,7 +250,6 @@ try:
     st.metric(label="Total de Registros", value=total_registros_query)
 except Exception as e:
     st.error(f"No se pudo obtener el total de registros: {e}")
-
 
 # --- Nuevo botón para ver todos los registros ---
 if st.button("Ver historial completo"):
@@ -298,6 +305,7 @@ else:
     else:
         st.write("No hay registros en la base de datos.")
 
+---
 
 # Firma y Descargas
 st.subheader("Firma de recibido")
@@ -312,7 +320,7 @@ firma = st_canvas(
 )
 
 # Ahora la descarga de Excel y PDF usa todos los datos filtrados
-if not st.session_state.data.empty:
+if 'data' in st.session_state and not st.session_state.data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
     # Si se han filtrado datos, usamos df_filtered, de lo contrario usamos los 50 últimos
