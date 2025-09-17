@@ -231,22 +231,31 @@ if kit_data is not None:
     except KeyError:
         st.error("El archivo 'Kits.xlsx' no contiene una columna llamada 'Kit', 'Item', 'Cantidad' o 'Unidad'. Por favor, verifica y corrige los nombres de las columnas.")
 
-
-# Registros Acumulados con filtro de fecha
+# --- Sección de Registros Acumulados actualizada para manejar el filtrado ---
 st.subheader("Registros acumulados")
 
-# --- Lógica para el nuevo indicador de total de registros ---
+# Lógica para el nuevo indicador de total de registros
 try:
     total_registros_query = c.execute("SELECT COUNT(*) FROM registros").fetchone()[0]
     st.metric(label="Total de Registros", value=total_registros_query)
 except Exception as e:
     st.error(f"No se pudo obtener el total de registros: {e}")
-# --- Fin de la lógica del indicador ---
 
-if 'data' in st.session_state and not st.session_state.data.empty:
-    
-    min_date = st.session_state.data['Fecha'].min()
-    max_date = st.session_state.data['Fecha'].max()
+# Ahora cargamos todos los datos para poder filtrar correctamente
+try:
+    df_all_data = pd.read_sql_query("SELECT * FROM registros", conn)
+    if not df_all_data.empty:
+        df_all_data["Fecha"] = pd.to_datetime(df_all_data["Fecha"])
+    else:
+        st.write("No hay registros en la base de datos.")
+except Exception as e:
+    st.error(f"Error al cargar todos los datos de la base de datos: {e}")
+    df_all_data = pd.DataFrame()
+
+# Solo mostramos el filtro si hay datos
+if not df_all_data.empty:
+    min_date = df_all_data['Fecha'].min().date()
+    max_date = df_all_data['Fecha'].max().date()
     
     col_filter1, col_filter2 = st.columns(2)
     with col_filter1:
@@ -267,12 +276,15 @@ if 'data' in st.session_state and not st.session_state.data.empty:
     start_date = pd.to_datetime(start_date)
     end_date = pd.to_datetime(end_date)
     
-    df_filtered = st.session_state.data[
-        (st.session_state.data['Fecha'] >= start_date) &
-        (st.session_state.data['Fecha'] <= end_date)
+    # Aplicar el filtro directamente sobre los datos cargados
+    df_filtered = df_all_data[
+        (df_all_data['Fecha'] >= start_date) &
+        (df_all_data['Fecha'] <= end_date)
     ]
     
     st.dataframe(df_filtered, use_container_width=True)
+# --- Fin de la sección de Registros Acumulados ---
+
 
 # Firma y Descargas
 st.subheader("Firma de recibido")
@@ -286,12 +298,13 @@ firma = st_canvas(
     key="canvas"
 )
 
-if 'data' in st.session_state and not st.session_state.data.empty:
+# Ahora la descarga de Excel y PDF usa todos los datos filtrados
+if not df_all_data.empty:
     fecha_hoy = datetime.today().strftime("%Y-%m-%d")
 
     # Descargar en Excel
     excel_buffer = BytesIO()
-    st.session_state.data.to_excel(excel_buffer, index=False, engine="openpyxl")
+    df_filtered.to_excel(excel_buffer, index=False, engine="openpyxl")
     excel_buffer.seek(0)
     
     st.download_button(
@@ -362,7 +375,7 @@ if 'data' in st.session_state and not st.session_state.data.empty:
         return buffer_pdf
 
     if firma.image_data is not None:
-        pdf_buffer = generate_pdf(st.session_state.data, firma.image_data)
+        pdf_buffer = generate_pdf(df_filtered, firma.image_data)
         st.download_button(
             label="Descargar PDF con firma",
             data=pdf_buffer,
