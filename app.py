@@ -88,7 +88,7 @@ except Exception as e:
 
 
 # Registro Manual de Ítems
-with st.form("form_registro", clear_on_submit=False): # Cambiado a False para evitar que se borren los campos al enviar
+with st.form("form_registro", clear_on_submit=False): 
     st.subheader("Registro Manual")
     col1, col2 = st.columns(2)
     with col1:
@@ -96,6 +96,7 @@ with st.form("form_registro", clear_on_submit=False): # Cambiado a False para ev
         id_recibe = st.text_input("ID Recibe")
         orden = st.text_input("Orden de Producción")
     with col2:
+        tipo = st.selectbox("Tipo", ["Parte fabricada", "Materia prima"], index=1)
         item = st.text_input("ID Item", key="item_input")
         
         # Normalizar el valor ingresado por el usuario a string y mayúsculas
@@ -131,12 +132,11 @@ with st.form("form_registro", clear_on_submit=False): # Cambiado a False para ev
             "Tipo": tipo,
             "Item": item,
             "Cantidad": cantidad,
-            "Unidad": unidad, # La unidad ahora viene de la variable 'unidad'
+            "Unidad": unidad, 
             "Observación": observacion,
             "Fecha": fecha
         }
         
-        # Validación de campos
         if not id_entrega or not id_recibe or not orden or not item or cantidad is None or not unidad:
             st.warning("Por favor, complete todos los campos requeridos (ID Entrega, ID Recibe, Orden, ID Item, Cantidad y Unidad).")
         else:
